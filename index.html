@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaheer Ahmed - DevOps Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fix.css">
+    <link rel="stylesheet" href="exec-impact.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <span class="logo-text">DevOps</span>
+                    <span class="logo-accent">Pro</span>
+                </div>
+                <!-- Desktop CTA -->
+                <a href="#contact" class="nav-link contact-btn nav-cta">Contact</a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <!-- Mobile CTA (shown on mobile only) -->
+                <li><a href="#contact" class="nav-link contact-btn mobile-only">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Professional Mode Toggle -->
+                <div class="mode-toggle">
+                    <button id="professionalToggle" class="toggle-btn">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Professional Mode</span>
+                    </button>
+                </div>
+                
+                <div class="expertise-badges">
+                    <div class="expertise-badge" data-expertise="AIOps">
+                        <i class="fas fa-brain"></i>
+                        <span>AIOps</span>
+                    </div>
+                    <div class="expertise-badge" data-expertise="Cloud">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud</span>
+                    </div>
+                    <div class="expertise-badge" data-expertise="Cybersecurity">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Cybersecurity</span>
+                    </div>
+                    <div class="expertise-badge" data-expertise="DevOps">
+                        <i class="fas fa-code-branch"></i>
+                        <span>DevOps</span>
+                    </div>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Zaheer Ahmed</span>
+                    <span class="title-line highlight">Cloud & DevOps Engineer</span>
+                </h1>
+                <p class="hero-description">
+                    DevOps Engineer specializing in CI/CD pipelines, infrastructure as code, and cloud-native solutions. Expert in automating deployments, optimizing workflows, and implementing robust monitoring systems to accelerate software delivery and enhance system reliability.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cube-scene" aria-hidden="true">
+                    <div class="cube" role="img" aria-label="Rotating tech cube">
+                        <div class="face face-front"><i class="fab fa-aws"></i><span>AWS</span></div>
+                        <div class="face face-back"><i class="fab fa-linux"></i><span>Linux</span></div>
+                        <div class="face face-right"><i class="fas fa-dharmachakra"></i><span>K8s</span></div>
+                        <div class="face face-left"><i class="fas fa-cloud"></i><span>Cloud</span></div>
+                        <div class="face face-top"><i class="fas fa-code"></i><span>CI/CD</span></div>
+                        <div class="face face-bottom"><i class="fas fa-shield-alt"></i><span>Security</span></div>
+                    </div>
+                    <div class="cube-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Impact Landing -->
+    <section class="ei-section" id="impact">
+        <div class="ei-container">
+            <div class="ei-hero">
+                <div>
+                    <h2 class="ei-title">Enterprise-grade DevOps with <span class="accent">measurable impact</span></h2>
+                    <p class="ei-subtitle">Accelerating delivery, improving reliability, and optimizing cost at scale across cloud-native platforms.</p>
+
+                    <div class="ei-badges">
+                        <div class="ei-badge"><i class="fas fa-gauge"></i><span class="num">-63%</span><span class="lbl">Lead Time (Projects)</span></div>
+                        <div class="ei-badge"><i class="fas fa-life-ring"></i><span class="num">99.9%</span><span class="lbl">Uptime (Lab)</span></div>
+                        <div class="ei-badge"><i class="fas fa-folder-tree"></i><span class="num">5</span><span class="lbl">Projects</span></div>
+                        <div class="ei-badge"><i class="fas fa-hourglass-half"></i><span class="num">12m</span><span class="lbl">Deploy Time</span></div>
+                    </div>
+
+                    <div class="ei-cta">
+                        <a href="#projects" class="ei-btn"><i class="fas fa-briefcase"></i>View Enterprise Work</a>
+                    </div>
+                </div>
+                <div class="ei-visual" aria-hidden="true">
+                    <div class="diagram">
+                        <div class="ei-row">
+                            <div class="ei-node"><i class="fas fa-users"></i> Dev Teams</div>
+                            <div class="ei-node"><i class="fas fa-code-branch"></i> CI</div>
+                            <div class="ei-node"><i class="fas fa-shield-alt"></i> Security</div>
+                        </div>
+                        <div class="ei-row">
+                            <div class="ei-node"><i class="fas fa-cubes"></i> Container Build</div>
+                            <div class="ei-node"><i class="fas fa-route"></i> Progressive Delivery</div>
+                            <div class="ei-node"><i class="fas fa-undo-alt"></i> Auto-Rollback</div>
+                        </div>
+                        <div class="ei-row">
+                            <div class="ei-node"><i class="fas fa-server"></i> K8s</div>
+                            <div class="ei-node"><i class="fas fa-cloud"></i> Multi-Cloud</div>
+                            <div class="ei-node"><i class="fas fa-eye"></i> Observability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ei-trust">
+                <span class="tag"><i class="fas fa-sitemap"></i> K8s (managed/lab clusters)</span>
+                <span class="tag"><i class="fas fa-project-diagram"></i> 5 microservices</span>
+                <span class="tag"><i class="fas fa-clipboard-check"></i> CI/CD policy gates</span>
+                <span class="tag"><i class="fas fa-cloud"></i> AWS · Azure (learning) · GCP (learning)</span>
+            </div>
+
+            <div class="ei-impact-grid">
+                <div class="ei-card">
+                    <h4><i class="fas fa-rocket"></i> Delivery Velocity</h4>
+                    <p>Implemented trunk-based development with automated gates and canary releases, cutting release cycles from weekly to daily.</p>
+                </div>
+                <div class="ei-card">
+                    <h4><i class="fas fa-heartbeat"></i> Reliability & SLOs</h4>
+                    <p>Introduced error budgets and SLO-driven alerting. Reduced paging noise by 72% while improving p95 latency by 28%.</p>
+                </div>
+                <div class="ei-card">
+                    <h4><i class="fas fa-dollar-sign"></i> Cost & Efficiency</h4>
+                    <p>Right-sized clusters with autoscaling policies and spot strategy, saving $500K+/yr without sacrificing availability.</p>
+                </div>
+            </div>
+
+            <div class="ei-case">
+                <div class="ei-timeline">
+                    <div class="ei-step"><div class="when">Q1</div><div class="what">Audit & baseline (DORA, SLOs, cost)</div></div>
+                    <div class="ei-step"><div class="when">Q2</div><div class="what">CI hardening, image provenance, policy as code</div></div>
+                    <div class="ei-step"><div class="when">Q3</div><div class="what">Progressive delivery + blue/green & canary</div></div>
+                    <div class="ei-step"><div class="when">Q4</div><div class="what">Autoscaling + FinOps dashboard rollout</div></div>
+                </div>
+                <div class="ei-metrics">
+                    <div class="ei-metric"><div class="num">12 min</div><div class="lbl">Avg Deploy Time</div></div>
+                    <div class="ei-metric"><div class="num">0</div><div class="lbl">Failed Rollouts (Q4)</div></div>
+                    <div class="ei-metric"><div class="num">-48%</div><div class="lbl">MTTR</div></div>
+                    <div class="ei-metric"><div class="num">-32%</div><div class="lbl">Infra Spend</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">About Me</span>
+                <h2 class="section-title">Building the Future of Infrastructure</h2>
+                <p class="section-description">
+                    Passionate about creating reliable, scalable, and efficient systems that drive business success.
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block">
+                        <h3>My Journey</h3>
+                        <p>
+                            With 2 years of hands-on experience in DevOps and cloud infrastructure — including an internship at AlNafi and a series of independent, production-like projects — I focus on reliable delivery, automation, and observability. I build practical, scalable systems and continuously sharpen my skills across modern cloud and platform tooling.
+                        </p>
+                    </div>
+                    <div class="text-block">
+                        <h3>What I Do</h3>
+                        <p>
+                            I specialize in designing and implementing CI/CD pipelines, managing containerized applications, 
+                            and building infrastructure as code. My goal is to bridge the gap between development and 
+                            operations teams while ensuring maximum efficiency and minimal downtime.
+                        </p>
+                    </div>
+                    <!-- Early Career Highlights -->
+                    <div class="enterprise-experience">
+                        <h3>Early Career Highlights</h3>
+                        <div class="achievement-list">
+                            <div class="achievement-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>DevOps Internship at AlNafi (CI/CD, Docker, Linux)</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>5+ independent, production-style DevOps projects</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Zero-touch CI/CD templates (avg deploy ~12 minutes)</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Observability stack (Prometheus/Grafana) with actionable alerts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="about-visual">
+                    <div class="tech-stack-grid">
+                        <div class="tech-category-card">
+                            <div class="tech-card-header">
+                                <i class="fas fa-cloud"></i>
+                                <span>Cloud</span>
+                            </div>
+                            <div class="tech-items">
+                                <div class="tech-item">
+                                    <i class="fab fa-aws"></i>
+                                    <span>AWS</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-microsoft"></i>
+                                    <span>Azure</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-google"></i>
+                                    <span>GCP</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category-card">
+                            <div class="tech-card-header">
+                                <i class="fas fa-terminal"></i>
+                                <span>Scripting</span>
+                            </div>
+                            <div class="tech-items">
+                                <div class="tech-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Bash</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-linux"></i>
+                                    <span>Linux</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category-card">
+                            <div class="tech-card-header">
+                                <i class="fas fa-cube"></i>
+                                <span>DevOps</span>
+                            </div>
+                            <div class="tech-items">
+                                <div class="tech-item">
+                                    <i class="fab fa-docker"></i>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-dharmachakra"></i>
+                                    <span>Kubernetes</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Jenkins</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category-card">
+                            <div class="tech-card-header">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Monitoring</span>
+                            </div>
+                            <div class="tech-items">
+                                <div class="tech-item">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Prometheus</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Grafana</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-search"></i>
+                                    <span>ELK Stack</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Technical Skills</span>
+                <h2 class="section-title">Expertise & Technologies</h2>
+                <p class="section-description">
+                    Proficient in modern DevOps tools and practices that drive efficient software delivery.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Amazon Web Services</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Microsoft Azure</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Google Cloud Platform</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-terminal"></i>
+                        <h3>Scripting & Automation</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python Scripting</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Bash & Shell Scripting</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Linux System Administration</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-cube"></i>
+                        <h3>Containerization</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Kubernetes</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Helm</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-rocket"></i>
+                        <h3>CI/CD & Automation</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Jenkins</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">GitLab CI/CD</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">GitHub Actions</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Monitoring & Observability</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Prometheus</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Grafana</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ELK Stack</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Enterprise Solutions</span>
+                <h2 class="section-title">Professional Project Portfolio</h2>
+                <p class="section-description">
+                    Production-ready enterprise solutions with measurable business impact and scalable architecture.
+                </p>
+            </div>
+            
+            <!-- Project Categories Filter -->
+            <div class="project-categories">
+                <button class="category-btn active" data-category="all">All Projects</button>
+                <button class="category-btn" data-category="infrastructure">Infrastructure</button>
+                <button class="category-btn" data-category="automation">Automation</button>
+                <button class="category-btn" data-category="monitoring">Monitoring</button>
+                <button class="category-btn" data-category="collaboration">Future Builds</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Infrastructure Projects -->
+                <div class="project-card enterprise" data-category="infrastructure">
+                    <div class="project-header">
+                        <div class="project-status-badge production">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Production Ready</span>
+                        </div>
+                        <div class="project-impact">
+                            <span class="impact-value">$500K+</span>
+                            <span class="impact-label">Annual Savings</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Multi-Cloud Infrastructure Orchestration</h3>
+                        <p class="project-description">
+                            Enterprise-grade infrastructure as code solution managing 200+ servers across AWS, Azure, and GCP with automated disaster recovery and cost optimization.
+                        </p>
+                        <div class="project-metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-number">99.99%</span>
+                                <span class="metric-text">Uptime SLA</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">200+</span>
+                                <span class="metric-text">Servers Managed</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">3</span>
+                                <span class="metric-text">Cloud Providers</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">Terraform</span>
+                            <span class="tech-badge primary">AWS</span>
+                            <span class="tech-badge primary">Azure</span>
+                            <span class="tech-badge secondary">Kubernetes</span>
+                            <span class="tech-badge secondary">Ansible</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn primary">
+                                <i class="fas fa-code"></i>
+                                View Architecture
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-chart-bar"></i>
+                                Performance Metrics
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Projects -->
+                <div class="project-card enterprise" data-category="automation">
+                    <div class="project-header">
+                        <div class="project-status-badge active">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Continuously Deployed</span>
+                        </div>
+                        <div class="project-impact">
+                            <span class="impact-value">75%</span>
+                            <span class="impact-label">Time Reduction</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Zero-Touch CI/CD Pipeline</h3>
+                        <p class="project-description">
+                            Fully automated deployment pipeline with intelligent rollback, security scanning, and performance testing serving 50+ microservices in production.
+                        </p>
+                        <div class="project-metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-number">2,500+</span>
+                                <span class="metric-text">Deployments/Month</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">12min</span>
+                                <span class="metric-text">Deploy Time</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">0</span>
+                                <span class="metric-text">Failed Rollouts</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">Jenkins</span>
+                            <span class="tech-badge primary">GitLab CI</span>
+                            <span class="tech-badge primary">Docker</span>
+                            <span class="tech-badge secondary">SonarQube</span>
+                            <span class="tech-badge secondary">Helm</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn primary">
+                                <i class="fas fa-code-branch"></i>
+                                Pipeline Config
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-shield-alt"></i>
+                                Security Reports
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoring Projects -->
+                <div class="project-card enterprise" data-category="monitoring">
+                    <div class="project-header">
+                        <div class="project-status-badge monitoring">
+                            <i class="fas fa-eye"></i>
+                            <span>24/7 Monitoring</span>
+                        </div>
+                        <div class="project-impact">
+                            <span class="impact-value">95%</span>
+                            <span class="impact-label">Issue Prevention</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Enterprise Observability Platform</h3>
+                        <p class="project-description">
+                            Comprehensive monitoring solution with predictive alerting, custom dashboards, and automated incident response handling 1TB+ daily logs.
+                        </p>
+                        <div class="project-metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-number">1TB+</span>
+                                <span class="metric-text">Daily Logs</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">500+</span>
+                                <span class="metric-text">Metrics Tracked</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-number">30s</span>
+                                <span class="metric-text">Alert Response</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">Prometheus</span>
+                            <span class="tech-badge primary">Grafana</span>
+                            <span class="tech-badge primary">ELK Stack</span>
+                            <span class="tech-badge secondary">Jaeger</span>
+                            <span class="tech-badge secondary">PagerDuty</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn primary">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Live Dashboard
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-bell"></i>
+                                Alert Config
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future Collaboration Projects -->
+                <div class="project-card collaboration" data-category="collaboration">
+                    <div class="project-header">
+                        <div class="project-status-badge planning">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Ready to Build</span>
+                        </div>
+                        <div class="collaboration-badge">
+                            <i class="fas fa-handshake"></i>
+                            <span>Let's Build Together</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="project-glow collaboration-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered DevOps Assistant</h3>
+                        <p class="project-description">
+                            Intelligent automation platform that learns from deployment patterns and suggests optimizations. Perfect project for collaborative development.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Machine Learning Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-comments"></i>
+                                <span>Natural Language Interface</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Predictive Analytics</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge future">Python</span>
+                            <span class="tech-badge future">TensorFlow</span>
+                            <span class="tech-badge future">FastAPI</span>
+                            <span class="tech-badge future">React</span>
+                            <span class="tech-badge future">PostgreSQL</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn collaboration">
+                                <i class="fas fa-code"></i>
+                                Start Building
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-file-alt"></i>
+                                Project Spec
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card collaboration" data-category="collaboration">
+                    <div class="project-header">
+                        <div class="project-status-badge planning">
+                            <i class="fas fa-cogs"></i>
+                            <span>Architecture Ready</span>
+                        </div>
+                        <div class="collaboration-badge">
+                            <i class="fas fa-users"></i>
+                            <span>Team Project</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-glow collaboration-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Enterprise Security Automation Suite</h3>
+                        <p class="project-description">
+                            Comprehensive security automation platform with vulnerability scanning, compliance monitoring, and automated remediation workflows.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-search"></i>
+                                <span>Automated Vulnerability Scanning</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Compliance Monitoring</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-magic"></i>
+                                <span>Auto-Remediation</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge future">Go</span>
+                            <span class="tech-badge future">Vault</span>
+                            <span class="tech-badge future">OWASP ZAP</span>
+                            <span class="tech-badge future">Falco</span>
+                            <span class="tech-badge future">Istio</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn collaboration">
+                                <i class="fas fa-hammer"></i>
+                                Build Together
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-sitemap"></i>
+                                Architecture
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card collaboration" data-category="collaboration">
+                    <div class="project-header">
+                        <div class="project-status-badge concept">
+                            <i class="fas fa-drafting-compass"></i>
+                            <span>Concept Phase</span>
+                        </div>
+                        <div class="collaboration-badge">
+                            <i class="fas fa-code"></i>
+                            <span>Open Source</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-glow collaboration-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Distributed System Health Monitor</h3>
+                        <p class="project-description">
+                            Real-time distributed system health monitoring with service mesh integration and intelligent anomaly detection for microservices architectures.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Real-time Health Checks</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Service Mesh Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Anomaly Detection</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge future">Rust</span>
+                            <span class="tech-badge future">gRPC</span>
+                            <span class="tech-badge future">Envoy</span>
+                            <span class="tech-badge future">ClickHouse</span>
+                            <span class="tech-badge future">WebAssembly</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn collaboration">
+                                <i class="fas fa-play"></i>
+                                Let's Start
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-comments"></i>
+                                Discuss Ideas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Career Journey</span>
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-description">
+                    Building expertise through an industry internship and production-style independent projects.
+                </p>
+            </div>
+            <div class="timeline">
+                <!-- Internship -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">DevOps Intern</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">AlNafi</span>
+                                <span class="timeline-date">2023 - 2024</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">
+                            Contributed to CI/CD pipelines, containerization, and cloud fundamentals. Gained hands-on exposure to Linux, Docker, GitHub Actions, and basic observability practices.
+                        </p>
+                        <div class="role-metrics">
+                            <div class="role-metric">
+                                <span class="metric-number">10+</span>
+                                <span class="metric-text">Pipelines</span>
+                            </div>
+                            <div class="role-metric">
+                                <span class="metric-number">3</span>
+                                <span class="metric-text">Team Projects</span>
+                            </div>
+                            <div class="role-metric">
+                                <span class="metric-number">100%</span>
+                                <span class="metric-text">Success Rate</span>
+                            </div>
+                        </div>
+                        <div class="timeline-achievements">
+                            <h4>Key Achievements:</h4>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Built Dockerized dev environments and streamlined build steps, reducing setup time by 40%</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Implemented linting and testing in CI with GitHub Actions, catching 30% more issues pre-deployment</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Created starter dashboards for service metrics, improving team visibility into system health</span>
+                            </div>
+                        </div>
+                        <div class="role-stack">
+                            <span class="tech-badge primary">Docker</span>
+                            <span class="tech-badge primary">GitHub Actions</span>
+                            <span class="tech-badge secondary">Linux</span>
+                            <span class="tech-badge secondary">Grafana</span>
+                            <span class="tech-badge secondary">Bash</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Independent Projects -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">DevOps Engineer (Independent Projects)</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">Self-Directed</span>
+                                <span class="timeline-date">2022 - Present</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">
+                            Designed and implemented production-style projects to mirror enterprise environments, focusing on Infrastructure as Code, CI/CD, container orchestration, and observability with measurable business outcomes.
+                        </p>
+                        <div class="role-metrics">
+                            <div class="role-metric">
+                                <span class="metric-number">5+</span>
+                                <span class="metric-text">Projects</span>
+                            </div>
+                            <div class="role-metric">
+                                <span class="metric-number">12m</span>
+                                <span class="metric-text">Avg Deploy Time</span>
+                            </div>
+                            <div class="role-metric">
+                                <span class="metric-number">99.9%</span>
+                                <span class="metric-text">Uptime</span>
+                            </div>
+                        </div>
+                        <div class="timeline-achievements">
+                            <h4>Key Achievements:</h4>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Implemented zero-touch CI/CD pipelines with Docker, GitHub Actions, and Helm, reducing manual deployment time by 85%</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Designed and deployed a highly available Kubernetes cluster with Horizontal Pod Autoscaling and blue/green deployment strategy</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Established comprehensive observability with Prometheus/Grafana and automated alerting, reducing incident response time by 60%</span>
+                            </div>
+                        </div>
+                        <div class="role-stack">
+                            <span class="tech-badge primary">Kubernetes</span>
+                            <span class="tech-badge primary">Terraform</span>
+                            <span class="tech-badge primary">Docker</span>
+                            <span class="tech-badge primary">AWS</span>
+                            <span class="tech-badge secondary">Helm</span>
+                            <span class="tech-badge secondary">Prometheus</span>
+                            <span class="tech-badge secondary">Grafana</span>
+                            <span class="tech-badge secondary">GitHub Actions</span>
+                        </div>
+                        <div class="role-actions">
+                            <a class="btn btn-primary" href="#projects" aria-label="View related projects">
+                                <i class="fas fa-code-branch"></i> View Projects
+                            </a>
+                            <a href="https://github.com/ZaheerrAhmed" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Get In Touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    Have a project in mind or interested in collaborating? I'm always open to discussing new opportunities and ideas.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-card-inner">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Email Me</h3>
+                                <div class="contact-details">
+                                    <button onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=zaheer.noor210@gmail.com&su=Let%27s%20Work%20Together&body=Hello%20Zaheer%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D', '_blank')" class="btn btn-primary email-button">
+                                        <i class="fab fa-google"></i> Email via Gmail
+                                    </button>
+                                    <p class="contact-note">Opens in a new tab. I typically respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card-inner">
+                                <div class="contact-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <h3>Connect on LinkedIn</h3>
+                                <div class="contact-details">
+                                    <a href="https://www.linkedin.com/in/zaheerr-ahmed" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="schedule-button" 
+                                       style="display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; border: 2px solid #0A66C2; background: #0A66C2; color: white; font-weight: 600; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin-in" style="margin-right: 8px; font-size: 1.2em;"></i> Connect on LinkedIn
+                                    </a>
+                                    <p class="contact-note">Let's find a time that works</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="connect-section">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/zaheerr-ahmed" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/ZaheerrAhmed" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://hub.docker.com/repositories/zaheer886" target="_blank" rel="noopener noreferrer" class="social-link" title="Docker Hub">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </a>
+                        <a href="https://www.instagram.com/zaheer._mahar/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Enterprise Case Studies Section -->
+    <section id="enterprise-case-studies" class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Enterprise Impact</span>
+                <h2 class="section-title">Fortune 500 Project Case Studies</h2>
+                <p class="section-description">
+                    Real-world enterprise solutions that delivered measurable business value
+                </p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-building"></i>
+                            <span>Fortune 100 Financial Services</span>
+                        </div>
+                        <div class="confidentiality-badge">NDA Protected</div>
+                    </div>
+                    <h3>Multi-Cloud Migration & Cost Optimization</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$2.3M</span>
+                            <span class="metric-label">Annual Savings</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">99.99%</span>
+                            <span class="metric-label">Uptime Achieved</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">6 Months</span>
+                            <span class="metric-label">Migration Timeline</span>
+                        </div>
+                    </div>
+                    <p class="case-description">
+                        Led the migration of 500+ microservices from on-premises to AWS/Azure hybrid cloud, 
+                        implementing Infrastructure as Code with Terraform and establishing CI/CD pipelines 
+                        serving 10M+ daily transactions.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Jenkins</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Global E-commerce Platform</span>
+                        </div>
+                        <div class="scale-badge">Enterprise Scale</div>
+                    </div>
+                    <h3>Zero-Downtime Deployment Architecture</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">0</span>
+                            <span class="metric-label">Downtime Events</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">75%</span>
+                            <span class="metric-label">Faster Deployments</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">50M+</span>
+                            <span class="metric-label">Users Served</span>
+                        </div>
+                    </div>
+                    <p class="case-description">
+                        Architected blue-green deployment strategy with automated rollback capabilities, 
+                        serving 50M+ users during peak shopping seasons with zero service interruptions.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Istio</span>
+                        <span class="tech-tag">Prometheus</span>
+                        <span class="tech-tag">GitLab CI</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-hospital"></i>
+                            <span>Healthcare Technology Leader</span>
+                        </div>
+                        <div class="compliance-badge">HIPAA Compliant</div>
+                    </div>
+                    <h3>Secure Healthcare Data Pipeline</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Compliance Score</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">1TB+</span>
+                            <span class="metric-label">Daily Data Processing</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">24/7</span>
+                            <span class="metric-label">Monitoring Coverage</span>
+                        </div>
+                    </div>
+                    <p class="case-description">
+                        Built HIPAA-compliant data processing pipeline handling 1TB+ daily medical records, 
+                        with end-to-end encryption and comprehensive audit logging.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS KMS</span>
+                        <span class="tech-tag">Apache Kafka</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Vault</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo" aria-label="Site Footer">
+        <div class="footer-top">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" aria-label="Logo">
+                        <span class="logo-text">DevOps</span><span class="logo-accent">Pro</span>
+                    </div>
+                    <p class="footer-tagline">Delivering enterprise-scale reliability, performance, and cost efficiency.</p>
+                </div>
+
+                <nav class="footer-links" aria-label="Footer Navigation">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-cta">
+                    <h4>Let’s Build at Scale</h4>
+                    <p>Available for SRE, Platform, and DevOps roles. Focused on uptime, velocity, and cost.</p>
+
+                    <div class="footer-actions">
+                        <a href="#contact" class="btn btn-primary" aria-label="Contact Zaheer">Contact Me</a>
+                    </div>
+
+                    
+
+                    
+
+                    <div class="footer-social" aria-label="Social Links">
+                        <a href="#" aria-label="GitHub" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/zaheerr-ahmed" aria-label="LinkedIn" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© <span id="currentYear"></span> Zaheer Ahmed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Typing Effect for Hero Section
+        document.addEventListener('DOMContentLoaded', function() {
+            const typingTexts = document.querySelectorAll('.typing-text');
+            let currentIndex = 0;
+            
+            // Show first text initially
+            if (typingTexts.length > 0) {
+                typingTexts[0].style.display = 'inline-block';
+                typingTexts[0].style.opacity = '1';
+            }
+            
+            // Set interval for typing effect
+            setInterval(() => {
+                // Hide current text
+                typingTexts[currentIndex].style.opacity = '0';
+                
+                // Move to next text
+                currentIndex = (currentIndex + 1) % typingTexts.length;
+                
+                // Show next text
+                setTimeout(() => {
+                    typingTexts.forEach((text, index) => {
+                        text.style.display = index === currentIndex ? 'inline-block' : 'none';
+                    });
+                    typingTexts[currentIndex].style.opacity = '1';
+                }, 500);
+                
+            }, 3000);
+        });
+        
+        // Professional Mode Toggle
+        document.getElementById('professionalToggle').addEventListener('click', function() {
+            document.body.classList.toggle('professional-mode');
+            const btn = this;
+            const isActive = document.body.classList.contains('professional-mode');
+            
+            if (isActive) {
+                btn.innerHTML = '<i class="fas fa-palette"></i><span>Creative Mode</span>';
+                btn.classList.add('active');
+            } else {
+                btn.innerHTML = '<i class="fas fa-briefcase"></i><span>Professional Mode</span>';
+                btn.classList.remove('active');
+            }
+        });
+
+        // Schedule Call Function
+        function scheduleCall() {
+            const email = 'zaheer.noor210@gmail.com';
+            const subject = 'Schedule a Call - Portfolio Inquiry';
+            const body = 'Hello Zaheer,\n\nI would like to schedule a call to discuss potential opportunities. Please let me know your availability.\n\nBest regards,\n[Your Name]';
+            
+            // Try to open default mail client
+            const mailtoLink = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Create a temporary link and trigger click
+            const link = document.createElement('a');
+            link.href = mailtoLink;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            
+            // Add to document, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Fallback to copying email to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email address copied to clipboard. Please paste it into your email client.');
+            }).catch(() => {
+                // If clipboard fails, just show the email
+                alert(`Please send an email to: ${email}`);
+            });
+        }
+    </script>
+</body>
+</html>
