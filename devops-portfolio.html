@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah bin Amin - DevOps & Cloud Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .header .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav li {
+            margin: 0 1rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category i {
+            color: #3498db;
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #ecf0f1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid #dee2e6;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #2980b9;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .experience-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .experience-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+        }
+
+        .experience-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .experience-item:nth-child(odd) .experience-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-left-color: white;
+        }
+
+        .experience-item:nth-child(even) .experience-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-right-color: white;
+        }
+
+        .experience-date {
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .contact-method i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .contact-method h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-method a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .experience-timeline::before {
+                left: 20px;
+            }
+
+            .experience-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+                text-align: left !important;
+            }
+
+            .experience-item .experience-content::after {
+                left: -15px !important;
+                right: auto !important;
+                border-left-color: transparent !important;
+                border-right-color: white !important;
+            }
+
+            .project-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Abdullah bin Amin</h1>
+            <p class="subtitle">DevOps & Cloud Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>abdullahbinaminmeo@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+92-322-4247673</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/abdullahbinamin/</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cube"></i> Containerization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Docker Compose</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Podman</span>
+                        <span class="skill-tag">OpenShift</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> CI/CD & Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitLab CI</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">TeamCity</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Monitoring & Logging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">Kibana</span>
+                        <span class="skill-tag">AWS CloudWatch</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Scripting</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">YAML</span>
+                    </div>
+                </div>
+
+                 <div class="skill-category">
+                    <h3><i class="fa-solid fa-code-compare"></i> Version Control</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-code-compare"></i> Infrastructure as Code</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases & Storage</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">AWS S3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="project-title">Multi-Cloud Infrastructure</h3>
+                        <p class="project-subtitle">Scalable Cloud Architecture</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Designed and implemented a multi-cloud infrastructure spanning AWS, Azure, and GCP with automated failover, load balancing, and cost optimization.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Helm</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">99.9%</div>
+                                <div class="metric-label">Uptime</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Cost Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">10k+</div>
+                                <div class="metric-label">Daily Users</div>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Details</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="project-title">CI/CD Pipeline Automation</h3>
+                        <p class="project-subtitle">Zero-Downtime Deployments</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Built comprehensive CI/CD pipelines with automated testing, security scanning, and blue-green deployments, reducing deployment time by 80%.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">GitLab CI</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">SonarQube</span>
+                            <span class="tech-tag">Ansible</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">80%</div>
+                                <div class="metric-label">Time Saved</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Success Rate</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Daily Deploys</div>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Details</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="project-title">Monitoring & Observability</h3>
+                        <p class="project-subtitle">Real-time System Insights</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Implemented comprehensive monitoring solution with custom dashboards, alerting, and log aggregation for 50+ microservices.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">ELK Stack</span>
+                            <span class="tech-tag">Jaeger</span>
+                            <span class="tech-tag">AlertManager</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Services</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">24/7</div>
+                                <div class="metric-label">Monitoring</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">99.9%</div>
+                                <div class="metric-label">Accuracy</div>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Details</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <div class="experience-date">2022 - Present</div>
+                        <h3 class="experience-title">Senior DevOps Engineer</h3>
+                        <div class="experience-company">Tech Solutions Inc.</div>
+                        <p class="experience-description">
+                            Leading DevOps initiatives for cloud migration, implementing Infrastructure as Code, and managing CI/CD pipelines for multiple product teams. Reduced deployment time by 70% and improved system reliability.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <div class="experience-date">2020 - 2022</div>
+                        <h3 class="experience-title">DevOps Engineer</h3>
+                        <div class="experience-company">Cloud Innovations Ltd.</div>
+                        <p class="experience-description">
+                            Designed and maintained AWS infrastructure, automated deployment processes, and implemented monitoring solutions. Managed containerized applications using Docker and Kubernetes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <div class="experience-date">2018 - 2020</div>
+                        <h3 class="experience-title">System Administrator</h3>
+                        <div class="experience-company">Digital Systems Corp.</div>
+                        <p class="experience-description">
+                            Managed Linux servers, implemented backup solutions, and automated routine tasks using shell scripting. Maintained 99.8% uptime across production environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>Ready to discuss your next DevOps project? Let's connect!</p>
+            <div class="contact-grid">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="#">Connect with me</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="#">View my repositories</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+1234567890">+1 (555) 123-4567</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 DevOps Engineer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'white';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate skill tags on hover
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(2deg)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('.skill-category, .project-card, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
