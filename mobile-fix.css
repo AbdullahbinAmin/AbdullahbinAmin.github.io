@@ -1,0 +1,68 @@
+/* Mobile Responsive Fixes for Projects Section */
+@media (max-width: 768px) {
+    .projects {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .projects .container {
+        padding: 0 1rem;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .projects-grid {
+        display: block;
+        padding: 0;
+        margin: 0 -1rem;
+        width: calc(100% + 2rem);
+    }
+    
+    .project-card {
+        margin: 0 0 2rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 1.5rem;
+        border-radius: 0;
+    }
+    
+    .project-card .tech-stack-professional {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .project-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .project-actions .action-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .project-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .project-categories {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        margin: 0 -1rem 1.5rem;
+        padding: 0 1rem 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .project-categories::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .category-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
