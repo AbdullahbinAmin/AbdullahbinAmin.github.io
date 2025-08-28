@@ -1,0 +1,164 @@
+/* Executive Impact Landing Styles */
+:root {
+  --ei-bg: #0b1220;
+  --ei-card: rgba(16, 24, 40, 0.6);
+  --ei-border: rgba(99, 102, 241, 0.25);
+  --ei-accent: #3b82f6;
+  --ei-accent-2: #22c55e;
+  --ei-text: #e5e7eb;
+  --ei-muted: #9ca3af;
+}
+
+/* Keep original hero visible; Impact section follows hero */
+
+.ei-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(1000px 400px at 20% -10%, rgba(59,130,246,0.18), transparent 60%),
+              radial-gradient(800px 400px at 80% 0%, rgba(34,197,94,0.12), transparent 60%),
+              var(--ei-bg);
+  border-top: 1px solid var(--ei-border);
+  border-bottom: 1px solid var(--ei-border);
+}
+
+.ei-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+/* Hero */
+.ei-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.ei-title {
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ei-text);
+}
+.ei-title .accent { color: var(--ei-accent); }
+
+.ei-subtitle {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: var(--ei-muted);
+}
+
+.ei-badges {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.ei-badge {
+  background: linear-gradient(180deg, rgba(59,130,246,0.12), rgba(59,130,246,0.06));
+  border: 1px solid var(--ei-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--ei-text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(2, 6, 23, 0.5);
+}
+.ei-badge .num { font-family: "Fira Code", monospace; font-size: 1.15rem; color: var(--ei-accent); font-weight: 700; }
+.ei-badge .lbl { font-size: 0.85rem; color: var(--ei-muted); }
+
+.ei-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+.ei-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 16px; border-radius: 12px; font-weight: 600;
+  border: 1px solid var(--ei-border);
+  color: var(--ei-text);
+  background: rgba(59,130,246,0.12);
+}
+.ei-btn.secondary { background: rgba(255,255,255,0.04); }
+.ei-btn i { color: var(--ei-accent); }
+
+/* Visual card */
+.ei-visual {
+  background: linear-gradient(180deg, rgba(2,6,23,0.65), rgba(2,6,23,0.35));
+  border: 1px solid var(--ei-border);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 260px;
+  display: grid; place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.ei-visual::after {
+  content: "";
+  position: absolute; inset: -20%;
+  background: radial-gradient(300px 200px at 30% 30%, rgba(59,130,246,0.12), transparent 60%),
+              radial-gradient(240px 160px at 70% 60%, rgba(34,197,94,0.12), transparent 60%);
+  filter: blur(20px);
+}
+.ei-visual .diagram {
+  position: relative; z-index: 1;
+  width: 100%;
+  display: grid; gap: 10px;
+}
+.ei-node {
+  background: rgba(17,24,39,0.8);
+  border: 1px solid var(--ei-border);
+  color: var(--ei-text);
+  border-radius: 10px; padding: 12px;
+}
+.ei-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+/* Trust Strip */
+.ei-trust {
+  margin-top: 36px;
+  display: grid; grid-auto-flow: column; justify-content: start; gap: 24px; align-items: center;
+  opacity: 0.9;
+}
+.ei-trust .tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--ei-muted);
+  border: 1px dashed var(--ei-border);
+  padding: 8px 12px; border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* Impact Grid */
+.ei-impact-grid {
+  margin-top: 28px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.ei-card {
+  background: var(--ei-card);
+  border: 1px solid var(--ei-border);
+  border-radius: 14px; padding: 18px;
+}
+.ei-card h4 { color: var(--ei-text); margin-bottom: 8px; }
+.ei-card p { color: var(--ei-muted); font-size: 0.95rem; }
+
+/* Case Study Teaser */
+.ei-case {
+  margin-top: 28px;
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px;
+}
+.ei-timeline { border-left: 2px solid var(--ei-border); padding-left: 14px; }
+.ei-step { margin-bottom: 12px; }
+.ei-step .when { font-size: 0.8rem; color: var(--ei-muted); }
+.ei-step .what { color: var(--ei-text); font-weight: 600; }
+.ei-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+.ei-metric { background: rgba(255,255,255,0.04); border: 1px solid var(--ei-border); border-radius: 12px; padding: 12px; }
+.ei-metric .num { font-family: "Fira Code", monospace; color: var(--ei-accent-2); font-weight: 700; font-size: 1.25rem; }
+.ei-metric .lbl { color: var(--ei-muted); font-size: 0.85rem; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .ei-hero { grid-template-columns: 1fr; }
+  .ei-badges { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+  .ei-case { grid-template-columns: 1fr; }
+  .ei-impact-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
