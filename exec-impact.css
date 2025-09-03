@@ -50,32 +50,216 @@
   color: var(--ei-muted);
 }
 
+/* Executive Impact Badges Container */
 .ei-badges {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the entire row of boxes */
+    gap: 0.8rem; /* Increased gap for better spacing */
+    flex-wrap: nowrap; /* Allow wrapping on smaller screens */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 600px; /* Allow the container to be wider */
 }
+
+/* Individual Badge Card */
 .ei-badge {
-  background: linear-gradient(180deg, rgba(59,130,246,0.12), rgba(59,130,246,0.06));
-  border: 1px solid var(--ei-border);
-  border-radius: 12px;
-  padding: 14px 16px;
-  display: flex; align-items: center; gap: 10px;
-  color: var(--ei-text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(2, 6, 23, 0.5);
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center;
+    text-align: center; /* Center text within the badge */
+    gap: 0.5rem; /* Reduced gap between icon and text */
+    padding: 1rem; /* Keep consistent padding */
+    min-width: 130px; /* Minimum width for smaller badges */
+    max-width: 150px;
+    background: rgba(100, 116, 139, 0.1); /* 10% transparent light slate blue background */
+    border: 1px solid rgba(100, 116, 139, 0.2); /* 20% transparent light slate blue border */
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: none; /* No shadow by default */
+    transition: all var(--transition-normal);
+    color: var(--text-primary);
+}
+
+.ei-badge:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
+    background: rgba(100, 116, 139, 0.08); /* Slightly more opaque background on hover */
+    border-color: var(--primary-color); /* Primary color border on hover */
+    box-shadow: var(--shadow-sm); /* Subtle shadow on hover */
+}
+
+
+/* Icon Styling */
+.badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary); /* Change to text-primary for a white/light-grey look */
+    font-size: 1.8rem; /* Slightly larger icon to match feature cards */
+    filter: none; /* Ensure no glow */
+    margin-bottom: 0.2rem; /* Add some space below the icon */
+    transition: all var(--transition-normal);
+}
+
+/* Content Wrapper */
+.badge-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Metric Number */
+.ei-badge .num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+/* Metric Label */
+.ei-badge .lbl {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.2;
+}
+
+/* Styling for the badge icon container */
+.badge-icon {
+    /* Use flexbox to center the icon perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Give the icon a clean, modern color */
+    color: var(--text-primary);
+    /* Make the icon a prominent size */
+    font-size: 1.3rem;
+    /* Add a subtle visual effect to make the icon pop */
+    filter: none; /* No glow for a cleaner look */
+    transition: all var(--transition-normal);
+}
+
+/* Ensure the icon scales correctly inside its container */
+.badge-icon i {
+    line-height: 1;
+}
+
+/* Refine the layout of the text content */
+.badge-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Center text for better alignment */
+}
+
+/* Make the metric number bold and large */
+.ei-badge .num {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--text-primary);
+    transition: color var(--transition-normal);
+}
+
+/* Style the metric label to be readable and clear */
+.ei-badge .lbl {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.2;
+    transition: color var(--transition-normal);
+}
+
+/* On hover, slightly enlarge the icon and change text color for a dynamic effect */
+.ei-badge:hover {
+    transform: translateY(-2px);
+    background: rgba(100, 116, 139, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.ei-badge:hover .badge-icon {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+    .ei-badge {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        min-width: 140px;
+    }
+    .badge-icon {
+        margin-bottom: 0.5rem;
+    }
+    .badge-content {
+        align-items: center;
+    }
+    .ei-badge .num {
+        font-size: 1.5rem;
+    }
 }
 .ei-badge .num { font-family: "Fira Code", monospace; font-size: 1.15rem; color: var(--ei-accent); font-weight: 700; }
 .ei-badge .lbl { font-size: 0.85rem; color: var(--ei-muted); }
 
-.ei-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+.ei-cta { 
+  margin-top: 22px; 
+  display: flex; 
+  justify-content: center; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+}
+
 .ei-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 12px 16px; border-radius: 12px; font-weight: 600;
+  display: inline-flex; 
+  align-items: center; 
+  gap: 15px;
+  padding: 12px 16px; 
+  border-radius: 12px; 
+  font-weight: 600;
   border: 1px solid var(--ei-border);
   color: var(--ei-text);
   background: rgba(59,130,246,0.12);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Animate multiple properties */
+  position: relative; /* This is crucial for the pseudo-element */
+  overflow: hidden; /* Hide the pseudo-element overflow */
+  z-index: 1; /* Keep the button's content on top */
 }
+
+.ei-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Starts with 0 width */
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateX(-100%); /* Start off-screen to the left */
+  transition: width 0.3s ease; /* Animate the width */
+  z-index: -1; /* Place the fill behind the content */
+}
+
+.ei-btn:hover {
+    color: var(--text-inverse); /* Change text color on hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.ei-btn:hover::before {
+    transform: translateX(0);  /* Slide the pseudo-element back into view */
+}
+
+.ei-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.ei-btn:hover i {
+    color: var(--text-inverse); /* Changes the icon color to white on hover */
+}
+
 .ei-btn.secondary { background: rgba(255,255,255,0.04); }
 .ei-btn i { color: var(--ei-accent); }
 
@@ -90,6 +274,17 @@
   position: relative;
   overflow: hidden;
 }
+.ei-node:hover {
+    transform: translateY(-2px);
+    background: rgba(100, 116, 139, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.ei-node:hover i {
+    color: var(--primary-color);
+}
+
 .ei-visual::after {
   content: "";
   position: absolute; inset: -20%;
@@ -103,39 +298,101 @@
   display: grid; gap: 10px;
 }
 .ei-node {
-  background: rgba(17,24,39,0.8);
-  border: 1px solid var(--ei-border);
-  color: var(--ei-text);
-  border-radius: 10px; padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.2rem;
+    background: rgba(100, 116, 139, 0.05);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    color: var(--text-primary);
+    border-radius: 12px;
+    box-shadow: none;
+    transition: all var(--transition-normal);
 }
 .ei-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 
 /* Trust Strip */
 .ei-trust {
   margin-top: 36px;
-  display: grid; grid-auto-flow: column; justify-content: start; gap: 24px; align-items: center;
+  display: flex; /* Use flexbox for better centering */
+  justify-content: center; /* Center items horizontally on the page */
+  gap: 0.8rem; /* Consistent spacing */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   opacity: 0.9;
 }
+
 .ei-trust .tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--ei-muted);
-  border: 1px dashed var(--ei-border);
-  padding: 8px 12px; border-radius: 999px;
-  background: rgba(255,255,255,0.03);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ei-muted);
+    border: 1px dashed var(--ei-border);
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    transition: all var(--transition-normal); /* Add a smooth transition */
+}
+
+.ei-trust .tag:hover {
+    background: rgba(59,130,246,0.12); /* Change background on hover */
+    color: var(--ei-accent); /* Change text color */
+    border-color: var(--ei-accent); /* Change border color */
+    transform: translateY(-2px); /* Lift the box */
+    box-shadow: var(--shadow-sm); /* Add a subtle shadow */
 }
 
 /* Impact Grid */
 .ei-impact-grid {
   margin-top: 28px;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Use a responsive grid with a min width */
+  gap: 1.5rem; /* Increased gap for better spacing */
+  justify-content: center; /* Center the grid items */
 }
+
 .ei-card {
-  background: var(--ei-card);
-  border: 1px solid var(--ei-border);
-  border-radius: 14px; padding: 18px;
+  background: rgba(100, 116, 139, 0.05); /* Transparent background */
+  border: 1px solid rgba(100, 116, 139, 0.2); /* Subtle border */
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem; /* Consistent padding */
+  box-shadow: none; /* No shadow by default */
+  transition: all var(--transition-normal);
+  display: flex; /* Use flexbox to stack items */
+  flex-direction: column;
+  text-align: left;
 }
-.ei-card h4 { color: var(--ei-text); margin-bottom: 8px; }
-.ei-card p { color: var(--ei-muted); font-size: 0.95rem; }
+
+.ei-card:hover {
+  transform: translateY(-2px);
+  background: rgba(100, 116, 139, 0.08); /* Slight background change on hover */
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.ei-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between icon and text */
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.ei-card h4 i {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+.ei-card:hover h4 i {
+  color: var(--primary-color);
+}
+
+.ei-card p { 
+  color: var(--ei-muted); 
+  font-size: 0.95rem;
+}
 
 /* Case Study Teaser */
 .ei-case {
@@ -146,8 +403,82 @@
 .ei-step { margin-bottom: 12px; }
 .ei-step .when { font-size: 0.8rem; color: var(--ei-muted); }
 .ei-step .what { color: var(--ei-text); font-weight: 600; }
-.ei-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
-.ei-metric { background: rgba(255,255,255,0.04); border: 1px solid var(--ei-border); border-radius: 12px; padding: 12px; }
+
+.ei-metrics-grid {
+    display: flex;
+    justify-content: flex-end; /* Pushes the entire grid to the right */
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.ei-metrics {
+    display: flex; /* Use flexbox for simple horizontal alignment */
+    justify-content: center; /* Center the boxes horizontally */
+    align-items: flex-start; /* Align boxes to the top */
+    flex-wrap: nowrap; /* Allow wrapping on smaller screens */
+    gap: 1rem; /* Space between the boxes */
+    max-width: 100%; /* Ensure the container is responsive */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ei-metric {
+    background: rgba(100, 116, 139, 0.05);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all var(--transition-normal);
+    width: 150px; /* Fixed width for a consistent horizontal look */
+    height: 150px; /* Fixed height for a consistent vertical look */
+}
+
+/* Add the hover effect to the metric box */
+.ei-metric:hover {
+    transform: translateY(-2px);
+    background: rgba(100, 116, 139, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Icon styling for the metric boxes */
+.ei-metric-icon {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    transition: all var(--transition-normal);
+}
+
+/* Hover effect for the icon */
+.ei-metric:hover .ei-metric-icon {
+    color: var(--primary-color);
+}
+
+/* Content wrapper for the text */
+.ei-metric-content .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.7;
+    transition: color var(--transition-normal);
+}
+
+/* Hover effect for the number */
+.ei-metric:hover .ei-metric-content .num {
+    color: var(--primary-color);
+}
+
+.ei-metric-content .lbl {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.2;
+}
+
 .ei-metric .num { font-family: "Fira Code", monospace; color: var(--ei-accent-2); font-weight: 700; font-size: 1.25rem; }
 .ei-metric .lbl { color: var(--ei-muted); font-size: 0.85rem; }
 
@@ -157,6 +488,10 @@
   .ei-badges { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
   .ei-case { grid-template-columns: 1fr; }
   .ei-impact-grid { grid-template-columns: 1fr; }
+  .ei-metrics {
+    flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
+    justify-content: center;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
