@@ -79,6 +79,23 @@
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
 }
 
+/* Force dark theme for the Impact section when the page is in light mode */
+[data-theme="light"] .ei-section {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: #1e293b;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-inverse: #0f172a;
+
+    --border-color: #334155;
+    --border-light: #475569;
+}
+
+/* Typography and Layout */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -91,6 +108,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color var(--transition-normal), color var(--transition-normal);
+    padding-top: 5rem; /* This line adds space for the fixed navbar */
 }
 
 .container {
@@ -186,7 +204,6 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     z-index: 999;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
     overflow: hidden;
 }
 
@@ -338,38 +355,49 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #e2e8f0;
+    color: var(--text-secondary); /* Use a variable for better theme support */
     font-weight: 600;
     font-size: 0.875rem;
-    padding: 0.625rem 1rem;
+    padding: 0.625rem 1.5rem;
     border-radius: 10px;
+    /* This is the crucial line for smooth transitions */
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
     white-space: nowrap;
     border: 1px solid transparent;
+    box-shadow: 0 0 0 0 transparent; /* Added this line */
+}
+
+.nav-menu {
+  /* ... other styles ... */
+  position: relative; /* This is crucial for positioning the indicator */
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #1e40af);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0;
+  opacity: 0;
 }
 
 [data-theme="light"] .nav-link {
     color: #475569;
 }
 
-.nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.nav-link:hover::before {
-    left: 100%;
-}
-
 .nav-link:hover {
+    color: var(--text-primary);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5), inset 0 0 0 1px rgba(37, 99, 235, 0.5); /* Added this line */
+}
+
+/* Ensure the hover state is not as strong as the active state */
+.nav-link:hover:not(.active) {
     color: #60a5fa;
     background: rgba(37, 99, 235, 0.15);
     border-color: rgba(37, 99, 235, 0.3);
@@ -377,6 +405,7 @@ body {
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
 }
 
+/* The active state styles should be separate and prominent */
 .nav-link.active {
     color: #ffffff;
     background: linear-gradient(135deg, var(--primary-color), #1e40af);
@@ -769,16 +798,24 @@ body {
     justify-content: center;
     gap: 0.5rem;
     transition: all var(--transition-normal);
-}
-
-.email-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(234, 67, 53, 0.4) !important;
+    color: white; /* Changed color to white for better contrast */
 }
 
 .email-button i {
+    color: white; /* Explicitly sets the icon color to white */
     margin-right: 0.5rem;
     font-size: 1.1em;
+}
+
+.email-button:hover {
+    background: linear-gradient(135deg, #F57C00, #FBC02D) !important;
+    box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4) !important;
+    transform: translateY(-2px);
+}
+.email-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
+    transform: scale(1.1);
+    font-size: 1.2em;
 }
 
 /* Schedule button specific styles */
@@ -792,24 +829,97 @@ body {
     justify-content: center;
     gap: 0.5rem;
     transition: all var(--transition-normal);
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    background: transparent;
+}
+
+.github-button {
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.github-button:hover {
+    background: #24292e !important;
+    border-color: #24292e !important;
+    color: white;
+    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.4);
+}
+
+.github-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
+    transform: scale(1.1);
+    font-size: 1.2em;
+}
+
+.youtube-button {
+    color: white !important; /* Force text to be white */
+    border: 2px solid #ff0000 !important;
+    background: linear-gradient(to right, #ff0000, #c4302b) !important; /* Force red gradient */
+}
+
+.youtube-button:hover {
+    background: linear-gradient(to right, #e60000, #9f201d) !important;
+    border-color: #e60000 !important;
+    color: white !important;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6) !important;
+    transform: translateY(-2px);
+}
+
+.youtube-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
+    transform: scale(1.1);
+    font-size: 1.2em;
+}
+
+.docker-button {
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.docker-button:hover {
+    background: #2496ed !important;
+    border-color: #2496ed !important;
+    color: white;
+    box-shadow: 0 4px 15px rgba(36, 150, 237, 0.4);
+}
+
+.docker-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
+    transform: scale(1.1);
+    font-size: 1.2em;
+}
+
+.linkedin-button {
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.linkedin-button:hover {
+    background: #0a66c2 !important;
+    border-color: #0a66c2 !important;
+    color: white;
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.4);
+}
+
+.linkedin-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
+    transform: scale(1.1);
+    font-size: 1.2em;
 }
 
 .schedule-button:hover {
-    background: rgba(37, 99, 235, 0.05);
+    background: var(--primary-color) !important;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+.schedule-button:hover i {
+    color: white;
 }
 
-.schedule-button i {
-    color: var(--primary-color);
-    transition: transform 0.3s ease;
-}
 
 .schedule-button:hover i {
+    color: white; /* Ensure icon remains white on hover */
     transform: scale(1.1);
+    font-size: 1.2em;
 }
 
 .btn-secondary {
@@ -1580,6 +1690,7 @@ body {
     top: -60px;
     right: 0;
     z-index: 100;
+    margin-top: 1.5rem; /* Adds space between the button and the top boundary */
 }
 
 /* Hero 3D Cube Visual */
@@ -1845,6 +1956,7 @@ section { position: relative; overflow: hidden; }
     font-weight: 700;
     color: var(--primary-color);
     line-height: 1;
+    justify-content: center;
 }
 
 .metric-label {
@@ -1879,6 +1991,13 @@ section { position: relative; overflow: hidden; }
     background: var(--bg-secondary);
     border-radius: var(--border-radius-md);
     border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added this line */
+}
+
+.achievement-item:hover {
+    transform: translateY(-4px); /* Lifts the box slightly */
+    box-shadow: var(--shadow-md); /* Adds a subtle shadow */
+    cursor: pointer; /* Changes the cursor to a pointer */
 }
 
 .achievement-item i {
@@ -1913,27 +2032,34 @@ section { position: relative; overflow: hidden; }
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xl);
     transition: all var(--transition-normal);
+    display: flex; /* Added flexbox */
+    flex-direction: column; /* Stacks children vertically */
 }
 
 .case-study-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
     border-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .case-study-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: center;
+    justify-content: center; /* Centers the entire header */
     align-items: center;
     margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: var(--spacing-sm); /* Adds a gap between items */
 }
 
 .company-logo {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     font-weight: 600;
     color: var(--text-primary);
+    margin-bottom: var(--spacing-md); /* Creates a gap */
 }
 
 .company-logo i {
@@ -1973,16 +2099,19 @@ section { position: relative; overflow: hidden; }
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
+    text-align: center; /* Centers the headings */
 }
 
 .case-metrics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     padding: var(--spacing-lg);
     background: var(--bg-secondary);
     border-radius: var(--border-radius-md);
+    text-align: center; /* This line will center the text */
+    text-overflow: ellipsis;
 }
 
 .case-metrics .metric {
@@ -1991,10 +2120,11 @@ section { position: relative; overflow: hidden; }
 
 .case-metrics .metric-value {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: var(--primary-color);
     line-height: 1;
+    text-align: center;
 }
 
 .case-metrics .metric-label {
@@ -2002,18 +2132,25 @@ section { position: relative; overflow: hidden; }
     color: var(--text-muted);
     font-weight: 500;
     margin-top: 4px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevents wrapping */
 }
 
 .case-description {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: var(--spacing-lg);
+    text-align: center;
 }
 
 .tech-stack {
     display: flex;
+    justify-content: center; /* Centers the lower boxes */
     flex-wrap: wrap;
     gap: var(--spacing-sm);
+    margin-top: auto; /* Pushes this element to the bottom */
 }
 
 .tech-tag {
@@ -2085,6 +2222,7 @@ section { position: relative; overflow: hidden; }
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
 }
 
 .project-card.enterprise {
@@ -2098,9 +2236,9 @@ section { position: relative; overflow: hidden; }
 }
 
 .project-card.enterprise:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary-color);
+    transform: translateY(-4px); /* Consistent lift on hover */
+    border-color: var(--primary-color); /* Changes the border color to blue */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); /* Adds a blue shadow for the glow effect */
 }
 
 .project-card.enterprise::before {
@@ -2114,18 +2252,21 @@ section { position: relative; overflow: hidden; }
 }
 
 .project-card.collaboration {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%);
-    border: 2px solid rgba(16, 185, 129, 0.2);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-xl);
     transition: all var(--transition-normal);
     position: relative;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden; /* This will prevent the line from overflowing */
 }
 
 .project-card.collaboration:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
-    border-color: #10b981;
+    border-color: #10b981; /* Changes the border color to green */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); /* Adds a green shadow */
 }
 
 .project-card.collaboration::before {
@@ -2224,15 +2365,16 @@ section { position: relative; overflow: hidden; }
 }
 
 .project-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary-color), #1e40af);
+    width: 60px; /* Smaller container for a cleaner look */
+    height: 60px;
+    background: var(--bg-secondary); /* A more subtle background color */
     border-radius: 50%;
+    border: 1px solid var(--border-color); /* A defined border */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 2rem;
+    color: var(--primary-color);
+    font-size: 1.8rem; /* Consistent icon size */
     position: relative;
     z-index: 2;
 }
@@ -2295,6 +2437,7 @@ section { position: relative; overflow: hidden; }
     color: var(--text-muted);
     font-weight: 500;
     margin-top: 4px;
+    text-align: center;
 }
 
 .project-features {
@@ -2352,6 +2495,16 @@ section { position: relative; overflow: hidden; }
     background: rgba(107, 114, 128, 0.1);
     color: #6b7280;
     border-color: rgba(107, 114, 128, 0.2);
+}
+
+.tech-badge.primary:hover,
+.tech-badge.secondary:hover {
+    background: var(--primary-color);
+    color: var(--text-inverse); /* Changes text to white on hover */
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
 }
 
 .tech-badge.future {
@@ -2419,6 +2572,22 @@ section { position: relative; overflow: hidden; }
 .section-header {
     text-align: center;
     margin-bottom: var(--spacing-3xl);
+    margin-top: var(--spacing-lg); /* Add top margin */
+}
+
+/* New reusable card style for consistency */
+.unified-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.unified-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
 }
 
 .section-badge {
@@ -2431,6 +2600,7 @@ section { position: relative; overflow: hidden; }
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     border: 1px solid rgba(37, 99, 235, 0.2);
+    margin-top: 2rem; /* Added this line to move the button down */
 }
 
 .section-title {
@@ -2675,7 +2845,7 @@ section { position: relative; overflow: hidden; }
         transition: 0.3s;
         box-shadow: var(--shadow-lg);
         border-top: 1px solid var(--border-color);
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-lg) 2rem;
     }
 
     .nav-menu.active {
@@ -2767,7 +2937,7 @@ section { position: relative; overflow: hidden; }
 
     .nav-link {
         font-size: 1.1rem;
-        padding: var(--spacing-lg) var(--spacing-xl);
+        padding: var(--spacing-lg) 2rem;
         width: 200px;
         text-align: center;
     }
@@ -2796,7 +2966,7 @@ section { position: relative; overflow: hidden; }
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1.5fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-md);
     padding: var(--spacing-3xl) 0;
 }
 
@@ -2821,27 +2991,23 @@ section { position: relative; overflow: hidden; }
     padding: 0;
     margin: 0;
     display: grid;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
 }
 
 .footer-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 8px;
     transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.footer-links a::before {
-    content: '›';
-    color: var(--primary-color);
-    opacity: 0.7;
-}
-
 .footer-links a:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    border: 1px solid var(--primary-color);
     color: var(--text-primary);
-    transform: translateX(4px);
+    padding-left: 0.5rem;
 }
 
 .footer-cta p {
@@ -2851,6 +3017,7 @@ section { position: relative; overflow: hidden; }
 .footer-social {
     margin-top: var(--spacing-lg);
     display: flex;
+    justify-content: center; /* Centers the icons horizontally */
     gap: var(--spacing-md);
 }
 
@@ -2865,6 +3032,7 @@ section { position: relative; overflow: hidden; }
     color: var(--text-secondary);
     background: var(--bg-secondary);
     transition: all var(--transition-fast);
+    text-decoration: none; /* This line removes the underline */
 }
 
 .social-link:hover {
@@ -2914,7 +3082,7 @@ section { position: relative; overflow: hidden; }
 
 /* Experience Section */
 .experience {
-    padding: 6rem 0;
+    padding: 2rem 0 6rem 0;
     background-color: var(--bg-secondary);
     position: relative;
     overflow: hidden;
@@ -2997,11 +3165,14 @@ section { position: relative; overflow: hidden; }
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
+    text-align: left; /* Aligns all text to the left */
 }
 
 .timeline-item:hover .timeline-content {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px); /* Lifts the card slightly */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); /* Adds a blue glow effect */
+    border-color: var(--primary-color); /* Changes the border to blue */
+    cursor: pointer; /* Indicates that the box is interactive */
 }
 
 .timeline-header {
@@ -3093,6 +3264,8 @@ section { position: relative; overflow: hidden; }
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 1.5rem 0 0;
+    margin-top: 2rem; /* Added top margin for better spacing */
+    justify-content: center; /* Center the tags horizontally */
 }
 
 .tech-badge {
@@ -3102,24 +3275,36 @@ section { position: relative; overflow: hidden; }
     font-weight: 500;
     display: inline-flex;
     align-items: center;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.tech-badge.primary {
+.tech-badge.primary,
+.tech-badge.secondary {
     background: rgba(37, 99, 235, 0.1);
     color: var(--primary-color);
     border: 1px solid rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.tech-badge.secondary {
-    background: rgba(107, 114, 128, 0.1);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
+.tech-badge:hover {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .role-actions {
     margin-top: 1.5rem;
     display: flex;
+    justify-content: center; /* This line will center the buttons */
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 /* Responsive adjustments */
@@ -3159,8 +3344,11 @@ section { position: relative; overflow: hidden; }
 /* Contact Section */
 .contact {
     padding: 6rem 0;
-    position: relative;
-    background-color: var(--bg-secondary);
+    position: relative;    
+    background: var(--bg-secondary); /* This is the new background */
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--border-color); /* Added a subtle border */
+    box-shadow: var(--shadow-md); /* Added a subtle shadow */
     overflow: hidden;
 }
 
@@ -3204,9 +3392,9 @@ section { position: relative; overflow: hidden; }
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1100px;
+    max-width: auto;
     margin: 3rem auto 0;
-    padding: 0 1rem;
+    padding: 2rem;
 }
 
 .contact-cards {
@@ -3215,6 +3403,12 @@ section { position: relative; overflow: hidden; }
     flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
+    position: relative; /* Crucial for z-index stacking */
+    z-index: 1; /* Ensures it is on top of the particles */
+    background-color: rgba(15, 23, 42, 0.6); /* This will cover the particles behind the cards */
+    padding: 2rem; /* Add padding to prevent content from looking glued to the edges */
+    border-radius: var(--border-radius-xl);
+    backdrop-filter: blur(5px); /* Added a subtle blur effect */
 }
 
 .contact-card {
@@ -3257,6 +3451,38 @@ section { position: relative; overflow: hidden; }
     transform: scale(1.1);
 }
 
+/* Hover effects for each specific card */
+.contact-card:hover .contact-icon {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+.contact-card[data-social="email"]:hover .contact-icon {
+    background: linear-gradient(135deg, #EA4335, #FBBC05);
+    box-shadow: 0 0 20px rgba(234, 67, 53, 0.4);
+}
+
+.contact-card[data-social="linkedin"]:hover .contact-icon {
+    background: #0a66c2;
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+}
+
+.contact-card[data-social="github"]:hover .contact-icon {
+    background: #24292e;
+    box-shadow: 0 0 20px rgba(36, 41, 46, 0.4);
+}
+
+.contact-card[data-social="docker"]:hover .contact-icon {
+    background: #2496ed;
+    box-shadow: 0 0 20px rgba(36, 150, 237, 0.4);
+}
+
+.contact-card[data-social="youtube"]:hover .contact-icon {
+    background: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
 .contact-card h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -3268,6 +3494,7 @@ section { position: relative; overflow: hidden; }
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .contact-link {
@@ -3304,26 +3531,23 @@ section { position: relative; overflow: hidden; }
 
 .connect-section .social-links {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the icons horizontally */
     gap: 1.5rem;
-    flex-wrap: wrap;
     margin-top: 1rem;
 }
 
-.connect-section .social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.social-link {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background: var(--bg-card);
-    color: var(--text-secondary);
-    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-size: 1.3rem;
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .connect-section .social-link span {
@@ -3346,7 +3570,7 @@ section { position: relative; overflow: hidden; }
 }
 
 .connect-section .social-link:hover span {
-    bottom: -20px;
+    bottom: -30px;
     opacity: 1;
 }
 
@@ -3454,22 +3678,154 @@ section { position: relative; overflow: hidden; }
     margin-top: var(--spacing-md);
 }
 .footer-social .social-link {
+    /* Set a fixed size for the container to maintain layout */
+    width: 50px;
+    height: 50px; /* Increase height to make space for the name */
+    display: flex; /* Changed from inline-flex */
+    flex-direction: column; /* Stacks icon and text vertically */
+    align-items: center;
+    justify-content: flex-start; /* Aligns content to the top */
+    gap: 8px; /* Space between the icon and the name */
+    border: none; /* Removed border */
+    background: none; /* Removed background */
+    text-decoration: none; /* This line removes the underline */
+    position: relative;
+}
+
+/* Style for the logo circle */
+.footer-social .social-link i {
     width: 42px;
     height: 42px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border-color);
     border-radius: 50%;
-    color: var(--text-secondary);
-    background: var(--bg-secondary);
-    transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    border: 1px solid var(--border-color);
+    background: transparent;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
 }
+
+/* Ensure the icon's background and border are removed on hover */
+.footer-social .social-link i {
+    transition: all 0.3s ease;
+}
+
+.footer-social .social-link:hover i {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Style for the name beneath the logo */
+.footer-social .social-link span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    opacity: 0; /* Hides the name by default */
+    transform: translateY(20px); /* Moves the name further down (adjust this value) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    bottom: 0; /* Positioned at the bottom of the link container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(20px); /* Adjust transform to center and start lower */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Hover effect to show the name */
+.footer-social .social-link:hover span {
+    opacity: 1; /* Makes the name visible */
+    transform: translateX(-50%) translateY(15px); /* Slides the name into a lower visible position */
+}
+
 .footer-social .social-link:hover {
-    transform: translateY(-2px);
-    background: var(--bg-card);
-    color: var(--text-primary);
-    border-color: var(--primary-color);
+    transform: translateY(-4px);
+    background: none
+}
+
+/* Individual icon color and glow effects on hover */
+.footer-social .social-link.gmail:hover i {
+    background: transparent;
+    color: #fbbc05;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.6),
+                0 0 15px rgba(234, 67, 53, 0.6),
+                0 0 15px rgba(251, 188, 5, 0.6),
+                0 0 15px rgba(52, 168, 83, 0.6);
+}
+
+.footer-social .social-link.github:hover i {
+    background: transparent;
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 15px rgba(100, 100, 100, 0.6);
+}
+
+.footer-social .social-link.linkedin:hover i {
+    background: transparent;
+    color: #0a66c2;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.6),
+                0 0 15px rgba(180, 200, 230, 0.6);
+}
+
+.footer-social .social-link.whatsapp:hover i {
+    background: transparent;
+    color: #25d366;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6),
+                0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.footer-social .social-link.twitter:hover i {
+    background: transparent;
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.footer-social .social-link.youtube:hover i {
+    background: transparent;
+    color: #ff0000;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.footer-social .social-link.facebook:hover i {
+    background: transparent;
+    color: #3b5998;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(59, 89, 152, 0.6);
+}
+
+.footer-social .social-link.instagram:hover i {
+    background: transparent;
+    color: #E1306C;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.6),
+                0 0 15px rgba(253, 187, 45, 0.6),
+                0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.footer-social .social-link.docker:hover i {
+    background: transparent;
+    color: #2496ed;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(36, 150, 237, 0.6);
+}
+
+.footer-social .social-link.fiverr:hover i {
+    background: transparent;
+    color: #1dbf73;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(29, 191, 115, 0.6);
+}
+
+.footer-social .social-link.upwork:hover i {
+    background: transparent;
+    color: #6fda44;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(111, 218, 68, 0.6);
 }
 
 .footer-cta .btn { min-height: 42px; }
@@ -3553,8 +3909,9 @@ section { position: relative; overflow: hidden; }
 /* Experience: role metrics and stacks */
 .timeline .role-metrics {
     margin: var(--spacing-md) 0;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex; /* Changed to flexbox */
+    justify-content: center; /* This centers the boxes */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
     gap: var(--spacing-md);
 }
 
@@ -3564,6 +3921,14 @@ section { position: relative; overflow: hidden; }
     border-radius: var(--border-radius-lg);
     padding: 12px;
     text-align: center;
+    transition: all 0.3s ease; /* Added for smooth transitions */
+}
+
+.timeline .role-metric:hover {
+    transform: translateY(-4px); /* Lifts the box on hover */
+    border-color: var(--primary-color); /* Changes border to blue */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); /* Adds a blue glow effect */
+    cursor: pointer;
 }
 
 .timeline .role-metric .metric-number {
@@ -3661,4 +4026,14 @@ section { position: relative; overflow: hidden; }
         height: 30px;
         font-size: 0.8rem;
     }
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: -1; /* This is crucial for placing the particles behind the content */
 }
