@@ -16,36 +16,97 @@ class PortfolioApp {
         this.setupMobileMenu();
         this.setupDashboard();
         this.setupFooter();
+        this.setupParticles();
     }
 
     // Theme Toggle Functionality
     setupThemeToggle() {
         const themeToggle = document.getElementById('themeToggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
+        if (!themeToggle) return;
+
+        // Function to set the theme based on local storage
+        const applyTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        };
+
+        // Apply the theme on page load
+        applyTheme();
+
+        // Add event listener to the toggle button
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
-            // Add smooth transition effect
-            document.body.style.transition = 'all 0.3s ease';
-            setTimeout(() => {
-                document.body.style.transition = '';
-            }, 300);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
         });
     }
 
-    // Enhanced Navigation Functionality
+    // Enhanced Navigation Functionality (New Version)
     setupNavigation() {
-        const navbar = document.getElementById('navbar');
         const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Navbar scroll effect
+        const sections = document.querySelectorAll('section');
+
+        // Handle smooth scrolling and active class on click
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default jump behavior
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70, // Adjust for fixed navbar
+                    behavior: 'smooth'
+                });
+
+                // Update active class immediately
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Handle active class on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPos = window.scrollY;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Check if the current scroll position is within the section
+                if (scrollPos >= sectionTop - 100 && scrollPos < sectionTop + sectionHeight - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Initial check on page load to set the active link
+        window.dispatchEvent(new Event('scroll'));
+
+        // You can keep other navbar-related functions from your original script here,
+        // like the one that adds a 'scrolled' class, if it's separate.
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -53,84 +114,114 @@ class PortfolioApp {
                 navbar.classList.remove('scrolled');
             }
         });
-        
-        // Smooth scrolling for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active link
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                if (document.documentElement.getAttribute('data-theme') === 'dark') {
-                    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-                }
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                if (document.documentElement.getAttribute('data-theme') === 'dark') {
-                    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-                }
-            }
-        });
-
-        // Update active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const scrollPos = window.scrollY + 100;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
     }
-
     // Particle Background
     setupParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 50;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // Random position
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            
-            // Random animation delay
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            
-            particlesContainer.appendChild(particle);
-        }
+    particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
     }
 
     // Scroll Animations
@@ -582,8 +673,28 @@ document.addEventListener('DOMContentLoaded', () => {
     new PortfolioApp();
 });
 
+// Function to handle email link with fallback
+function openEmailClient(event) {
+    event.preventDefault(); // Prevents the default action of the link
+
+    const emailAddress = 'abdullahbinaminmeo@gmail.com';
+    const gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+
+    // Try to open Gmail directly
+    const newWindow = window.open(gmailUrl, '_blank');
+    
+    // Fallback if Gmail window is blocked or user is not logged in
+    setTimeout(() => {
+        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+            // If the window didn't open, use the standard mailto link as a fallback
+            window.location.href = `mailto:${encodeURIComponent(emailAddress)}`;
+        }
+    }, 100); // Wait a short time to check if the window opened
+}
+
 // Add some additional interactive effects
 document.addEventListener('DOMContentLoaded', () => {
+
     // Orbit item tooltips
     const orbitItems = document.querySelectorAll('.orbit-item');
     orbitItems.forEach(item => {
