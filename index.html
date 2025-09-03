@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdullah bin Amin - DevOps Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mobile-fix.css">
     <link rel="stylesheet" href="exec-impact.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
 </head>
 <body>
     <!-- Particle Background -->
@@ -122,12 +123,36 @@
                     <h2 class="ei-title">Enterprise-grade DevOps with <span class="accent">measurable impact</span></h2>
                     <p class="ei-subtitle">Accelerating delivery, improving reliability, and optimizing cost at scale across cloud-native platforms.</p>
 
-                    <div class="ei-badges">
-                        <div class="ei-badge"><i class="fas fa-gauge"></i><span class="num">-63%</span><span class="lbl">Lead Time (Projects)</span></div>
-                        <div class="ei-badge"><i class="fas fa-life-ring"></i><span class="num">99.9%</span><span class="lbl">Uptime (Lab)</span></div>
-                        <div class="ei-badge"><i class="fas fa-folder-tree"></i><span class="num">5</span><span class="lbl">Projects</span></div>
-                        <div class="ei-badge"><i class="fas fa-hourglass-half"></i><span class="num">12m</span><span class="lbl">Deploy Time</span></div>
+                <div class="ei-badges">
+                    <div class="ei-badge">
+                        <div class="badge-icon"><i class="fas fa-gauge"></i></div>
+                        <div class="badge-content">
+                            <span class="num">-63%</span>
+                            <span class="lbl">Lead Time <br>(Projects)</span>
+                        </div>
                     </div>
+                    <div class="ei-badge">
+                        <div class="badge-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="badge-content">
+                            <span class="num">99.9%</span>
+                            <span class="lbl">Uptime <br>(Lab)</span>
+                        </div>
+                    </div>
+                    <div class="ei-badge">
+                        <div class="badge-icon"><i class="fas fa-folder-tree"></i></div>
+                        <div class="badge-content">
+                            <span class="num">5</span>
+                            <span class="lbl">Projects</span>
+                        </div>
+                    </div>
+                    <div class="ei-badge">
+                        <div class="badge-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="badge-content">
+                            <span class="num">12m</span>
+                            <span class="lbl">Deploy Time</span>
+                        </div>
+                    </div>
+                </div>
 
                     <div class="ei-cta">
                         <a href="#projects" class="ei-btn"><i class="fas fa-briefcase"></i>View Enterprise Work</a>
@@ -183,14 +208,38 @@
                     <div class="ei-step"><div class="when">Q3</div><div class="what">Progressive delivery + blue/green & canary</div></div>
                     <div class="ei-step"><div class="when">Q4</div><div class="what">Autoscaling + FinOps dashboard rollout</div></div>
                 </div>
+            <div class="ei-metrics-grid">
                 <div class="ei-metrics">
-                    <div class="ei-metric"><div class="num">12 min</div><div class="lbl">Avg Deploy Time</div></div>
-                    <div class="ei-metric"><div class="num">0</div><div class="lbl">Failed Rollouts (Q4)</div></div>
-                    <div class="ei-metric"><div class="num">-48%</div><div class="lbl">MTTR</div></div>
-                    <div class="ei-metric"><div class="num">-32%</div><div class="lbl">Infra Spend</div></div>
+                    <div class="ei-metric">
+                        <div class="ei-metric-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="ei-metric-content">
+                            <div class="num">12 min</div>
+                            <div class="lbl">Avg Deploy Time</div>
+                        </div>
+                    </div>
+                    <div class="ei-metric">
+                        <div class="ei-metric-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="ei-metric-content">
+                            <div class="num">0</div>
+                            <div class="lbl">Failed Rollouts (Q4)</div>
+                        </div>
+                    </div>
+                    <div class="ei-metric">
+                        <div class="ei-metric-icon"><i class="fas fa-percent"></i></div>
+                        <div class="ei-metric-content">
+                            <div class="num">-48%</div>
+                            <div class="lbl">MTTR</div>
+                        </div>
+                    </div>
+                    <div class="ei-metric">
+                        <div class="ei-metric-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="ei-metric-content">
+                            <div class="num">-32%</div>
+                            <div class="lbl">Infra Spend</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- About Section -->
@@ -1035,26 +1084,30 @@
                 <p class="section-description">
                     Have a project in mind or interested in collaborating? I'm always open to discussing new opportunities and ideas.
                 </p>
+                <div id="particles-js"></div>
             </div>
             <div class="contact-content">
                 <div class="contact-grid">
                     <div class="contact-cards">
-                        <div class="contact-card">
+                        <div class="contact-card" data-social="email">
                             <div class="contact-card-inner">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h3>Email Me</h3>
                                 </div>
-                                <h3>Email Me</h3>
                                 <div class="contact-details">
-                                    <button onclick="window.open('https://mail.google.com/mail/u/0/#all?compose=fwmvGMCtwXBWmwvfxVgDSgLpfRlRJlPnhwhccQfXvbQbpkHSHSsbWmhSBvDkZzpjqBXBCcMbNPjbVwxsbmWNxTmkZDsMhCtwPTnlkdcKRtmTqrNCGvgv', '_blank')" class="btn btn-primary email-button">
+                                    <button onclick="window.open('https://mail.google.com/mail/u/0/#all?compose=fwmvGMCtwXBWmwvfxVgDSgLpfRlRJlPnhwhccQfXvbQbpkHSHSsbWmhSBvDkZzpjqBXBCcMbNPjbVwxsbmWNxTmkZDsMhCtwPTnlkdcKRtmTqrNCGvgv', '_blank')" 
+                                        class="btn btn-primary email-button">
                                         <i class="fab fa-google"></i> Email via Gmail
                                     </button>
-                                    <p class="contact-note">Opens in a new tab. I typically respond within 24 hours</p>
+                                    <p class="contact-note">Typically responds within 24 hours</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="contact-card">
+                        <div class="contact-card" data-social="linkedin">
                             <div class="contact-card-inner">
                                 <div class="contact-icon">
                                     <i class="fab fa-linkedin-in"></i>
@@ -1064,35 +1117,73 @@
                                     <a href="https://www.linkedin.com/in/abdullahbinamin/" 
                                        target="_blank" 
                                        rel="noopener noreferrer"
-                                       class="schedule-button" 
+                                       class="btn btn-primary linkedin-button" 
                                        style="display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; border: 2px solid #0A66C2; background: #0A66C2; color: white; font-weight: 600; transition: all 0.3s ease;">
-                                        <i class="fab fa-linkedin-in" style="margin-right: 8px; font-size: 1.2em;"></i> Connect on LinkedIn
+                                        <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
                                     </a>
                                     <p class="contact-note">Let's find a time that works</p>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="contact-card" data-social="github">
+                            <div class="contact-card-inner">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <h3>Follow on GitHub</h3>
+                                <div class="contact-details">
+                                    <a href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary github-button"
+                                        style="display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; border: 2px solid #333; background: #333; color: white; font-weight: 600; transition: all 0.3s ease;">
+                                        <i class="fab fa-github"></i> Follow on GitHub
+                                    </a>
+                                    <p class="contact-note">See my latest projects and contributions</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" data-social="docker">
+                            <div class="contact-card-inner">
+                                <div class="contact-icon">
+                                    <i class="fab fa-docker"></i>
+                                </div>
+                                <h3>Docker Hub</h3>
+                                <div class="contact-details">
+                                    <a href="https://calendly.com/abdullahbinamin" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="btn btn-primary docker-button" 
+                                       style="display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; border: 2px solid #4A90E2; background: #4A90E2; color: white; font-weight: 600; transition: all 0.3s ease;">
+                                        <i class="fab fa-docker"></i> View on Docker Hub
+                                    </a>
+                                    <p class="contact-note">Check out my container images</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" data-social="youtube">
+                            <div class="contact-card-inner">
+                                <div class="contact-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                <h3>YouTube</h3>
+                                <div class="contact-details">
+                                    <a href="https://calendly.com/abdullahbinamin" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="btn btn-secondary youtube-button"
+                                       style="display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; border: 2px solid #4A90E2; background: #4A90E2; color: white; font-weight: 600; transition: all 0.3s ease;">
+                                        <i class="fab fa-youtube"></i> Subscribe on YouTube
+                                    </a>
+                                    <p class="contact-note">Watch my tutorials and projects</p>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
-                
-                <div class="connect-section">
-                    <h3>Connect With Me</h3>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/abdullahbinamin/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/AbdullahbinAmin" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://hub.docker.com/repositories/abdullahbinamin" target="_blank" rel="noopener noreferrer" class="social-link" title="Docker Hub">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                        </a>
-                        <a href="https://www.instagram.com/abdullah_bin_amin_8884/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1145,6 +1236,10 @@
                             <span class="metric-value">6 Months</span>
                             <span class="metric-label">Migration Timeline</span>
                         </div>
+                        <div class="metric">
+                            <span class="metric-value">-60%</span>
+                            <span class="metric-label">MTTR Reduction</span>
+                        </div>
                     </div>
                     <p class="case-description">
                         Led the migration of 500+ microservices from on-premises to AWS/Azure hybrid cloud, 
@@ -1182,6 +1277,10 @@
                             <span class="metric-value">50M+</span>
                             <span class="metric-label">Users Served</span>
                         </div>
+                        <div class="metric">
+                            <span class="metric-value">12m</span>
+                            <span class="metric-label">Deploy Time</span>
+                        </div>
                     </div>
                     <p class="case-description">
                         Architected blue-green deployment strategy with automated rollback capabilities, 
@@ -1217,6 +1316,10 @@
                         <div class="metric">
                             <span class="metric-value">24/7</span>
                             <span class="metric-label">Monitoring Coverage</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">SLA Adherence</span>
                         </div>
                     </div>
                     <p class="case-description">
@@ -1267,14 +1370,51 @@
                         <a href="#contact" class="btn btn-primary" aria-label="Contact Abdullah">Contact Me</a>
                     </div>
 
-                    
-
-                    
-
                     <div class="footer-social" aria-label="Social Links">
-                        <a href="#" aria-label="GitHub" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/abdullahbinamin/" aria-label="LinkedIn" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                        <a href="javascript:void(0);" onclick="openEmailClient(event);" aria-label="Gmail" class="social-link gmail" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-envelope"></i>
+                            <span>Gmail</span>
+                        </a>
+                        <a href="#" aria-label="GitHub" class="social-link github" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/abdullahbinamin/" aria-label="LinkedIn" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://wa.me/923224247673" aria-label="WhatsApp" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link twitter" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link youtube" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link facebook" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link instagram" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" aria-label="Docker" class="social-link docker" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </a>
+                        <a href="#" aria-label="Fiverr" class="social-link fiverr" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-f"></i>
+                            <span>Fiverr</span>
+                        </a>
+                        <a href="#" aria-label="Upwork" class="social-link upwork" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Upwork</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1365,5 +1505,7 @@
             });
         }
     </script>
+
+</html>
 </body>
 </html>
