@@ -57,64 +57,70 @@ class PortfolioApp {
     }
 
     // Enhanced Navigation Functionality (New Version)
-    setupNavigation() {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section');
+// New, simplified navigation setup
+setupNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    const navbar = document.getElementById('navbar');
 
-        // Handle smooth scrolling and active class on click
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default jump behavior
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
+    // Handle smooth scrolling on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
 
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70, // Adjust for fixed navbar
-                    behavior: 'smooth'
-                });
-
-                // Update active class immediately
-                navLinks.forEach(item => item.classList.remove('active'));
-                this.classList.add('active');
+            window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: 'smooth'
             });
+
+            // Update active class immediately on click
+            navLinks.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
         });
+    });
 
-        // Handle active class on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const scrollPos = window.scrollY;
+    // Handle active class on scroll
+    window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 100; // Use an offset for better timing
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Check if the current scroll position is within the section
-                if (scrollPos >= sectionTop - 100 && scrollPos < sectionTop + sectionHeight - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.href.includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Initial check on page load to set the active link
-        window.dispatchEvent(new Event('scroll'));
-
-        // You can keep other navbar-related functions from your original script here,
-        // like the one that adds a 'scrolled' class, if it's separate.
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        sections.forEach(section => {
+            if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+                currentSectionId = section.id;
             }
         });
-    }
+
+        // Loop through all nav links and update the 'active' class
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            
+            // Exclude mobile-only links from this logic
+            if (link.classList.contains('mobile-only')) {
+                return;
+            }
+            
+            if (linkHref === `#${currentSectionId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+    
+    // Add 'scrolled' class to navbar for styling
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Initial check on page load to set the active link
+    window.dispatchEvent(new Event('scroll'));
+}
     // Particle Background
     setupParticles() {
     particlesJS("particles-js", {
