@@ -391,41 +391,52 @@ body {
     color: #475569;
 }
 
-.nav-link:hover {
-    color: var(--text-primary);
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5), inset 0 0 0 1px rgba(37, 99, 235, 0.5); /* Added this line */
+/* Unify nav-link styling */
+.nav-link {
+    /* Existing styles, including padding and transition */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    white-space: nowrap;
+    border: 1px solid transparent;
+    box-shadow: none;
+    color: var(--text-secondary);
+    background: none;
 }
 
-/* Ensure the hover state is not as strong as the active state */
-.nav-link:hover:not(.active) {
-    color: #60a5fa;
+/* Clear and simple hover effect */
+/* General hover effect for nav links */
+.nav-link:hover {
+    color: var(--text-primary);
     background: rgba(37, 99, 235, 0.15);
     border-color: rgba(37, 99, 235, 0.3);
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
+
+/* Strong and clean active state */
+.nav-link.active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary-color), #1e40af) !important;
+    border-color: rgba(37, 99, 235, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4) !important;
+    font-weight: 700;
+    transform: none !important;
+}
+
+/* Ensure active links don't change on hover */
+.nav-link.active:hover {
+    cursor: default;
+}
+
+/* Ensure the hover state is not as strong as the active state */
+
 
 /* The active state styles should be separate and prominent */
-.nav-link.active {
-    color: #ffffff;
-    background: linear-gradient(135deg, var(--primary-color), #1e40af);
-    border-color: rgba(37, 99, 235, 0.5);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    font-weight: 700;
-}
 
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background: #60a5fa;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #60a5fa;
-}
 
 /* Contact Button Styling */
 .nav-link.contact-btn {
@@ -587,9 +598,11 @@ body {
 .expertise-badges {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* This is the key change to prevent wrapping */
     margin-bottom: 2rem;
     justify-content: center;
+    overflow-x: auto; /* Add horizontal scrolling if needed */
+    padding-bottom: 0.5rem; /* Adds space for scrollbar on mobile */
 }
 
 .expertise-badge {
@@ -645,16 +658,17 @@ body {
 
 /* Hero Title Adjustments */
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .hero-title .title-line {
     display: block;
     margin: 0.5rem 0;
+    font-size: 3.5rem;
 }
 
 .hero-title .highlight {
@@ -667,12 +681,13 @@ body {
 }
 
 .hero-description {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto 2.5rem;
     line-height: 1.7;
     text-align: center;
+    font-weight: 400;
 }
 
 @keyframes blink {
@@ -758,6 +773,7 @@ body {
     display: flex;
     gap: var(--spacing-md);
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn {
@@ -3069,7 +3085,7 @@ section { position: relative; overflow: hidden; }
 }
 
 .footer-bottom .container {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-sm) 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3777,13 +3793,6 @@ section { position: relative; overflow: hidden; }
                 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.footer-social .social-link.twitter:hover i {
-    background: transparent;
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
-
 .footer-social .social-link.youtube:hover i {
     background: transparent;
     color: #ff0000;
@@ -3791,41 +3800,11 @@ section { position: relative; overflow: hidden; }
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
-.footer-social .social-link.facebook:hover i {
-    background: transparent;
-    color: #3b5998;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(59, 89, 152, 0.6);
-}
-
-.footer-social .social-link.instagram:hover i {
-    background: transparent;
-    color: #E1306C;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(225, 48, 108, 0.6),
-                0 0 15px rgba(253, 187, 45, 0.6),
-                0 0 15px rgba(255, 255, 255, 0.6);
-}
-
 .footer-social .social-link.docker:hover i {
     background: transparent;
     color: #2496ed;
     border-color: transparent;
     box-shadow: 0 0 15px rgba(36, 150, 237, 0.6);
-}
-
-.footer-social .social-link.fiverr:hover i {
-    background: transparent;
-    color: #1dbf73;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(29, 191, 115, 0.6);
-}
-
-.footer-social .social-link.upwork:hover i {
-    background: transparent;
-    color: #6fda44;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(111, 218, 68, 0.6);
 }
 
 .footer-cta .btn { min-height: 42px; }
