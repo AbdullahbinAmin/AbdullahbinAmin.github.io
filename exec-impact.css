@@ -1,12 +1,12 @@
 /* Executive Impact Landing Styles */
 :root {
-  --ei-bg: #0b1220;
-  --ei-card: rgba(16, 24, 40, 0.6);
-  --ei-border: rgba(99, 102, 241, 0.25);
-  --ei-accent: #3b82f6;
-  --ei-accent-2: #22c55e;
-  --ei-text: #e5e7eb;
-  --ei-muted: #9ca3af;
+  --ei-bg: #181210;
+  --ei-card: rgba(36, 27, 24, 0.7);
+  --ei-border: rgba(217, 119, 6, 0.25);
+  --ei-accent: #d97706;
+  --ei-accent-2: #e5a93c;
+  --ei-text: #f9f4ee;
+  --ei-muted: #d4c7bb;
 }
 
 /* Keep original hero visible; Impact section follows hero */
@@ -14,8 +14,8 @@
 .ei-section {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(1000px 400px at 20% -10%, rgba(59,130,246,0.18), transparent 60%),
-              radial-gradient(800px 400px at 80% 0%, rgba(34,197,94,0.12), transparent 60%),
+  background: radial-gradient(1000px 400px at 20% -10%, rgba(217, 119, 6, 0.18), transparent 60%),
+              radial-gradient(800px 400px at 80% 0%, rgba(229, 169, 60, 0.12), transparent 60%),
               var(--ei-bg);
   border-top: 1px solid var(--ei-border);
   border-bottom: 1px solid var(--ei-border);

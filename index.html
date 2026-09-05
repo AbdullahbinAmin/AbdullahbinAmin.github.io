@@ -31,18 +31,21 @@
                     <span class="logo-text">&lt;Abdullah</span>
                     <span class="logo-accent">/&gt;</span>
                 </div>
-                <!-- Desktop CTA -->
-                <a href="#contact" class="nav-link contact-btn nav-cta">Contact</a>
+                <!-- Desktop Hire CTA -->
+                <button onclick="openHireModal()" class="nav-link contact-btn nav-cta" style="cursor:pointer; border:none;">
+                    <i class="fas fa-briefcase"></i> Hire Me
+                </button>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#services" class="nav-link">Services & Hire</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <!-- Mobile CTA (shown on mobile only) -->
-                <li><a href="#contact" class="nav-link contact-btn mobile-only">Contact</a></li>
+                <li><a href="javascript:void(0)" onclick="openHireModal()" class="nav-link contact-btn mobile-only">Hire Me</a></li>
             </ul>
             <div class="nav-toggle" id="navToggle">
                 <span class="bar"></span>
@@ -65,47 +68,49 @@
                 </div>
 
                 <div class="expertise-badges">
-                    <div class="expertise-badge" data-expertise="AIOps">
-                        <i class="fas fa-brain"></i>
-                        <span>AIOps</span>
+                    <div class="expertise-badge" data-expertise="AWS">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS Cloud</span>
                     </div>
-                    <div class="expertise-badge" data-expertise="Cloud">
-                        <i class="fas fa-cloud"></i>
-                        <span>Cloud</span>
-                    </div>
-                    <div class="expertise-badge" data-expertise="Cybersecurity">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Cybersecurity</span>
+                    <div class="expertise-badge" data-expertise="Kubernetes">
+                        <i class="fas fa-dharmachakra"></i>
+                        <span>Kubernetes & EKS</span>
                     </div>
                     <div class="expertise-badge" data-expertise="DevOps">
                         <i class="fas fa-code-branch"></i>
-                        <span>DevOps</span>
+                        <span>CI/CD & IaC</span>
+                    </div>
+                    <div class="expertise-badge" data-expertise="Trainer">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>DevOps Trainer</span>
                     </div>
                 </div>
                 <h1 class="hero-title">
                     <span class="title-line">Abdullah bin Amin</span>
-                    <span class="title-line highlight">DevOps Engineer</span>
+                    <span class="title-line highlight">DevOps Engineer & Cloud Specialist</span>
                 </h1>
                 <p class="hero-description">
-                    DevOps Engineer specializing in CI/CD automation, cloud-native infrastructure, and AI
-                    operations. Expert in Docker, Kubernetes, Terraform, Ansible, and architecting scalable
-                    deployments across AWS and Azure to accelerate software delivery.
+                    DevOps Specialist & Active Corporate Trainer with hands-on expertise designing, automating, and scaling AWS cloud infrastructure, Kubernetes microservices, and CI/CD pipelines. Maintaining 99.9%+ uptime across production environments and training engineering teams.
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View Projects</span>
+                    <button onclick="openHireModal()" class="btn btn-primary" style="cursor:pointer; border:none;">
+                        <span>Hire Me / Project Quote</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <a href="#projects" class="btn btn-secondary">
+                        <span>View Architecture & Projects</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-envelope"></i>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20DevOps%20project!" target="_blank" class="btn btn-secondary" style="background:#25D366; color:white; border-color:#25D366;">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Chat</span>
                     </a>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="profile-image-container">
-                    <img src="https://github.com/AbdullahbinAmin.png" alt="Abdullah bin Amin" class="profile-image">
+                    <img src="images/profile.png" onerror="this.src='https://github.com/AbdullahbinAmin.png'" alt="Abdullah bin Amin" class="profile-image">
                     <div class="profile-glow"></div>
                 </div>
             </div>
@@ -252,7 +257,106 @@
                             </div>
                         </div>
                     </div>
+    </section>
+
+    <!-- Services & Client Engagement Models Section -->
+    <section id="services" class="engagement-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">How We Can Work Together</span>
+                <h2 class="section-title">Client Solutions & Services</h2>
+                <p class="section-description">
+                    Available for contract projects, full-time engineering roles, part-time retainers, and corporate team training. Delivering enterprise cloud reliability and high-speed delivery.
+                </p>
+            </div>
+
+            <div class="engagement-grid">
+                <!-- Contract / Freelance Projects -->
+                <div class="engagement-card popular">
+                    <span class="engagement-badge">High Demand</span>
+                    <div>
+                        <div class="engagement-icon-wrapper">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h3>Contract & Freelance Projects</h3>
+                        <div class="subtitle">Project-Based Execution</div>
+                        <p>Complete cloud infrastructure design, CI/CD pipeline automation, and Kubernetes migration for startups & enterprises.</p>
+                        <ul class="engagement-features">
+                            <li><i class="fas fa-check-circle"></i> AWS / Azure 3-Tier Infrastructure (IaC)</li>
+                            <li><i class="fas fa-check-circle"></i> EKS & Docker Microservice Deployment</li>
+                            <li><i class="fas fa-check-circle"></i> Custom CI/CD (GitHub Actions / Jenkins)</li>
+                            <li><i class="fas fa-check-circle"></i> Security Hardening & Linux Tuning</li>
+                        </ul>
+                    </div>
+                    <button onclick="openHireModal('Contract / Project Freelance')" class="engagement-action-btn accent">
+                        <i class="fas fa-paper-plane"></i> Request Project Quote
+                    </button>
                 </div>
+
+                <!-- Full-Time Role -->
+                <div class="engagement-card">
+                    <div>
+                        <div class="engagement-icon-wrapper">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Full-Time DevOps & SRE Engineer</h3>
+                        <div class="subtitle">Permanent / Long-Term Hire</div>
+                        <p>Dedicated cloud infrastructure management, maintaining 99.9%+ uptime, zero-downtime rollouts, and cost optimization.</p>
+                        <ul class="engagement-features">
+                            <li><i class="fas fa-check-circle"></i> Multi-AZ High Availability Architecture</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Observability (Prometheus + Grafana)</li>
+                            <li><i class="fas fa-check-circle"></i> Infrastructure Cost & Performance Audits</li>
+                            <li><i class="fas fa-check-circle"></i> Full DevOps Pipeline Ownership</li>
+                        </ul>
+                    </div>
+                    <button onclick="openHireModal('Full-Time SRE / DevOps Role')" class="engagement-action-btn">
+                        <i class="fas fa-user-check"></i> Hire Full-Time
+                    </button>
+                </div>
+
+                <!-- Part-Time Retainer -->
+                <div class="engagement-card">
+                    <div>
+                        <div class="engagement-icon-wrapper">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Part-Time DevOps Retainer</h3>
+                        <div class="subtitle">Flexible Support & Maintenance</div>
+                        <p>Ongoing server maintenance, domain & SSL management, monitoring, and quick issue resolution on a monthly retainer.</p>
+                        <ul class="engagement-features">
+                            <li><i class="fas fa-check-circle"></i> CyberPanel, ISPConfig & Nginx Management</li>
+                            <li><i class="fas fa-check-circle"></i> SSL Automation & Mail Server Deliverability</li>
+                            <li><i class="fas fa-check-circle"></i> Automated Backups & System Patching</li>
+                            <li><i class="fas fa-check-circle"></i> On-call troubleshooting & performance tuning</li>
+                        </ul>
+                    </div>
+                    <button onclick="openHireModal('Part-Time Retainer')" class="engagement-action-btn">
+                        <i class="fas fa-handshake"></i> Book Part-Time Retainer
+                    </button>
+                </div>
+
+                <!-- Corporate Training & Mentorship -->
+                <div class="engagement-card">
+                    <div>
+                        <div class="engagement-icon-wrapper">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Corporate Training & Workshops</h3>
+                        <div class="subtitle">Team Upskilling & Bootcamps</div>
+                        <p>Practical hands-on DevOps training workshops for engineering teams, developers, and students based on real industry labs.</p>
+                        <ul class="engagement-features">
+                            <li><i class="fas fa-check-circle"></i> Docker, Kubernetes & GitOps Bootcamps</li>
+                            <li><i class="fas fa-check-circle"></i> Infrastructure as Code (Terraform) Labs</li>
+                            <li><i class="fas fa-check-circle"></i> CI/CD Best Practices & Pipeline Design</li>
+                            <li><i class="fas fa-check-circle"></i> Customized Corporate Curriculum</li>
+                        </ul>
+                    </div>
+                    <button onclick="openHireModal('Corporate DevOps Training')" class="engagement-action-btn">
+                        <i class="fas fa-graduation-cap"></i> Book Corporate Training
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -270,19 +374,13 @@
                     <div class="text-block">
                         <h3>My Journey</h3>
                         <p>
-                            With hands-on experience as a DevOps Engineer and Lab Engineer, I specialize in
-                            building reliable AI pipeline infrastructures and cloud deployments. Currently pursuing a
-                            Diploma in AIOps following my B.Sc. in Electrical Engineering, I continuously sharpen my
-                            skills across modern cloud, container orchestration, and platform tooling.
+                            DevOps Engineer & Industry Trainer with extensive hands-on experience designing, automating, and scaling AWS cloud infrastructure. Skilled in CI/CD pipeline architecture, Docker containerization, Kubernetes orchestration (EKS/AKS), and Infrastructure as Code (Terraform, Ansible, CloudFormation). Holder of a Level 6 Diploma in AI Operations (UK) and B.Sc. in Electrical Engineering (UET Lahore).
                         </p>
                     </div>
                     <div class="text-block">
                         <h3>What I Do</h3>
                         <p>
-                            I design and implement CI/CD pipelines, manage Docker configurations, provision
-                            infrastructure as code using Ansible and Terraform, and orchestrate scalable deployments
-                            across AWS and Azure via Kubernetes (EKS/AKS). My goal is bridging the gap between
-                            development, operations, and AI teams.
+                            I architect end-to-end multi-AZ high-availability infrastructure on AWS, automate release pipelines with GitHub Actions, GitLab CI, and Jenkins, enforce 99.9%+ production uptime, and build observability stacks with Prometheus & Grafana. Simultaneously, I deliver part-time DevOps corporate training programs covering Docker, Kubernetes, Terraform, and GitOps for aspiring engineers and client teams.
                         </p>
                     </div>
                     <!-- Early Career Highlights -->
@@ -291,19 +389,19 @@
                         <div class="achievement-list">
                             <div class="achievement-item">
                                 <i class="fas fa-briefcase"></i>
-                                <span>DevOps Engineer at Fusion Cortex</span>
+                                <span>DevOps Engineer at Fusion Cortex — 99.9%+ Production Uptime</span>
                             </div>
                             <div class="achievement-item">
                                 <i class="fas fa-chalkboard-teacher"></i>
-                                <span>Lab Engineer & Mentor to 200+ students (Python, Cloud)</span>
+                                <span>DevOps Trainer at NexSkill (OZI Group) — 3-Month Industry Training</span>
                             </div>
                             <div class="achievement-item">
                                 <i class="fas fa-rocket"></i>
-                                <span>Automated build-test-deploy workflows across 3 environments</span>
+                                <span>Reduced Provisioning Time by ~60% using Terraform & Ansible</span>
                             </div>
                             <div class="achievement-item">
-                                <i class="fas fa-eye"></i>
-                                <span>Orchestrated Kubernetes clusters and maintained system observability</span>
+                                <i class="fas fa-dharmachakra"></i>
+                                <span>Production 3-Tier Amazon EKS Microservices Deployment</span>
                             </div>
                         </div>
                     </div>
@@ -614,6 +712,111 @@
                 <button class="category-btn" data-category="collaboration">Future Builds</button>
             </div>
             <div class="projects-grid">
+                <!-- AWS Three-Tier Web Architecture Workshop -->
+                <div class="project-card enterprise" data-category="infrastructure">
+                    <div class="project-header">
+                        <div class="project-status-badge production">
+                            <i class="fas fa-check-circle"></i>
+                            <span>AWS Production Architecture</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AWS Three-Tier Scalable Web Architecture</h3>
+                        <p class="project-description">
+                            Architected and deployed a highly available, production-ready 3-tier web architecture on Amazon Web Services (AWS). Engineered isolated multi-AZ public web subnets (ALB & React frontend), private application subnets (Node.js EC2 Auto Scaling), and multi-AZ private database subnets (Amazon Aurora MySQL) with strict IAM roles and security group isolation.
+                        </p>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">AWS VPC & EC2</span>
+                            <span class="tech-badge primary">Auto Scaling & ALB</span>
+                            <span class="tech-badge primary">Amazon Aurora MySQL</span>
+                            <span class="tech-badge secondary">React.js & Node.js</span>
+                            <span class="tech-badge secondary">IAM & Route 53</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AbdullahbinAmin/aws-three-tier-web-architecture-workshop" target="_blank" class="action-btn primary"
+                                style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem">
+                                <i class="fab fa-github"></i> View Workshop Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Directory — 3-Tier EKS Architecture -->
+                <div class="project-card enterprise" data-category="infrastructure">
+                    <div class="project-header">
+                        <div class="project-status-badge production">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Amazon EKS Production</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-dharmachakra"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cloud Directory — 3-Tier EKS Architecture</h3>
+                        <p class="project-description">
+                            Deployed a production-grade, highly available 3-tier microservice application on Amazon EKS. Implemented containerization, IAM role-based access control, ALB custom domain routing, SSL/TLS termination, and managed stateful MySQL 8.0 database deployments using Kubernetes StatefulSets with raw SSD hostPath persistent volumes.
+                        </p>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">AWS EKS & VPC</span>
+                            <span class="tech-badge primary">Kubernetes StatefulSets</span>
+                            <span class="tech-badge primary">ALB & ACM SSL</span>
+                            <span class="tech-badge secondary">React.js & Node.js</span>
+                            <span class="tech-badge secondary">MySQL 8.0</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AbdullahbinAmin/aws-eks3tier-architecture" target="_blank" class="action-btn primary"
+                                style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem">
+                                <i class="fab fa-github"></i> View EKS Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ISPConfig Mail Dashboard -->
+                <div class="project-card enterprise" data-category="monitoring">
+                    <div class="project-header">
+                        <div class="project-status-badge production">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Multi-VPS Live Monitoring</span>
+                        </div>
+                    </div>
+                    <div class="project-icon-container">
+                        <div class="project-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ISPConfig Multi-Server Mail Dashboard</h3>
+                        <p class="project-description">
+                            Built and deployed a full-stack real-time mail log dashboard across 4 VPS servers to monitor ISPConfig mail logs (/var/log/mail.log). Real-time tracking of sent emails, bounces, and deferred emails with a single shared Git deployment model, PM2 process management, and Nginx proxying.
+                        </p>
+                        <div class="tech-stack-professional">
+                            <span class="tech-badge primary">Node.js & React</span>
+                            <span class="tech-badge primary">PM2 High-Availability</span>
+                            <span class="tech-badge primary">ISPConfig & Nginx</span>
+                            <span class="tech-badge secondary">Log Parsing</span>
+                            <span class="tech-badge secondary">Linux VPS</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AbdullahbinAmin/mail_server_dashboard" target="_blank" class="action-btn primary"
+                                style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem">
+                                <i class="fab fa-github"></i> View Mail Dashboard Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- End to End CI/CD Implementation -->
                 <div class="project-card enterprise" data-category="automation">
                     <div class="project-header">
@@ -852,6 +1055,31 @@
                 </p>
             </div>
             <div class="timeline">
+                <!-- DevOps Trainer | NexSkill -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot" style="background: var(--accent-color);"></div>
+                    </div>
+                    <div class="timeline-content" style="border-left: 3px solid var(--accent-color);">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">DevOps Trainer (Part-Time)</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company"><i class="fas fa-chalkboard-teacher"></i> NexSkill (OZI Group)</span>
+                                <span class="timeline-date">July 2026 – Present | Lahore, PK</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">
+                            Delivering a 3-month part-time DevOps industry training program covering Git, Docker, CI/CD (Jenkins/GitLab CI), Cloud (AWS/Azure/GCP), Terraform, Kubernetes, ArgoCD/GitOps, and Prometheus & Grafana monitoring. Designing hands-on lab projects and mentoring engineers.
+                        </p>
+                        <div class="role-stack">
+                            <span class="tech-badge primary">Docker & K8s</span>
+                            <span class="tech-badge primary">GitOps & ArgoCD</span>
+                            <span class="tech-badge secondary">Terraform</span>
+                            <span class="tech-badge secondary">Corporate Training</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Fusion Cortex -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
@@ -861,17 +1089,43 @@
                         <div class="timeline-header">
                             <h3 class="timeline-title">DevOps Engineer</h3>
                             <div class="timeline-meta">
-                                <span class="timeline-company">Fusion Cortex</span>
-                                <span class="timeline-date">Feb 2026 - Present</span>
+                                <span class="timeline-company"><i class="fas fa-building"></i> Fusion Cortex</span>
+                                <span class="timeline-date">November 2025 – Present | Lahore, PK</span>
                             </div>
                         </div>
                         <p class="timeline-description">
-                            Leading AI pipeline infrastructure, cloud deployments, and automation initiatives.
+                            Architecting end-to-end CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins) and multi-AZ high-availability AWS infrastructure (EC2, ECS, S3, IAM, VPC), maintaining 99.9%+ uptime. Authored Terraform & Ansible modules reducing provisioning time by ~60%. Implemented Prometheus + Grafana observability & CyberPanel / ISPConfig hosting.
                         </p>
                         <div class="role-stack">
-                            <span class="tech-badge primary">AIOps</span>
-                            <span class="tech-badge primary">Cloud Infrastructure</span>
-                            <span class="tech-badge secondary">Automation</span>
+                            <span class="tech-badge primary">AWS Multi-AZ</span>
+                            <span class="tech-badge primary">Terraform & Ansible</span>
+                            <span class="tech-badge primary">Prometheus & Grafana</span>
+                            <span class="tech-badge secondary">99.9%+ Uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Al Nafi DevOps Intern -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">DevOps Intern</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company"><i class="fas fa-graduation-cap"></i> Al-Nafi International College</span>
+                                <span class="timeline-date">May 2025 – October 2025 | Remote</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">
+                            Designed and operated CI/CD pipelines with Jenkins and GitHub Actions. Automated IT operations using Python and Ansible. Built Docker environments for dev/staging/prod and managed Terraform IaC for repeatable AWS provisioning. Applied CIS-benchmark Linux hardening.
+                        </p>
+                        <div class="role-stack">
+                            <span class="tech-badge primary">Jenkins & Actions</span>
+                            <span class="tech-badge primary">Docker</span>
+                            <span class="tech-badge secondary">Terraform</span>
+                            <span class="tech-badge secondary">Linux Security</span>
                         </div>
                     </div>
                 </div>
@@ -885,92 +1139,18 @@
                         <div class="timeline-header">
                             <h3 class="timeline-title">Lab Engineer</h3>
                             <div class="timeline-meta">
-                                <span class="timeline-company">Riphah International University Lahore</span>
-                                <span class="timeline-date">Mar 2024 - Feb 2026</span>
+                                <span class="timeline-company"><i class="fas fa-university"></i> Riphah International University</span>
+                                <span class="timeline-date">March 2024 – November 2025 | Lahore, PK</span>
                             </div>
                         </div>
                         <p class="timeline-description">
-                            Delivered hands-on lab instruction to 200+ students across Cloud Computing, OOP, and
-                            Programming Fundamentals. Mentored students in Linux system administration, cloud
-                            fundamentals, and DevOps concepts.
+                            Delivered hands-on instruction to undergraduate students in Linux administration, Python programming, cloud computing, and DevOps methodologies. Designed structured lab manuals & assessment rubrics adopted across student cohorts.
                         </p>
                         <div class="role-stack">
                             <span class="tech-badge primary">Cloud Computing</span>
-                            <span class="tech-badge primary">Python</span>
-                            <span class="tech-badge secondary">Linux</span>
+                            <span class="tech-badge primary">Python & Linux</span>
+                            <span class="tech-badge secondary">Lab Design</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Al Nafi DevOps Intern -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">DevOps Engineer Intern</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-company">Al Nafi International College</span>
-                                <span class="timeline-date">Aug 2024 - Mar 2025</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Built Jenkins and GitHub Actions pipelines that automated build-test-deploy workflows across
-                            3 environments. Managed Docker containers and Kubernetes clusters, and automated
-                            infrastructure using Ansible and Terraform.
-                        </p>
-                        <div class="role-stack">
-                            <span class="tech-badge primary">Jenkins</span>
-                            <span class="tech-badge primary">Kubernetes</span>
-                            <span class="tech-badge secondary">Terraform</span>
-                            <span class="tech-badge secondary">Ansible</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Al Nafi Linux Admin Intern -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Linux Admin Intern</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-company">Al Nafi International College</span>
-                                <span class="timeline-date">Mar 2024 - Aug 2024</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Configured, optimized, and secured Linux servers to ensure high performance and system
-                            availability. Automated server provisioning using Python scripts and Ansible.
-                        </p>
-                        <div class="role-stack">
-                            <span class="tech-badge primary">Linux</span>
-                            <span class="tech-badge primary">Python</span>
-                            <span class="tech-badge secondary">Ansible</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Almaram Alfaneyah -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Estimation Engineer</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-company">Almaram Alfaneyah</span>
-                                <span class="timeline-date">Dec 2023 - Mar 2024</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Led a team of sales and estimation engineers, overseeing project bids and client
-                            communications. Delivered technical proposals aligned with customer requirements.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1313,6 +1493,56 @@
         </div>
     </footer>
 
+    <!-- Floating Hire WhatsApp CTA Button -->
+    <a href="https://wa.me/923224247673?text=Hi%20Abdullah,%20I%20saw%20your%20portfolio%20and%20want%20to%20hire%20you%20for%20a%20DevOps%20project!" target="_blank" class="floating-hire-btn" aria-label="Hire via WhatsApp">
+        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+        <span>Hire Me on WhatsApp</span>
+    </a>
+
+    <!-- Quick Hire / Project Quote Modal -->
+    <div class="hire-modal-backdrop" id="hireModal">
+        <div class="hire-modal-card">
+            <button class="hire-modal-close" onclick="closeHireModal()"><i class="fas fa-times"></i></button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="section-badge" style="background: var(--accent-glow); color: var(--accent-color);">Direct Hiring Inquiry</span>
+                <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-top: 0.5rem;">Work With Abdullah bin Amin</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">Select your required engagement model to connect instantly.</p>
+            </div>
+
+            <form id="hireForm" onsubmit="handleHireSubmit(event)">
+                <div class="hire-form-group">
+                    <label>Selected Engagement Model</label>
+                    <div class="engagement-type-options">
+                        <button type="button" class="type-option-btn selected" onclick="selectType(this, 'Contract / Project Freelance')">Contract / Freelance</button>
+                        <button type="button" class="type-option-btn" onclick="selectType(this, 'Full-Time SRE / DevOps Role')">Full-Time Hire</button>
+                        <button type="button" class="type-option-btn" onclick="selectType(this, 'Part-Time Retainer')">Part-Time Retainer</button>
+                        <button type="button" class="type-option-btn" onclick="selectType(this, 'Corporate DevOps Training')">Corporate Training</button>
+                    </div>
+                    <input type="hidden" id="selectedEngagementType" value="Contract / Project Freelance">
+                </div>
+
+                <div class="hire-form-group">
+                    <label for="clientName">Your Name / Organization</label>
+                    <input type="text" id="clientName" class="hire-form-control" placeholder="e.g. John Doe / TechCorp" required>
+                </div>
+
+                <div class="hire-form-group">
+                    <label for="projectDetails">Project Scope / Requirements Summary</label>
+                    <textarea id="projectDetails" class="hire-form-control" rows="3" placeholder="Describe your cloud setup, CI/CD pipeline, training needs, or timeframe..." required></textarea>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <button type="submit" class="engagement-action-btn accent" style="flex: 1; min-width: 200px;">
+                        <i class="fab fa-whatsapp"></i> Connect via WhatsApp
+                    </button>
+                    <button type="button" onclick="submitHireViaEmail()" class="engagement-action-btn" style="flex: 1; min-width: 200px; background: var(--bg-tertiary); color: var(--text-primary);">
+                        <i class="fas fa-envelope"></i> Send via Email
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
         // Typing Effect for Hero Section
@@ -1320,77 +1550,96 @@
             const typingTexts = document.querySelectorAll('.typing-text');
             let currentIndex = 0;
 
-            // Show first text initially
             if (typingTexts.length > 0) {
                 typingTexts[0].style.display = 'inline-block';
                 typingTexts[0].style.opacity = '1';
             }
 
-            // Set interval for typing effect
             setInterval(() => {
-                // Hide current text
+                if (typingTexts.length === 0) return;
                 typingTexts[currentIndex].style.opacity = '0';
-
-                // Move to next text
                 currentIndex = (currentIndex + 1) % typingTexts.length;
-
-                // Show next text
                 setTimeout(() => {
                     typingTexts.forEach((text, index) => {
                         text.style.display = index === currentIndex ? 'inline-block' : 'none';
                     });
                     typingTexts[currentIndex].style.opacity = '1';
                 }, 500);
-
             }, 3000);
         });
 
         // Professional Mode Toggle
-        document.getElementById('professionalToggle').addEventListener('click', function () {
-            document.body.classList.toggle('professional-mode');
-            const btn = this;
-            const isActive = document.body.classList.contains('professional-mode');
-
-            if (isActive) {
-                btn.innerHTML = '<i class="fas fa-palette"></i><span>Creative Mode</span>';
-                btn.classList.add('active');
-            } else {
-                btn.innerHTML = '<i class="fas fa-briefcase"></i><span>Professional Mode</span>';
-                btn.classList.remove('active');
-            }
-        });
-
-        // Schedule Call Function
-        function scheduleCall() {
-            const email = 'abdullahbinaminmeo@gmail.com';
-            const subject = 'Schedule a Call - Portfolio Inquiry';
-            const body = 'Hello Abdullah,\n\nI would like to schedule a call to discuss potential opportunities. Please let me know your availability.\n\nBest regards,\n[Your Name]';
-
-            // Try to open default mail client
-            const mailtoLink = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // Create a temporary link and trigger click
-            const link = document.createElement('a');
-            link.href = mailtoLink;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-
-            // Add to document, click, and remove
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            // Fallback to copying email to clipboard
-            navigator.clipboard.writeText(email).then(() => {
-                alert('Email address copied to clipboard. Please paste it into your email client.');
-            }).catch(() => {
-                // If clipboard fails, just show the email
-                alert(`Please send an email to: ${email}`);
+        const profToggle = document.getElementById('professionalToggle');
+        if (profToggle) {
+            profToggle.addEventListener('click', function () {
+                document.body.classList.toggle('professional-mode');
+                const isActive = document.body.classList.contains('professional-mode');
+                if (isActive) {
+                    this.innerHTML = '<i class="fas fa-palette"></i><span>Creative Mode</span>';
+                    this.classList.add('active');
+                } else {
+                    this.innerHTML = '<i class="fas fa-briefcase"></i><span>Professional Mode</span>';
+                    this.classList.remove('active');
+                }
             });
         }
+
+        // Hire Modal Helpers
+        function openHireModal(type) {
+            const modal = document.getElementById('hireModal');
+            if (modal) {
+                modal.classList.add('active');
+                if (type) {
+                    const hiddenInput = document.getElementById('selectedEngagementType');
+                    if (hiddenInput) hiddenInput.value = type;
+                    const buttons = document.querySelectorAll('.type-option-btn');
+                    buttons.forEach(btn => {
+                        if (btn.innerText.toLowerCase().includes(type.split(' ')[0].toLowerCase())) {
+                            btn.classList.add('selected');
+                        } else {
+                            btn.classList.remove('selected');
+                        }
+                    });
+                }
+            }
+        }
+
+        function closeHireModal() {
+            const modal = document.getElementById('hireModal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function selectType(btnElement, typeName) {
+            const buttons = document.querySelectorAll('.type-option-btn');
+            buttons.forEach(b => b.classList.remove('selected'));
+            btnElement.classList.add('selected');
+            document.getElementById('selectedEngagementType').value = typeName;
+        }
+
+        function handleHireSubmit(e) {
+            e.preventDefault();
+            const type = document.getElementById('selectedEngagementType').value;
+            const name = document.getElementById('clientName').value;
+            const details = document.getElementById('projectDetails').value;
+            
+            const message = `Hi Abdullah! My name is ${name}.\nI am interested in your: *${type}* service.\nProject details: ${details}`;
+            const whatsappUrl = `https://wa.me/923224247673?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeHireModal();
+        }
+
+        function submitHireViaEmail() {
+            const type = document.getElementById('selectedEngagementType').value;
+            const name = document.getElementById('clientName').value || 'Potential Client';
+            const details = document.getElementById('projectDetails').value || 'Project inquiry';
+            
+            const subject = `Project Inquiry: ${type} - ${name}`;
+            const body = `Hi Abdullah,\n\nName / Company: ${name}\nService Requested: ${type}\n\nProject Details:\n${details}\n\nLooking forward to hearing from you.`;
+            
+            const mailtoUrl = `mailto:abdullahbinaminmeo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(mailtoUrl, '_blank');
+            closeHireModal();
+        }
     </script>
-
-</html>
 </body>
-
 </html>
