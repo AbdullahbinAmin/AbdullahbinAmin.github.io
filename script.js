@@ -1148,12 +1148,25 @@ window.triggerK8sRollout = function() {
 };
 
 /* ==========================================================================
-   Automatic Cinematic Movie Controller & Scene Sequencer
+   Zero-Scroll Cinema Presentation Engine & Slower Intro Sequencer
    ========================================================================== */
-let isAutoPlayActive = true;
-let movieSequencerInterval = null;
-let currentChapterIndex = 0;
-const chapterIds = ['linux', 'python', 'docker', 'k8s', 'aws', 'cicd'];
+let isCinemaPlayActive = true;
+let isCinemaModeActive = true;
+let cinemaTimer = null;
+let currentSceneIdx = 0;
+
+const cinemaScenes = [
+    { id: 'home', title: 'SCENE 01 / 10: HERO UNVEIL' },
+    { id: 'impact', title: 'SCENE 02 / 10: ENTERPRISE IMPACT' },
+    { id: 'chapter-linux', title: 'SCENE 03 / 10: LINUX KERNEL 🐧' },
+    { id: 'chapter-python', title: 'SCENE 04 / 10: PYTHON AUTOMATION 🐍' },
+    { id: 'chapter-docker', title: 'SCENE 05 / 10: DOCKER VOYAGE 🐳' },
+    { id: 'chapter-k8s', title: 'SCENE 06 / 10: KUBERNETES FLEET ☸️' },
+    { id: 'chapter-aws', title: 'SCENE 07 / 10: AWS CLOUD & IAC ☁️' },
+    { id: 'chapter-cicd', title: 'SCENE 08 / 10: CI/CD PIPELINE 🔄' },
+    { id: 'experience', title: 'SCENE 09 / 10: TRAINER EXPERIENCE 🎓' },
+    { id: 'contact', title: 'SCENE 10 / 10: HIRE ME HUB 💼' }
+];
 
 window.skipMovieIntro = function() {
     const introOverlay = document.getElementById('cinematicMovieIntro');
@@ -1163,6 +1176,7 @@ window.skipMovieIntro = function() {
             introOverlay.classList.add('hidden');
         }, 800);
     }
+    enableCinemaMode();
 };
 
 window.replayMovieIntro = function() {
@@ -1176,27 +1190,7 @@ window.replayMovieIntro = function() {
     if (fillEl) fillEl.style.width = '0%';
     if (diagEl) diagEl.innerText = 'Booting Linux Kernel 6.5 SRE Nodes...';
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     initMovieSequence();
-};
-
-window.toggleAutoPlayMovie = function() {
-    isAutoPlayActive = !isAutoPlayActive;
-    const iconEl = document.getElementById('iconPlayback');
-    const textEl = document.getElementById('textTogglePlayback');
-    const statusTextEl = document.getElementById('playbackStatusText');
-
-    if (isAutoPlayActive) {
-        if (iconEl) iconEl.className = 'fas fa-pause';
-        if (textEl) textEl.innerText = 'Pause';
-        if (statusTextEl) statusTextEl.innerText = '🎬 MOVIE AUTO-PLAY: ON';
-        startAutoPlaySequencer();
-    } else {
-        if (iconEl) iconEl.className = 'fas fa-play';
-        if (textEl) textEl.innerText = 'Play';
-        if (statusTextEl) statusTextEl.innerText = '⏸️ MOVIE AUTO-PLAY: PAUSED';
-        if (movieSequencerInterval) clearInterval(movieSequencerInterval);
-    }
 };
 
 function initMovieSequence() {
@@ -1204,17 +1198,18 @@ function initMovieSequence() {
     const diagEl = document.getElementById('introDiagText');
     const diagMessages = [
         'Booting Linux Kernel 6.5 SRE Nodes...',
-        'Initializing Python Boto3 Cloud Automation...',
+        'Initializing Python Boto3 Cloud Automation Engine...',
         'Loading Docker Microservice Cargo Containers...',
         'Syncing AWS EKS Multi-Region Kubernetes Control Plane...',
-        'Continuous Delivery Pipelines Online. 100% Ready!'
+        'Continuous Delivery Pipelines Online. 100% Production Ready!'
     ];
 
     let progress = 0;
     let msgIdx = 0;
 
+    // Slower 5.0 second progress fill
     const progressTimer = setInterval(() => {
-        progress += 4;
+        progress += 2;
         if (fillEl) fillEl.style.width = `${progress}%`;
 
         if (progress % 20 === 0 && msgIdx < diagMessages.length) {
@@ -1226,39 +1221,116 @@ function initMovieSequence() {
             clearInterval(progressTimer);
             setTimeout(() => {
                 skipMovieIntro();
-                startAutoPlaySequencer();
-            }, 400);
+            }, 600);
         }
-    }, 60);
+    }, 100);
 }
 
-function startAutoPlaySequencer() {
-    if (movieSequencerInterval) clearInterval(movieSequencerInterval);
+function enableCinemaMode() {
+    isCinemaModeActive = true;
+    document.body.classList.add('cinema-mode-active');
+    
+    const modeText = document.getElementById('modeToggleText');
+    if (modeText) modeText.innerText = 'Scroll View';
 
-    movieSequencerInterval = setInterval(() => {
-        if (!isAutoPlayActive) return;
+    jumpToScene(0);
+    startCinemaAutoPlay();
+}
 
-        currentChapterIndex = (currentChapterIndex + 1) % chapterIds.length;
-        const targetChapter = chapterIds[currentChapterIndex];
+function disableCinemaMode() {
+    isCinemaModeActive = false;
+    document.body.classList.remove('cinema-mode-active');
+    if (cinemaTimer) clearInterval(cinemaTimer);
 
-        if (typeof window.switchJourneyChapter === 'function') {
-            window.switchJourneyChapter(targetChapter);
+    const modeText = document.getElementById('modeToggleText');
+    if (modeText) modeText.innerText = 'Cinema View';
+
+    const allSections = document.querySelectorAll('section');
+    allSections.forEach(sec => sec.classList.remove('scene-active'));
+}
+
+window.toggleCinemaMode = function() {
+    if (isCinemaModeActive) {
+        disableCinemaMode();
+    } else {
+        enableCinemaMode();
+    }
+};
+
+window.jumpToScene = function(sceneIdx) {
+    currentSceneIdx = parseInt(sceneIdx, 10);
+    if (isNaN(currentSceneIdx) || currentSceneIdx < 0 || currentSceneIdx >= cinemaScenes.length) {
+        currentSceneIdx = 0;
+    }
+
+    const sceneObj = cinemaScenes[currentSceneIdx];
+    
+    // Update badge & dropdown
+    const titleEl = document.getElementById('dockSceneTitle');
+    const dropdownEl = document.getElementById('sceneJumper');
+    if (titleEl) titleEl.innerText = sceneObj.title;
+    if (dropdownEl) dropdownEl.value = currentSceneIdx;
+
+    if (isCinemaModeActive) {
+        const allSections = document.querySelectorAll('section');
+        allSections.forEach(sec => sec.classList.remove('scene-active'));
+
+        const targetEl = document.getElementById(sceneObj.id);
+        if (targetEl) {
+            targetEl.classList.add('scene-active');
+            targetEl.scrollTop = 0;
         }
 
-        // Run continuous scene animations
-        if (targetChapter === 'linux' && typeof window.runLinuxCommand === 'function') {
+        // Trigger scene specific animations
+        if (sceneObj.id === 'chapter-linux' && typeof window.runLinuxCommand === 'function') {
             window.runLinuxCommand('systemctl');
-        } else if (targetChapter === 'python' && typeof window.runPythonScript === 'function') {
+        } else if (sceneObj.id === 'chapter-python' && typeof window.runPythonScript === 'function') {
             window.runPythonScript();
-        } else if (targetChapter === 'docker' && typeof window.loadDockerContainer === 'function') {
+        } else if (sceneObj.id === 'chapter-docker' && typeof window.loadDockerContainer === 'function') {
             window.loadDockerContainer();
-        } else if (targetChapter === 'k8s' && typeof window.scaleK8sPods === 'function') {
+        } else if (sceneObj.id === 'chapter-k8s' && typeof window.scaleK8sPods === 'function') {
             window.scaleK8sPods(1);
         }
-    }, 5000);
+    } else {
+        const targetEl = document.getElementById(sceneObj.id);
+        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
+window.cinemaNextScene = function() {
+    const nextIdx = (currentSceneIdx + 1) % cinemaScenes.length;
+    jumpToScene(nextIdx);
+};
+
+window.cinemaPrevScene = function() {
+    const prevIdx = (currentSceneIdx - 1 + cinemaScenes.length) % cinemaScenes.length;
+    jumpToScene(prevIdx);
+};
+
+window.toggleCinemaPlay = function() {
+    isCinemaPlayActive = !isCinemaPlayActive;
+    const iconEl = document.getElementById('iconCinemaPlay');
+    
+    if (isCinemaPlayActive) {
+        if (iconEl) iconEl.className = 'fas fa-pause';
+        startCinemaAutoPlay();
+    } else {
+        if (iconEl) iconEl.className = 'fas fa-play';
+        if (cinemaTimer) clearInterval(cinemaTimer);
+    }
+};
+
+function startCinemaAutoPlay() {
+    if (cinemaTimer) clearInterval(cinemaTimer);
+
+    cinemaTimer = setInterval(() => {
+        if (!isCinemaPlayActive || !isCinemaModeActive) return;
+        const nextIdx = (currentSceneIdx + 1) % cinemaScenes.length;
+        jumpToScene(nextIdx);
+    }, 6500);
 }
 
-// Auto-run intro on DOM ready
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         initMovieSequence();

@@ -5156,3 +5156,148 @@ section { position: relative; overflow: hidden; }
     color: #ffffff;
     transform: translateY(-1px);
 }
+
+/* ==========================================================================
+   Zero-Scroll Full-Screen Cinema Presentation Stage & Dock Styles
+   ========================================================================== */
+body.cinema-mode-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+body.cinema-mode-active section {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 5rem;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s ease;
+    transform: scale(0.96);
+    z-index: 10;
+}
+
+body.cinema-mode-active section.scene-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    z-index: 20;
+}
+
+/* Cinema Control Dock Floating Widget */
+.cinema-dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    background: rgba(24, 18, 16, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-radius: 50px;
+    padding: 0.5rem 1.25rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(217, 119, 6, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cinema-dock-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dock-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #e5a93c;
+    letter-spacing: 0.05em;
+    min-width: 190px;
+}
+
+.dock-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseDot 1.5s infinite;
+}
+
+.dock-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dock-btn {
+    padding: 0.45rem 0.85rem;
+    border-radius: 20px;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dock-btn:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
+}
+
+.dock-btn.primary {
+    background: linear-gradient(135deg, #d97706, #e5a93c);
+    color: white;
+}
+
+.dock-btn.mode-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #d4c7bb;
+}
+
+.scene-jumper-select {
+    background: #181210;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 12px;
+    color: #e5a93c;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cinema-dock {
+        width: 92%;
+        bottom: 12px;
+        padding: 0.5rem;
+        border-radius: 20px;
+    }
+    .cinema-dock-inner {
+        gap: 0.5rem;
+    }
+    .dock-badge {
+        min-width: auto;
+        font-size: 0.7rem;
+    }
+    .scene-jumper-select {
+        display: none;
+    }
+}
