@@ -1023,3 +1023,126 @@ document.addEventListener('DOMContentLoaded', () => {
         new PortfolioApp();
     }
 });
+
+/* ==========================================================================
+   Interactive Cinematic DevOps Storytelling Journey Logic
+   ========================================================================== */
+window.switchJourneyChapter = function(chapterId) {
+    // 1. Reset all tracker tabs
+    const trackerSteps = document.querySelectorAll('.tracker-step');
+    trackerSteps.forEach(step => step.classList.remove('active'));
+    
+    // 2. Hide all story cards
+    const storyCards = document.querySelectorAll('.story-card');
+    storyCards.forEach(card => card.classList.remove('active'));
+
+    // 3. Activate selected tab & scene card
+    const selectedTab = document.getElementById(`tab-${chapterId}`);
+    const selectedScene = document.getElementById(`chapter-${chapterId}`);
+
+    if (selectedTab) selectedTab.classList.add('active');
+    if (selectedScene) selectedScene.classList.add('active');
+};
+
+window.runLinuxCommand = function(cmdType) {
+    const termBody = document.getElementById('linuxTerminalBody');
+    if (!termBody) return;
+
+    let lineCmd = '';
+    let outputText = '';
+
+    if (cmdType === 'systemctl') {
+        lineCmd = 'systemctl status k8s-node-agent';
+        outputText = '<div class="term-output green">● k8s-node-agent.service - Active (running) | Cluster Synced</div>';
+    } else if (cmdType === 'sysctl') {
+        lineCmd = 'sysctl -w net.ipv4.ip_forward=1';
+        outputText = '<div class="term-output">net.ipv4.ip_forward = 1 (Kernel Routing Enabled)</div>';
+    } else if (cmdType === 'netstat') {
+        lineCmd = 'netstat -tuln | grep -E "80|443|6443"';
+        outputText = '<div class="term-output">tcp 0 0 0.0.0.0:6443 0.0.0.0:* LISTEN (kube-apiserver)</div>';
+    }
+
+    const newBlock = document.createElement('div');
+    newBlock.innerHTML = `
+        <div class="term-line"><span class="prompt">abdullah@node01:~$</span> ${lineCmd}</div>
+        ${outputText}
+    `;
+
+    termBody.insertBefore(newBlock, termBody.lastElementChild);
+    termBody.scrollTop = termBody.scrollHeight;
+};
+
+window.runPythonScript = function() {
+    const outputEl = document.getElementById('pythonStatusOutput');
+    if (!outputEl) return;
+
+    outputEl.innerText = 'Status: Executing Boto3 SDK...';
+    outputEl.style.color = '#e5a93c';
+
+    setTimeout(() => {
+        outputEl.innerText = 'Status: 200 OK — 12 EC2 Instances & 3 EKS Nodes Active!';
+        outputEl.style.color = '#10b981';
+    }, 800);
+};
+
+let containerCount = 3;
+window.loadDockerContainer = function() {
+    const deck = document.getElementById('containerDeck');
+    if (!deck) return;
+
+    containerCount++;
+    const containerTypes = ['Microservice', 'Worker-Job', 'Kafka-Node', 'Nginx-Ingress'];
+    const randomType = containerTypes[Math.floor(Math.random() * containerTypes.length)];
+    const colors = ['c-gold', 'c-amber', 'c-brown'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    const newBox = document.createElement('div');
+    newBox.className = `cargo-box ${randomColor}`;
+    newBox.innerHTML = `<i class="fas fa-cube"></i> ${randomType}-${containerCount}`;
+
+    const interactiveBox = document.getElementById('dynamicBox');
+    if (interactiveBox) {
+        deck.insertBefore(newBox, interactiveBox);
+    } else {
+        deck.appendChild(newBox);
+    }
+};
+
+window.scaleK8sPods = function(change) {
+    const container = document.getElementById('k8sPodsContainer');
+    const statusPill = document.getElementById('k8sStatusPill');
+    if (!container) return;
+
+    const currentPods = container.children.length;
+    if (change > 0 && currentPods < 6) {
+        const podId = Math.floor(Math.random() * 90) + 10;
+        const newPod = document.createElement('div');
+        newPod.className = 'pod-card active';
+        newPod.innerHTML = `
+            <div class="pod-status-dot"></div>
+            <i class="fas fa-dharmachakra"></i>
+            <span class="pod-name">pod/auto-scale-pod-${podId}</span>
+            <span class="pod-cpu">CPU: 10%</span>
+        `;
+        container.appendChild(newPod);
+    } else if (change < 0 && currentPods > 1) {
+        container.removeChild(container.lastElementChild);
+    }
+
+    if (statusPill) {
+        statusPill.innerText = `Pods: ${container.children.length} Active | HPA: Enabled`;
+    }
+};
+
+window.triggerK8sRollout = function() {
+    const statusPill = document.getElementById('k8sStatusPill');
+    if (statusPill) {
+        statusPill.innerText = 'Pods: Rolling Update v2.1 in progress...';
+        statusPill.style.color = '#e5a93c';
+
+        setTimeout(() => {
+            statusPill.innerText = 'Pods: Rolling Update v2.1 Complete (Zero Downtime)';
+            statusPill.style.color = '#10b981';
+        }, 1200);
+    }
+};

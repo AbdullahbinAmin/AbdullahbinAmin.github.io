@@ -591,196 +591,260 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Cinematic DevOps Storytelling Journey Deck (Skills Redesign) -->
+    <section id="skills" class="skills devops-journey-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Technical Skills</span>
-                <h2 class="section-title">Expertise & Technologies</h2>
+                <span class="section-badge">Interactive DevOps Journey</span>
+                <h2 class="section-title">The Architect's Toolchain Voyage</h2>
                 <p class="section-description">
-                    Proficient in modern DevOps tools and practices that drive efficient software delivery.
+                    Follow the interactive journey: from Linux kernel fundamentals to multi-cloud orchestration and containerized microservices.
                 </p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-cloud"></i>
-                        <h3>Cloud Platforms</h3>
+
+            <!-- Story Chapter Navigation Tracker -->
+            <div class="story-chapter-tracker">
+                <button class="tracker-step active" onclick="switchJourneyChapter('linux')" id="tab-linux">
+                    <span class="step-num">01</span>
+                    <span class="step-label"><i class="fab fa-linux"></i> Linux Core</span>
+                </button>
+                <button class="tracker-step" onclick="switchJourneyChapter('python')" id="tab-python">
+                    <span class="step-num">02</span>
+                    <span class="step-label"><i class="fab fa-python"></i> Python SDK</span>
+                </button>
+                <button class="tracker-step" onclick="switchJourneyChapter('docker')" id="tab-docker">
+                    <span class="step-num">03</span>
+                    <span class="step-label"><i class="fab fa-docker"></i> Docker Ship</span>
+                </button>
+                <button class="tracker-step" onclick="switchJourneyChapter('k8s')" id="tab-k8s">
+                    <span class="step-num">04</span>
+                    <span class="step-label"><i class="fas fa-dharmachakra"></i> K8s Cluster</span>
+                </button>
+                <button class="tracker-step" onclick="switchJourneyChapter('aws')" id="tab-aws">
+                    <span class="step-num">05</span>
+                    <span class="step-label"><i class="fab fa-aws"></i> AWS &amp; IaC</span>
+                </button>
+                <button class="tracker-step" onclick="switchJourneyChapter('cicd')" id="tab-cicd">
+                    <span class="step-num">06</span>
+                    <span class="step-label"><i class="fas fa-code-branch"></i> CI/CD Stream</span>
+                </button>
+            </div>
+
+            <!-- Story Scenes Container Deck -->
+            <div class="devops-story-deck">
+                
+                <!-- Chapter 1: Linux Kernel -->
+                <div class="story-card active" id="chapter-linux">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fab fa-linux"></i> CHAPTER 01 — THE FOUNDATION</div>
+                        <h3>Linux OS &amp; Systems Engineering</h3>
+                        <p>High Availability begins at the OS level. Kernel tuning, systemd service management, and shell automation.</p>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Amazon Web Services</span>
-                                <span class="skill-level">95%</span>
+                    <div class="story-interactive-window">
+                        <div class="terminal-header">
+                            <div class="window-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-min"></span>
+                                <span class="btn-max"></span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
+                            <div class="terminal-title">abdullah@devops-node-01:~ (bash)</div>
+                        </div>
+                        <div class="terminal-body" id="linuxTerminalBody">
+                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> uname -r</div>
+                            <div class="term-output">6.5.0-aws-kernel-x86_64 #1 SMP PREEMPT</div>
+                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> systemctl status devops-engine</div>
+                            <div class="term-output green">● devops-engine.service - High Availability SRE Engine</div>
+                            <div class="term-output">   Loaded: loaded (/etc/systemd/system/devops-engine.service; enabled)</div>
+                            <div class="term-output">   Active: active (running) since 99.99% SLA Uptime</div>
+                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> <span class="typing-cursor" id="termCursor">█</span></div>
+                        </div>
+                        <div class="terminal-actions">
+                            <button onclick="runLinuxCommand('systemctl')" class="term-btn"><i class="fas fa-play"></i> Check Services</button>
+                            <button onclick="runLinuxCommand('sysctl')" class="term-btn"><i class="fas fa-sliders-h"></i> Kernel Tuning</button>
+                            <button onclick="runLinuxCommand('netstat')" class="term-btn"><i class="fas fa-network-wired"></i> Audit Ports</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 2: Python Automation Engine -->
+                <div class="story-card" id="chapter-python">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fab fa-python"></i> CHAPTER 02 — SCRIPTING &amp; BOTO3</div>
+                        <h3>Automating Infrastructure with Python</h3>
+                        <p>Building automated health-checks, Lambda event triggers, and Boto3 AWS SDK cloud orchestration.</p>
+                    </div>
+                    <div class="story-interactive-window">
+                        <div class="terminal-header">
+                            <div class="window-buttons"><span class="btn-close"></span><span class="btn-min"></span><span class="btn-max"></span></div>
+                            <div class="terminal-title">aws_autoscale.py — Python 3.11</div>
+                        </div>
+                        <div class="code-editor-body">
+                            <pre><code><span class="kwd">import</span> boto3
+<span class="kwd">import</span> logging
+
+ec2 = boto3.client(<span class="str">'ec2'</span>, region_name=<span class="str">'us-east-1'</span>)
+eks = boto3.client(<span class="str">'eks'</span>)
+
+<span class="kwd">def</span> <span class="fn">auto_scale_cluster</span>(event, context):
+    logging.info(<span class="str">"Auditing EKS Node Group metrics..."</span>)
+    response = ec2.describe_instances(Filters=[{<span class="str">'Name'</span>: <span class="str">'tag:Env'</span>, <span class="str">'Values'</span>: [<span class="str">'Production'</span>]}])
+    <span class="kwd">return</span> {<span class="str">'status'</span>: <span class="str">'200 OK'</span>, <span class="str">'instances_healthy'</span>: len(response[<span class="str">'Reservations'</span>])}</code></pre>
+                        </div>
+                        <div class="terminal-actions">
+                            <button onclick="runPythonScript()" class="term-btn glow-gold"><i class="fas fa-bolt"></i> Execute Script Simulation</button>
+                            <span id="pythonStatusOutput" class="action-feedback">Status: Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 3: Docker Ocean & Cargo Ship Voyage -->
+                <div class="story-card" id="chapter-docker">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fab fa-docker"></i> CHAPTER 03 — CONTAINER VOYAGE</div>
+                        <h3>Packaging Applications into Immutable Containers</h3>
+                        <p>Optimizing multi-stage Dockerfiles, reducing image footprints by 70%, and docking microservices onto the cloud ship.</p>
+                    </div>
+                    <div class="docker-ocean-stage">
+                        <div class="ocean-background">
+                            <div class="wave wave1"></div>
+                            <div class="wave wave2"></div>
+                        </div>
+                        
+                        <!-- SVG Cargo Ship -->
+                        <div class="cargo-ship-wrapper">
+                            <svg class="docker-ship-svg" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 130L80 180H420L460 130H40Z" fill="#361F1D" stroke="#D97706" stroke-width="3"/>
+                                <rect x="360" y="70" width="70" height="60" rx="4" fill="#4A2E2B" stroke="#E5A93C" stroke-width="2"/>
+                                <rect x="375" y="82" width="15" height="15" fill="#E5A93C"/>
+                                <rect x="400" y="82" width="15" height="15" fill="#E5A93C"/>
+                                <line x1="20" y1="180" x2="480" y2="180" stroke="#D97706" stroke-width="4" stroke-dasharray="8 8"/>
+                            </svg>
+                            
+                            <!-- Dynamic Container Deck -->
+                            <div class="ship-container-deck" id="containerDeck">
+                                <div class="cargo-box c-gold loaded"><i class="fas fa-lock"></i> Auth-API</div>
+                                <div class="cargo-box c-amber loaded"><i class="fas fa-database"></i> Redis-Cache</div>
+                                <div class="cargo-box c-brown loaded"><i class="fas fa-shopping-cart"></i> Payment-Svc</div>
+                                <div class="cargo-box c-interactive" id="dynamicBox" onclick="loadDockerContainer()"><i class="fas fa-plus"></i> Load Container</div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Microsoft Azure</span>
-                                <span class="skill-level">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">AI Pipeline Infrastructure</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
+
+                        <div class="docker-controls">
+                            <button onclick="loadDockerContainer()" class="docker-btn"><i class="fas fa-download"></i> Load Microservice Container</button>
+                            <div class="docker-stats-pill">
+                                <span>Image Footprint: <strong>14.2 MB</strong> (Alpine Multi-Stage)</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Infrastructure as Code</h3>
+                <!-- Chapter 4: Kubernetes Fleet Commander -->
+                <div class="story-card" id="chapter-k8s">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fas fa-dharmachakra"></i> CHAPTER 04 — KUBERNETES FLEET</div>
+                        <h3>Orchestrating EKS Microservice Clusters</h3>
+                        <p>Zero-downtime rolling updates, Horizontal Pod Autoscaling (HPA), and ingress controller traffic management.</p>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Terraform</span>
-                                <span class="skill-level">95%</span>
+                    <div class="k8s-cluster-stage">
+                        <div class="k8s-control-plane">
+                            <div class="cp-badge"><i class="fas fa-server"></i> AWS EKS Control Plane (us-east-1)</div>
+                            <div class="cluster-status-pill" id="k8sStatusPill">Pods: 3 Active | HPA: Enabled</div>
+                        </div>
+                        
+                        <div class="k8s-pods-grid" id="k8sPodsContainer">
+                            <div class="pod-card active">
+                                <div class="pod-status-dot"></div>
+                                <i class="fas fa-dharmachakra"></i>
+                                <span class="pod-name">pod/auth-svc-v2-a1</span>
+                                <span class="pod-cpu">CPU: 12%</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
+                            <div class="pod-card active">
+                                <div class="pod-status-dot"></div>
+                                <i class="fas fa-dharmachakra"></i>
+                                <span class="pod-name">pod/auth-svc-v2-b2</span>
+                                <span class="pod-cpu">CPU: 14%</span>
+                            </div>
+                            <div class="pod-card active">
+                                <div class="pod-status-dot"></div>
+                                <i class="fas fa-dharmachakra"></i>
+                                <span class="pod-name">pod/payment-v1-c9</span>
+                                <span class="pod-cpu">CPU: 8%</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Ansible</span>
-                                <span class="skill-level">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
+
+                        <div class="k8s-actions">
+                            <button onclick="scaleK8sPods(1)" class="k8s-btn"><i class="fas fa-plus-circle"></i> Auto-Scale +1 Pod</button>
+                            <button onclick="scaleK8sPods(-1)" class="k8s-btn secondary"><i class="fas fa-minus-circle"></i> Scale Down Pods</button>
+                            <button onclick="triggerK8sRollout()" class="k8s-btn glow-amber"><i class="fas fa-sync-alt"></i> Rolling Update v2.1</button>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">GitOps</span>
-                                <span class="skill-level">85%</span>
+                    </div>
+                </div>
+
+                <!-- Chapter 5: AWS Cloud & IaC Terraform -->
+                <div class="story-card" id="chapter-aws">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fab fa-aws"></i> CHAPTER 05 — AWS MULTI-REGION &amp; IAC</div>
+                        <h3>Designing Multi-Region Resilient Cloud Platforms</h3>
+                        <p>Automating VPCs, EKS Clusters, RDS Multi-AZ, and CloudFront CDN with Terraform HCL infrastructure code.</p>
+                    </div>
+                    <div class="aws-iac-stage">
+                        <div class="iac-code-window">
+                            <div class="iac-tab-bar">
+                                <span class="tab active"><i class="fas fa-file-code"></i> main.tf</span>
+                                <span class="tab"><i class="fas fa-sliders-h"></i> variables.tf</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
+                            <div class="code-editor-body">
+                                <pre><code><span class="kwd">module</span> <span class="str">"vpc"</span> {
+  source  = <span class="str">"terraform-aws-modules/vpc/aws"</span>
+  name    = <span class="str">"abdullah-production-vpc"</span>
+  cidr    = <span class="str">"10.0.0.0/16"</span>
+  azs     = [<span class="str">"us-east-1a"</span>, <span class="str">"us-east-1b"</span>, <span class="str">"us-east-1c"</span>]
+  
+  public_subnets  = [<span class="str">"10.0.1.0/24"</span>, <span class="str">"10.0.2.0/24"</span>]
+  private_subnets = [<span class="str">"10.0.10.0/24"</span>, <span class="str">"10.0.20.0/24"</span>]
+  enable_nat_gateway = <span class="kwd">true</span>
+}</code></pre>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-cube"></i>
-                        <h3>Containerization</h3>
+                <!-- Chapter 6: CI/CD Pipeline Stream -->
+                <div class="story-card" id="chapter-cicd">
+                    <div class="story-card-header">
+                        <div class="chapter-tag"><i class="fas fa-code-branch"></i> CHAPTER 06 — CONTINUOUS DELIVERY PIPELINE</div>
+                        <h3>From Code Commit to Production in Seconds</h3>
+                        <p>Automated security audits, unit testing, Docker image building, ECR pushing, and Helm release deployment.</p>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Docker</span>
-                                <span class="skill-level">95%</span>
+                    <div class="pipeline-flow-stage">
+                        <div class="pipeline-track">
+                            <div class="pipe-step passed">
+                                <div class="step-icon"><i class="fas fa-code-branch"></i></div>
+                                <span class="step-title">1. Git Commit</span>
+                                <span class="step-time">0.1s</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
+                            <div class="pipe-connector"></div>
+                            <div class="pipe-step passed">
+                                <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                                <span class="step-title">2. SAST Audit</span>
+                                <span class="step-time">4.2s</span>
                             </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Kubernetes</span>
-                                <span class="skill-level">90%</span>
+                            <div class="pipe-connector"></div>
+                            <div class="pipe-step passed">
+                                <div class="step-icon"><i class="fab fa-docker"></i></div>
+                                <span class="step-title">3. Docker Build</span>
+                                <span class="step-time">8.5s</span>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">EKS & AKS</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-terminal"></i>
-                        <h3>Scripting & Automation</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Python Scripting</span>
-                                <span class="skill-level">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Bash & Shell Scripting</span>
-                                <span class="skill-level">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="92"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Linux Administration</span>
-                                <span class="skill-level">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
+                            <div class="pipe-connector"></div>
+                            <div class="pipe-step passed">
+                                <div class="step-icon"><i class="fas fa-dharmachakra"></i></div>
+                                <span class="step-title">4. Deploy EKS</span>
+                                <span class="step-time">3.1s</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-rocket"></i>
-                        <h3>CI/CD & Monitoring</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Jenkins & GitHub Actions</span>
-                                <span class="skill-level">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">AIOps</span>
-                                <span class="skill-level">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Prometheus & Grafana</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1372,140 +1436,7 @@
         </div>
     </div>
 
-    <!-- Enterprise Case Studies Section -->
-    <section id="enterprise-case-studies" class="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Enterprise Impact</span>
-                <h2 class="section-title">Fortune 500 Project Case Studies</h2>
-                <p class="section-description">
-                    Real-world enterprise solutions that delivered measurable business value
-                </p>
-            </div>
-            <div class="case-studies-grid">
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-building"></i>
-                            <span>Fortune 100 Financial Services</span>
-                        </div>
-                        <div class="confidentiality-badge">NDA Protected</div>
-                    </div>
-                    <h3>Multi-Cloud Migration & Cost Optimization</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <span class="metric-value">$2.3M</span>
-                            <span class="metric-label">Annual Savings</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">99.99%</span>
-                            <span class="metric-label">Uptime Achieved</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">6 Months</span>
-                            <span class="metric-label">Migration Timeline</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">-60%</span>
-                            <span class="metric-label">MTTR Reduction</span>
-                        </div>
-                    </div>
-                    <p class="case-description">
-                        Led the migration of 500+ microservices from on-premises to AWS/Azure hybrid cloud,
-                        implementing Infrastructure as Code with Terraform and establishing CI/CD pipelines
-                        serving 10M+ daily transactions.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Azure</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">Jenkins</span>
-                    </div>
-                </div>
 
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>Global E-commerce Platform</span>
-                        </div>
-                        <div class="scale-badge">Enterprise Scale</div>
-                    </div>
-                    <h3>Zero-Downtime Deployment Architecture</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <span class="metric-value">0</span>
-                            <span class="metric-label">Downtime Events</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">75%</span>
-                            <span class="metric-label">Faster Deployments</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">50M+</span>
-                            <span class="metric-label">Users Served</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">12m</span>
-                            <span class="metric-label">Deploy Time</span>
-                        </div>
-                    </div>
-                    <p class="case-description">
-                        Architected blue-green deployment strategy with automated rollback capabilities,
-                        serving 50M+ users during peak shopping seasons with zero service interruptions.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">Istio</span>
-                        <span class="tech-tag">Prometheus</span>
-                        <span class="tech-tag">GitLab CI</span>
-                    </div>
-                </div>
-
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-hospital"></i>
-                            <span>Healthcare Technology Leader</span>
-                        </div>
-                        <div class="compliance-badge">HIPAA Compliant</div>
-                    </div>
-                    <h3>Secure Healthcare Data Pipeline</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">Compliance Score</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">1TB+</span>
-                            <span class="metric-label">Daily Data Processing</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">24/7</span>
-                            <span class="metric-label">Monitoring Coverage</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">SLA Adherence</span>
-                        </div>
-                    </div>
-                    <p class="case-description">
-                        Built HIPAA-compliant data processing pipeline handling 1TB+ daily medical records,
-                        with end-to-end encryption and comprehensive audit logging.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">AWS KMS</span>
-                        <span class="tech-tag">Apache Kafka</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Vault</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 
