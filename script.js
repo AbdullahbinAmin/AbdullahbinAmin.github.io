@@ -922,7 +922,7 @@ const modalStyles = `
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
 }
 
 .form-group label {

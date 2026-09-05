@@ -95,10 +95,35 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-left">
-                <div class="nav-logo">
-                    <span class="logo-text">&lt;Abdullah</span>
-                    <span class="logo-accent">/&gt;</span>
-                </div>
+                <a href="#home" class="nav-logo" aria-label="Abdullah Portfolio Home">
+                    <div class="logo-icon-wrapper">
+                        <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#E5A93C" />
+                                    <stop offset="50%" stop-color="#D97706" />
+                                    <stop offset="100%" stop-color="#4A2E2B" />
+                                </linearGradient>
+                                <linearGradient id="logoGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#FCD34D" />
+                                    <stop offset="100%" stop-color="#D97706" />
+                                </linearGradient>
+                                <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            <path d="M20 3L35 11.66V28.34L20 37L5 28.34V11.66L20 3Z" stroke="url(#logoGrad1)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(74, 46, 43, 0.35)"/>
+                            <path d="M20 9L29 26H23.5L20 18.5L16.5 26H11L20 9Z" fill="url(#logoGrad2)" filter="url(#logoGlow)"/>
+                            <line x1="14" y1="22" x2="26" y2="22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="14" r="1.8" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text-group">
+                        <span class="logo-main-text">Abdullah<span class="logo-accent-slash">/&gt;</span></span>
+                        <span class="logo-sub-text">SRE &amp; CLOUD ARCHITECT</span>
+                    </div>
+                </a>
                 <!-- Desktop Hire CTA -->
                 <button onclick="openHireModal()" class="nav-link contact-btn nav-cta" style="cursor:pointer; border:none;">
                     <i class="fas fa-briefcase"></i> Hire Me
@@ -1489,10 +1514,31 @@
         <div class="footer-top">
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <div class="nav-logo" aria-label="Logo">
-                        <span class="logo-text">&lt;Abdullah </span><span class="logo-accent">/&gt;<span
-                                class="logo-accent">/></span></span>
-                    </div>
+                    <a href="#home" class="nav-logo" aria-label="Abdullah Portfolio Home">
+                        <div class="logo-icon-wrapper">
+                            <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="logoGradFooter1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#E5A93C" />
+                                        <stop offset="50%" stop-color="#D97706" />
+                                        <stop offset="100%" stop-color="#4A2E2B" />
+                                    </linearGradient>
+                                    <linearGradient id="logoGradFooter2" x1="100%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#FCD34D" />
+                                        <stop offset="100%" stop-color="#D97706" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M20 3L35 11.66V28.34L20 37L5 28.34V11.66L20 3Z" stroke="url(#logoGradFooter1)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(74, 46, 43, 0.35)"/>
+                                <path d="M20 9L29 26H23.5L20 18.5L16.5 26H11L20 9Z" fill="url(#logoGradFooter2)"/>
+                                <line x1="14" y1="22" x2="26" y2="22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="20" cy="14" r="1.8" fill="#FFFFFF"/>
+                            </svg>
+                        </div>
+                        <div class="logo-text-group">
+                            <span class="logo-main-text">Abdullah<span class="logo-accent-slash">/&gt;</span></span>
+                            <span class="logo-sub-text">SRE &amp; CLOUD ARCHITECT</span>
+                        </div>
+                    </a>
                     <p class="footer-tagline">Delivering enterprise-scale reliability, performance, and cost efficiency.
                     </p>
                 </div>
