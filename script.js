@@ -1146,3 +1146,121 @@ window.triggerK8sRollout = function() {
         }, 1200);
     }
 };
+
+/* ==========================================================================
+   Automatic Cinematic Movie Controller & Scene Sequencer
+   ========================================================================== */
+let isAutoPlayActive = true;
+let movieSequencerInterval = null;
+let currentChapterIndex = 0;
+const chapterIds = ['linux', 'python', 'docker', 'k8s', 'aws', 'cicd'];
+
+window.skipMovieIntro = function() {
+    const introOverlay = document.getElementById('cinematicMovieIntro');
+    if (introOverlay) {
+        introOverlay.classList.add('split');
+        setTimeout(() => {
+            introOverlay.classList.add('hidden');
+        }, 800);
+    }
+};
+
+window.replayMovieIntro = function() {
+    const introOverlay = document.getElementById('cinematicMovieIntro');
+    const fillEl = document.getElementById('introProgressFill');
+    const diagEl = document.getElementById('introDiagText');
+
+    if (!introOverlay) return;
+
+    introOverlay.classList.remove('hidden', 'split');
+    if (fillEl) fillEl.style.width = '0%';
+    if (diagEl) diagEl.innerText = 'Booting Linux Kernel 6.5 SRE Nodes...';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    initMovieSequence();
+};
+
+window.toggleAutoPlayMovie = function() {
+    isAutoPlayActive = !isAutoPlayActive;
+    const iconEl = document.getElementById('iconPlayback');
+    const textEl = document.getElementById('textTogglePlayback');
+    const statusTextEl = document.getElementById('playbackStatusText');
+
+    if (isAutoPlayActive) {
+        if (iconEl) iconEl.className = 'fas fa-pause';
+        if (textEl) textEl.innerText = 'Pause';
+        if (statusTextEl) statusTextEl.innerText = '🎬 MOVIE AUTO-PLAY: ON';
+        startAutoPlaySequencer();
+    } else {
+        if (iconEl) iconEl.className = 'fas fa-play';
+        if (textEl) textEl.innerText = 'Play';
+        if (statusTextEl) statusTextEl.innerText = '⏸️ MOVIE AUTO-PLAY: PAUSED';
+        if (movieSequencerInterval) clearInterval(movieSequencerInterval);
+    }
+};
+
+function initMovieSequence() {
+    const fillEl = document.getElementById('introProgressFill');
+    const diagEl = document.getElementById('introDiagText');
+    const diagMessages = [
+        'Booting Linux Kernel 6.5 SRE Nodes...',
+        'Initializing Python Boto3 Cloud Automation...',
+        'Loading Docker Microservice Cargo Containers...',
+        'Syncing AWS EKS Multi-Region Kubernetes Control Plane...',
+        'Continuous Delivery Pipelines Online. 100% Ready!'
+    ];
+
+    let progress = 0;
+    let msgIdx = 0;
+
+    const progressTimer = setInterval(() => {
+        progress += 4;
+        if (fillEl) fillEl.style.width = `${progress}%`;
+
+        if (progress % 20 === 0 && msgIdx < diagMessages.length) {
+            if (diagEl) diagEl.innerText = diagMessages[msgIdx];
+            msgIdx++;
+        }
+
+        if (progress >= 100) {
+            clearInterval(progressTimer);
+            setTimeout(() => {
+                skipMovieIntro();
+                startAutoPlaySequencer();
+            }, 400);
+        }
+    }, 60);
+}
+
+function startAutoPlaySequencer() {
+    if (movieSequencerInterval) clearInterval(movieSequencerInterval);
+
+    movieSequencerInterval = setInterval(() => {
+        if (!isAutoPlayActive) return;
+
+        currentChapterIndex = (currentChapterIndex + 1) % chapterIds.length;
+        const targetChapter = chapterIds[currentChapterIndex];
+
+        if (typeof window.switchJourneyChapter === 'function') {
+            window.switchJourneyChapter(targetChapter);
+        }
+
+        // Run continuous scene animations
+        if (targetChapter === 'linux' && typeof window.runLinuxCommand === 'function') {
+            window.runLinuxCommand('systemctl');
+        } else if (targetChapter === 'python' && typeof window.runPythonScript === 'function') {
+            window.runPythonScript();
+        } else if (targetChapter === 'docker' && typeof window.loadDockerContainer === 'function') {
+            window.loadDockerContainer();
+        } else if (targetChapter === 'k8s' && typeof window.scaleK8sPods === 'function') {
+            window.scaleK8sPods(1);
+        }
+    }, 5000);
+}
+
+// Auto-run intro on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        initMovieSequence();
+    }, 300);
+});

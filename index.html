@@ -82,6 +82,28 @@
 </head>
 
 <body>
+    <!-- Full Screen Cinematic Movie Intro Overlay -->
+    <div id="cinematicMovieIntro" class="cinematic-movie-intro">
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+        <div class="intro-content">
+            <div class="studio-badge"><i class="fas fa-film"></i> ABDULLAH BIN AMIN PRESENTS</div>
+            <h1 class="intro-title">THE CLOUD &amp; DEVOPS ARCHITECT</h1>
+            <p class="intro-subtitle">AN INTERACTIVE CINEMATIC VOYAGE FROM LINUX KERNEL TO KUBERNETES MULTI-CLOUD</p>
+            
+            <div class="diagnostic-box">
+                <div class="diag-line"><span class="diag-prompt">[SYSTEM_INIT]</span> <span id="introDiagText">Booting Linux Kernel 6.5 SRE Nodes...</span></div>
+                <div class="intro-progress-bar">
+                    <div class="intro-progress-fill" id="introProgressFill"></div>
+                </div>
+            </div>
+
+            <button class="skip-intro-btn" onclick="skipMovieIntro()">
+                <span>ENTER PORTFOLIO</span> <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Particle Background -->
     <div class="particles-container" id="particles"></div>
 
@@ -1686,5 +1708,21 @@ eks = boto3.client(<span class="str">'eks'</span>)
             closeHireModal();
         }
     </script>
+
+    <!-- Floating Movie Playback Controller -->
+    <div id="moviePlaybackBar" class="movie-playback-bar">
+        <div class="playback-badge">
+            <span class="pulse-dot"></span>
+            <span id="playbackStatusText">🎬 MOVIE AUTO-PLAY: ON</span>
+        </div>
+        <div class="playback-controls">
+            <button onclick="toggleAutoPlayMovie()" id="btnTogglePlayback" class="p-btn" title="Pause / Play Movie">
+                <i class="fas fa-pause" id="iconPlayback"></i> <span id="textTogglePlayback">Pause</span>
+            </button>
+            <button onclick="replayMovieIntro()" class="p-btn" title="Replay Cinematic Intro">
+                <i class="fas fa-redo-alt"></i> Intro
+            </button>
+        </div>
+    </div>
 </body>
 </html>
