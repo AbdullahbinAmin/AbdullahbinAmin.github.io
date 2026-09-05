@@ -979,3 +979,47 @@ const modalStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = modalStyles;
 document.head.appendChild(styleSheet);
+
+// Enterprise Performance & Analytics Tracker
+class PerformanceTracker {
+    static init() {
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfEntries = performance.getEntriesByType('navigation');
+                    if (perfEntries.length > 0) {
+                        const navTiming = perfEntries[0];
+                        const loadTime = Math.round(navTiming.loadEventEnd - navTiming.startTime);
+                        const domTime = Math.round(navTiming.domContentLoadedEventEnd - navTiming.startTime);
+                        console.log(`[Performance Tracker] ⚡ Page Load Time: ${loadTime}ms | DOM Interactive: ${domTime}ms`);
+                    }
+                }, 0);
+            });
+        }
+
+        // Track CTA Interactions & Analytics Events
+        document.body.addEventListener('click', (e) => {
+            const targetBtn = e.target.closest('button, a');
+            if (targetBtn && (targetBtn.classList.contains('btn') || targetBtn.classList.contains('engagement-action-btn') || targetBtn.classList.contains('nav-cta') || targetBtn.classList.contains('floating-hire-btn'))) {
+                const actionLabel = targetBtn.innerText.trim() || targetBtn.getAttribute('aria-label') || 'CTA Click';
+                console.log(`[Analytics Event] 🎯 User Clicked CTA: "${actionLabel}"`);
+                
+                // Hook for Google Analytics / Tag Manager
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'cta_click', {
+                        'event_category': 'Engagement',
+                        'event_label': actionLabel
+                    });
+                }
+            }
+        });
+    }
+}
+
+// Initialize App & Performance Monitoring
+document.addEventListener('DOMContentLoaded', () => {
+    PerformanceTracker.init();
+    if (typeof PortfolioApp !== 'undefined') {
+        new PortfolioApp();
+    }
+});
