@@ -1148,25 +1148,27 @@ window.triggerK8sRollout = function() {
 };
 
 /* ==========================================================================
-   Zero-Scroll Cinema Presentation Engine & Slower Intro Sequencer
+   Cinematic Auto-Scroll Movie Presentation Engine (Clean Rewrite)
+   Smooth-scrolls through sections like a movie, no fixed stacking.
    ========================================================================== */
-let isCinemaPlayActive = true;
-let isCinemaModeActive = true;
-let cinemaTimer = null;
-let currentSceneIdx = 0;
+let cinemaAutoScrollActive = true;
+let cinemaScrollTimer = null;
+let cinemaCurrentIdx = 0;
 
-const cinemaScenes = [
-    { id: 'home', title: 'SCENE 01 / 10: HERO UNVEIL' },
-    { id: 'impact', title: 'SCENE 02 / 10: ENTERPRISE IMPACT' },
-    { id: 'chapter-linux', title: 'SCENE 03 / 10: LINUX KERNEL 🐧' },
-    { id: 'chapter-python', title: 'SCENE 04 / 10: PYTHON AUTOMATION 🐍' },
-    { id: 'chapter-docker', title: 'SCENE 05 / 10: DOCKER VOYAGE 🐳' },
-    { id: 'chapter-k8s', title: 'SCENE 06 / 10: KUBERNETES FLEET ☸️' },
-    { id: 'chapter-aws', title: 'SCENE 07 / 10: AWS CLOUD & IAC ☁️' },
-    { id: 'chapter-cicd', title: 'SCENE 08 / 10: CI/CD PIPELINE 🔄' },
-    { id: 'experience', title: 'SCENE 09 / 10: TRAINER EXPERIENCE 🎓' },
-    { id: 'contact', title: 'SCENE 10 / 10: HIRE ME HUB 💼' }
-];
+// Sections the cinematic movie scrolls through in order
+const cinematicSections = [];
+
+function initCinematicSections() {
+    const sectionIds = [
+        'home', 'impact', 'services', 'about', 'skills',
+        'projects', 'experience', 'contact'
+    ];
+    cinematicSections.length = 0;
+    sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) cinematicSections.push(el);
+    });
+}
 
 window.skipMovieIntro = function() {
     const introOverlay = document.getElementById('cinematicMovieIntro');
@@ -1176,7 +1178,7 @@ window.skipMovieIntro = function() {
             introOverlay.classList.add('hidden');
         }, 800);
     }
-    enableCinemaMode();
+    startCinematicAutoScroll();
 };
 
 window.replayMovieIntro = function() {
@@ -1207,7 +1209,7 @@ function initMovieSequence() {
     let progress = 0;
     let msgIdx = 0;
 
-    // Slower 5.0 second progress fill
+    // 5-second grand intro
     const progressTimer = setInterval(() => {
         progress += 2;
         if (fillEl) fillEl.style.width = `${progress}%`;
@@ -1226,109 +1228,118 @@ function initMovieSequence() {
     }, 100);
 }
 
-function enableCinemaMode() {
-    isCinemaModeActive = true;
-    document.body.classList.add('cinema-mode-active');
-    
-    const modeText = document.getElementById('modeToggleText');
-    if (modeText) modeText.innerText = 'Scroll View';
+function startCinematicAutoScroll() {
+    initCinematicSections();
+    if (cinematicSections.length === 0) return;
 
-    jumpToScene(0);
-    startCinemaAutoPlay();
+    cinemaAutoScrollActive = true;
+    cinemaCurrentIdx = 0;
+
+    // Show the floating toggle and progress bar
+    const toggleEl = document.getElementById('cinemaFloatToggle');
+    const progressBarEl = document.getElementById('cinematicProgressBar');
+    if (toggleEl) toggleEl.classList.add('visible');
+    if (progressBarEl) progressBarEl.classList.add('active');
+
+    updateCinemaProgress();
+    scheduleCinemaScroll();
+
+    // Pause auto-scroll when user manually scrolls
+    let userScrollTimeout;
+    window.addEventListener('scroll', function onUserScroll() {
+        if (!cinemaAutoScrollActive) return;
+        // Don't interrupt programmatic scrolls — only react to sustained manual scrolling
+        clearTimeout(userScrollTimeout);
+        userScrollTimeout = setTimeout(() => {
+            updateCinemaProgressFromScroll();
+        }, 150);
+    }, { passive: true });
 }
 
-function disableCinemaMode() {
-    isCinemaModeActive = false;
-    document.body.classList.remove('cinema-mode-active');
-    if (cinemaTimer) clearInterval(cinemaTimer);
+function scheduleCinemaScroll() {
+    if (cinemaScrollTimer) clearTimeout(cinemaScrollTimer);
 
-    const modeText = document.getElementById('modeToggleText');
-    if (modeText) modeText.innerText = 'Cinema View';
+    cinemaScrollTimer = setTimeout(() => {
+        if (!cinemaAutoScrollActive) return;
 
-    const allSections = document.querySelectorAll('section');
-    allSections.forEach(sec => sec.classList.remove('scene-active'));
+        cinemaCurrentIdx++;
+        if (cinemaCurrentIdx >= cinematicSections.length) {
+            // Movie finished — stop auto-scroll
+            cinemaAutoScrollActive = false;
+            const iconEl = document.getElementById('cinemaToggleIcon');
+            const labelEl = document.getElementById('cinemaToggleLabel');
+            if (iconEl) iconEl.className = 'fas fa-play';
+            if (labelEl) labelEl.innerText = 'Replay';
+            updateCinemaProgress();
+            return;
+        }
+
+        scrollToSection(cinematicSections[cinemaCurrentIdx]);
+        updateCinemaProgress();
+        scheduleCinemaScroll();
+    }, 7000); // 7 seconds per section — cinematic pacing
 }
 
-window.toggleCinemaMode = function() {
-    if (isCinemaModeActive) {
-        disableCinemaMode();
-    } else {
-        enableCinemaMode();
-    }
-};
+function scrollToSection(sectionEl) {
+    if (!sectionEl) return;
 
-window.jumpToScene = function(sceneIdx) {
-    currentSceneIdx = parseInt(sceneIdx, 10);
-    if (isNaN(currentSceneIdx) || currentSceneIdx < 0 || currentSceneIdx >= cinemaScenes.length) {
-        currentSceneIdx = 0;
-    }
+    // Add cinematic reveal animation
+    sectionEl.classList.remove('cinematic-reveal');
+    void sectionEl.offsetWidth; // Force reflow
+    sectionEl.classList.add('cinematic-reveal');
 
-    const sceneObj = cinemaScenes[currentSceneIdx];
-    
-    // Update badge & dropdown
-    const titleEl = document.getElementById('dockSceneTitle');
-    const dropdownEl = document.getElementById('sceneJumper');
-    if (titleEl) titleEl.innerText = sceneObj.title;
-    if (dropdownEl) dropdownEl.value = currentSceneIdx;
+    const navbarHeight = 80;
+    const targetY = sectionEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
 
-    if (isCinemaModeActive) {
-        const allSections = document.querySelectorAll('section');
-        allSections.forEach(sec => sec.classList.remove('scene-active'));
+    window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+    });
+}
 
-        const targetEl = document.getElementById(sceneObj.id);
-        if (targetEl) {
-            targetEl.classList.add('scene-active');
-            targetEl.scrollTop = 0;
-        }
+function updateCinemaProgress() {
+    const fillEl = document.getElementById('cinematicProgressFill');
+    if (!fillEl || cinematicSections.length === 0) return;
 
-        // Trigger scene specific animations
-        if (sceneObj.id === 'chapter-linux' && typeof window.runLinuxCommand === 'function') {
-            window.runLinuxCommand('systemctl');
-        } else if (sceneObj.id === 'chapter-python' && typeof window.runPythonScript === 'function') {
-            window.runPythonScript();
-        } else if (sceneObj.id === 'chapter-docker' && typeof window.loadDockerContainer === 'function') {
-            window.loadDockerContainer();
-        } else if (sceneObj.id === 'chapter-k8s' && typeof window.scaleK8sPods === 'function') {
-            window.scaleK8sPods(1);
-        }
-    } else {
-        const targetEl = document.getElementById(sceneObj.id);
-        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
-    }
-};
+    const pct = ((cinemaCurrentIdx + 1) / cinematicSections.length) * 100;
+    fillEl.style.width = `${pct}%`;
+}
 
-window.cinemaNextScene = function() {
-    const nextIdx = (currentSceneIdx + 1) % cinemaScenes.length;
-    jumpToScene(nextIdx);
-};
+function updateCinemaProgressFromScroll() {
+    const fillEl = document.getElementById('cinematicProgressFill');
+    if (!fillEl) return;
 
-window.cinemaPrevScene = function() {
-    const prevIdx = (currentSceneIdx - 1 + cinemaScenes.length) % cinemaScenes.length;
-    jumpToScene(prevIdx);
-};
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
 
-window.toggleCinemaPlay = function() {
-    isCinemaPlayActive = !isCinemaPlayActive;
-    const iconEl = document.getElementById('iconCinemaPlay');
-    
-    if (isCinemaPlayActive) {
+    const pct = Math.min((scrollTop / docHeight) * 100, 100);
+    fillEl.style.width = `${pct}%`;
+}
+
+window.toggleCinemaAutoScroll = function() {
+    cinemaAutoScrollActive = !cinemaAutoScrollActive;
+
+    const iconEl = document.getElementById('cinemaToggleIcon');
+    const labelEl = document.getElementById('cinemaToggleLabel');
+
+    if (cinemaAutoScrollActive) {
         if (iconEl) iconEl.className = 'fas fa-pause';
-        startCinemaAutoPlay();
+        if (labelEl) labelEl.innerText = 'Auto-Playing';
+
+        // If movie was finished, restart from beginning
+        if (cinemaCurrentIdx >= cinematicSections.length) {
+            cinemaCurrentIdx = 0;
+            scrollToSection(cinematicSections[0]);
+        }
+        updateCinemaProgress();
+        scheduleCinemaScroll();
     } else {
         if (iconEl) iconEl.className = 'fas fa-play';
-        if (cinemaTimer) clearInterval(cinemaTimer);
+        if (labelEl) labelEl.innerText = 'Paused';
+        if (cinemaScrollTimer) clearTimeout(cinemaScrollTimer);
     }
 };
-
-function startCinemaAutoPlay() {
-    if (cinemaTimer) clearInterval(cinemaTimer);
-
-    cinemaTimer = setInterval(() => {
-        if (!isCinemaPlayActive || !isCinemaModeActive) return;
-        const nextIdx = (currentSceneIdx + 1) % cinemaScenes.length;
-        jumpToScene(nextIdx);
-    }, 6500);
-}
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -1336,3 +1347,4 @@ document.addEventListener('DOMContentLoaded', () => {
         initMovieSequence();
     }, 300);
 });
+

@@ -1709,44 +1709,15 @@ eks = boto3.client(<span class="str">'eks'</span>)
         }
     </script>
 
-    <!-- Floating Cinema Control Dock (Zero-Scroll Movie Controls) -->
-    <div id="cinemaDock" class="cinema-dock">
-        <div class="cinema-dock-inner">
-            <div class="dock-badge">
-                <span class="dock-pulse"></span>
-                <span id="dockSceneTitle">SCENE 01 / 10: HERO UNVEIL</span>
-            </div>
-            
-            <div class="dock-controls">
-                <button onclick="cinemaPrevScene()" class="dock-btn" title="Previous Scene (←)">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button onclick="toggleCinemaPlay()" id="btnCinemaPlay" class="dock-btn primary" title="Pause / Play Movie">
-                    <i class="fas fa-pause" id="iconCinemaPlay"></i>
-                </button>
-                <button onclick="cinemaNextScene()" class="dock-btn" title="Next Scene (→)">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-            </div>
+    <!-- Cinematic Auto-Scroll Progress Bar (minimal, no scene labels) -->
+    <div id="cinematicProgressBar" class="cinematic-progress-bar">
+        <div class="cinematic-progress-fill" id="cinematicProgressFill"></div>
+    </div>
 
-            <!-- Scene Jumper Select Dropdown -->
-            <select id="sceneJumper" class="scene-jumper-select" onchange="jumpToScene(this.value)">
-                <option value="0">Scene 01: Hero Unveil</option>
-                <option value="1">Scene 02: Enterprise Impact</option>
-                <option value="2">Scene 03: Linux Kernel 🐧</option>
-                <option value="3">Scene 04: Python Engine 🐍</option>
-                <option value="4">Scene 05: Docker Ship 🐳</option>
-                <option value="6">Scene 06: Kubernetes Fleet ☸️</option>
-                <option value="7">Scene 07: AWS Cloud &amp; IaC ☁️</option>
-                <option value="8">Scene 08: CI/CD Pipeline 🔄</option>
-                <option value="9">Scene 09: Trainer Experience 🎓</option>
-                <option value="10">Scene 10: Hire Me Hub 💼</option>
-            </select>
-
-            <button onclick="toggleCinemaMode()" id="btnModeToggle" class="dock-btn mode-btn" title="Switch View Mode">
-                <i class="fas fa-scroll"></i> <span id="modeToggleText">Scroll Mode</span>
-            </button>
-        </div>
+    <!-- Floating Play/Pause Toggle Pill -->
+    <div id="cinemaFloatToggle" class="cinema-float-toggle" onclick="toggleCinemaAutoScroll()">
+        <i class="fas fa-pause" id="cinemaToggleIcon"></i>
+        <span id="cinemaToggleLabel">Auto-Playing</span>
     </div>
 </body>
 </html>
