@@ -461,6 +461,7 @@ setupNavigation() {
     // Contact Form
     setupContactForm() {
         const contactForm = document.getElementById('contactForm');
+        if (!contactForm) return;
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();

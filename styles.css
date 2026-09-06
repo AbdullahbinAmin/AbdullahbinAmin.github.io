@@ -5,40 +5,45 @@
     box-sizing: border-box;
 }
 
-:root {
-    /* Warm Executive Brown & Golden Amber Palette (Derived from Portrait Photo) */
-    --primary-color: #4a2e2b;        /* Deep Warm Chocolate Brown */
-    --primary-dark: #361f1d;         /* Deep Espresso Brown */
-    --secondary-color: #7a5c55;       /* Warm Muted Brown */
-    --accent-color: #d97706;          /* Warm Terracotta / Golden Amber */
-    --accent-glow: rgba(217, 119, 6, 0.25);
-    --gold-accent: #e5a93c;           /* Metallic Warm Gold */
+:root,
+[data-theme="dark"] {
+    /* Warm Executive Chocolate Brown & Golden Amber Palette (Derived from Portrait Photo) */
+    --primary-color: #e5a93c;        /* Warm Gold */
+    --primary-dark: #d97706;         /* Deep Amber */
+    --secondary-color: #b89c92;
+    --accent-color: #f59e0b;          /* Vibrant Golden Amber */
+    --accent-glow: rgba(245, 158, 11, 0.28);
+    --gold-accent: #fcd34d;
+    --sherwani-brown: #3a221a;        /* Authentic Sherwani Chocolate Brown */
+    --sherwani-dark: #24140e;         /* Deep Sherwani Shadow */
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
     
-    --bg-primary: #faf5ef;           /* Soft Warm Alabaster / Cream Ivory */
-    --bg-secondary: #f3ece3;         /* Warm Linen Surface */
-    --bg-tertiary: #e9dec9;          /* Warm Sand Border / Background */
-    --bg-card: #ffffff;              /* Clean White Card */
+    --bg-primary: #110d0b;           /* Deep Obsidian Espresso */
+    --bg-secondary: #19120e;         /* Rich Dark Roast Chocolate */
+    --bg-tertiary: #231914;          /* Warm Cocoa Container */
+    --bg-card: #1f1612;              /* Warm Dark Chocolate Card */
+    --bg-card-hover: #291e17;        /* Elevated Hover Card */
     
-    --text-primary: #2a1a18;         /* Deep Espresso Text */
-    --text-secondary: #5c4845;       /* Warm Medium Brown Text */
-    --text-muted: #8c7470;           /* Soft Muted Brown Text */
-    --text-inverse: #faf5ef;
+    --text-primary: #faf5ee;         /* Warm Ivory Cream Text */
+    --text-secondary: #d9ccbe;       /* Soft Sand Text */
+    --text-muted: #9e8d80;           /* Soft Muted Sand */
+    --text-inverse: #110d0b;
     
-    --border-color: #e6dacd;
-    --border-light: #f2e9df;
+    --border-color: rgba(217, 119, 6, 0.22);
+    --border-light: rgba(229, 169, 60, 0.35);
     
-    --shadow-sm: 0 2px 4px 0 rgba(74, 46, 43, 0.05);
-    --shadow-md: 0 6px 12px -2px rgba(74, 46, 43, 0.08), 0 3px 6px -3px rgba(74, 46, 43, 0.05);
-    --shadow-lg: 0 12px 24px -4px rgba(74, 46, 43, 0.12), 0 6px 12px -6px rgba(74, 46, 43, 0.08);
-    --shadow-xl: 0 24px 36px -6px rgba(74, 46, 43, 0.16), 0 12px 18px -8px rgba(74, 46, 43, 0.1);
+    --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 18px -2px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 28px 48px -6px rgba(0, 0, 0, 0.7);
     
-    --gradient-primary: linear-gradient(135deg, #4a2e2b 0%, #d97706 100%);
-    --gradient-secondary: linear-gradient(135deg, #361f1d 0%, #5c3a35 100%);
-    --gradient-accent: linear-gradient(135deg, #d97706 0%, #e5a93c 100%);
-    --gradient-hero: linear-gradient(135deg, #361f1d 0%, #4a2e2b 50%, #6e433c 100%);
+    --gradient-primary: linear-gradient(135deg, #d97706 0%, #e5a93c 100%);
+    --gradient-secondary: linear-gradient(135deg, #1f1612 0%, #36221a 100%);
+    --gradient-accent: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fcd34d 100%);
+    --gradient-hero: linear-gradient(135deg, #0d0a08 0%, #19120e 50%, #261913 100%);
+    --gradient-chocolate: linear-gradient(135deg, #2a1b14 0%, #44291e 100%);
     
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     
@@ -59,39 +64,6 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
-    --primary-color: #e5a93c;        /* Warm Gold */
-    --primary-dark: #d97706;         /* Deep Amber */
-    --secondary-color: #b89c92;
-    --accent-color: #f59e0b;          /* Vibrant Golden Amber */
-    --accent-glow: rgba(245, 158, 11, 0.25);
-    --gold-accent: #fcd34d;
-    
-    --bg-primary: #181210;           /* Rich Dark Chocolate Espresso */
-    --bg-secondary: #231a17;         /* Deep Mocha Surface */
-    --bg-tertiary: #2e221e;          /* Warm Cocoa Container */
-    --bg-card: #241b18;              /* Warm Dark Card */
-    
-    --text-primary: #f9f4ee;         /* Warm Ivory Cream Text */
-    --text-secondary: #d4c7bb;       /* Soft Sand Text */
-    --text-muted: #9e8e82;           /* Soft Muted Sand */
-    --text-inverse: #181210;
-    
-    --border-color: #3d2c27;
-    --border-light: #4a3630;
-    
-    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 24px 36px -6px rgba(0, 0, 0, 0.6);
-
-    --gradient-primary: linear-gradient(135deg, #d97706 0%, #e5a93c 100%);
-    --gradient-secondary: linear-gradient(135deg, #241b18 0%, #362520 100%);
-    --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #fcd34d 100%);
-    --gradient-hero: linear-gradient(135deg, #140e0c 0%, #231a17 50%, #2e201c 100%);
 }
 
 /* Force dark theme for the Impact section when the page is in light mode */
@@ -4263,17 +4235,46 @@ section { position: relative; overflow: hidden; }
     box-shadow: 0 4px 12px var(--accent-glow);
 }
 
-/* Floating Hire WhatsApp CTA */
+.engagement-wa-direct-btn {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.65rem 1rem;
+    border-radius: var(--border-radius-md);
+    background: rgba(36, 21, 15, 0.6);
+    border: 1px solid rgba(212, 151, 70, 0.35);
+    color: #faf5ee;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.engagement-wa-direct-btn i {
+    color: #f5b759;
+}
+
+.engagement-wa-direct-btn:hover {
+    background: rgba(58, 34, 24, 0.9);
+    border-color: #fcd34d;
+    color: #fcd34d;
+    transform: translateY(-2px);
+}
+
+/* Floating Hire WhatsApp CTA (Theme-matched Chocolate & Amber Gold) */
 .floating-hire-btn {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     z-index: 999;
-    background: #25D366;
-    color: #ffffff;
+    background: linear-gradient(135deg, #24150f 0%, #3a2218 50%, #4a2c1f 100%);
+    color: #faf5ee;
     padding: 0.85rem 1.4rem;
     border-radius: var(--border-radius-full);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 151, 70, 0.3);
     display: flex;
     align-items: center;
     gap: 0.65rem;
@@ -4281,12 +4282,18 @@ section { position: relative; overflow: hidden; }
     font-size: 0.95rem;
     text-decoration: none;
     transition: all var(--transition-normal);
-    border: 2px solid #ffffff;
+    border: 1.5px solid #d49746;
+}
+
+.floating-hire-btn i {
+    color: #f5b759;
+    font-size: 1.15rem;
 }
 
 .floating-hire-btn:hover {
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 183, 89, 0.5);
+    border-color: #fcd34d;
     color: #ffffff;
 }
 
@@ -5254,4 +5261,551 @@ section.cinematic-reveal {
 /* Hide the old cinema dock completely */
 .cinema-dock {
     display: none !important;
+}
+
+/* ==========================================================================
+   ALL PERCENTAGE SKILL BARS (Theme-matched Chocolate & Amber Gold)
+   ========================================================================== */
+.skills-percentage-section {
+    padding: 5rem 0;
+    background: radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.08) 0%, transparent 70%), var(--bg-primary);
+    position: relative;
+    border-top: 1px solid var(--border-color);
+}
+
+.skills-percentage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.skill-category-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-xl);
+    padding: 2rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0.8;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(229, 169, 60, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(217, 119, 6, 0.15);
+}
+
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.skill-category-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(58, 34, 26, 0.8), rgba(82, 48, 36, 0.9));
+    border: 1px solid rgba(229, 169, 60, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.skill-category-header .category-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.skill-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.skill-bar-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-bar-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-bar-name i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
+}
+
+.skill-bar-percentage {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold-accent);
+    font-family: 'JetBrains Mono', monospace, sans-serif;
+    background: rgba(229, 169, 60, 0.12);
+    border: 1px solid rgba(229, 169, 60, 0.25);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.skill-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(36, 25, 20, 0.9);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #b87333 0%, #d97706 50%, #fcd34d 100%);
+    border-radius: 999px;
+    transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    box-shadow: 0 0 10px rgba(229, 169, 60, 0.5);
+}
+
+.skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 6px;
+    background: #ffffff;
+    border-radius: 999px;
+    box-shadow: 0 0 8px #ffffff;
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON (Theme-matched Chocolate & Amber Gold)
+   ========================================================================== */
+.floating-whatsapp-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-pill-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #24150f 0%, #3a2218 50%, #4a2c1f 100%);
+    border: 1.5px solid #d49746;
+    border-radius: 50px;
+    padding: 10px 18px 10px 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 151, 70, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-icon-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d49746 0%, #f5b759 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a100a;
+    font-size: 1.3rem;
+    box-shadow: 0 0 12px rgba(212, 151, 70, 0.6);
+    flex-shrink: 0;
+}
+
+.whatsapp-text-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.whatsapp-main-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #faf5ee;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.whatsapp-sub-text {
+    font-size: 0.72rem;
+    color: #d9ccbe;
+    opacity: 0.9;
+}
+
+.floating-whatsapp-widget:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.floating-whatsapp-widget:hover .whatsapp-pill-btn {
+    border-color: #fcd34d;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 183, 89, 0.45);
+}
+
+.whatsapp-pulse-ring {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(212, 151, 70, 0.4);
+    animation: waThemePulse 2.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes waThemePulse {
+    0% {
+        transform: scale(0.98);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.98);
+        opacity: 0;
+    }
+}
+
+/* Theme-matched Hero WhatsApp Button */
+.btn-whatsapp-theme {
+    background: linear-gradient(135deg, #2c1912 0%, #42261b 100%) !important;
+    border: 1.5px solid #d49746 !important;
+    color: #faf5ee !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 151, 70, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-theme:hover {
+    background: linear-gradient(135deg, #3d2319 0%, #573324 100%) !important;
+    border-color: #fcd34d !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(245, 183, 89, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp-theme i {
+    color: #f5b759 !important;
+}
+
+/* ==========================================================================
+   BLOCKBUSTER CINEMATIC TRAILER PLAYER (Full-Screen Anamorphic Experience)
+   ========================================================================== */
+.btn-hero-trailer {
+    background: linear-gradient(135deg, #d97706 0%, #b86e08 50%, #e5a93c 100%) !important;
+    color: #0e0a08 !important;
+    font-weight: 700 !important;
+    border: 1px solid #fcd34d !important;
+    box-shadow: 0 0 25px rgba(229, 169, 60, 0.4), 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn-hero-trailer:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 35px rgba(229, 169, 60, 0.6), 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.btn-hero-trailer .trailer-badge-pill {
+    background: rgba(14, 10, 8, 0.85);
+    color: #fcd34d;
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 6px;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
+
+/* Fullscreen Cinematic Trailer Overlay */
+#cinematicTrailerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #080605;
+    z-index: 100000;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    color: #faf5ee;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+#cinematicTrailerOverlay.active {
+    display: flex;
+    animation: trailerFadeIn 0.5s ease forwards;
+}
+
+@keyframes trailerFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Anamorphic Letterbox Bars */
+.trailer-letterbox-bar {
+    width: 100%;
+    height: 70px;
+    background: #000000;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid rgba(212, 151, 70, 0.2);
+}
+
+.trailer-letterbox-bottom {
+    border-bottom: none;
+    border-top: 1px solid rgba(212, 151, 70, 0.2);
+}
+
+.trailer-brand-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #d49746;
+}
+
+.trailer-brand-badge i {
+    color: #fcd34d;
+}
+
+.trailer-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.trailer-btn-icon {
+    background: rgba(36, 21, 15, 0.7);
+    border: 1px solid rgba(212, 151, 70, 0.35);
+    color: #faf5ee;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trailer-btn-icon:hover {
+    background: rgba(58, 34, 24, 0.9);
+    border-color: #fcd34d;
+    color: #fcd34d;
+}
+
+.trailer-viewport {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: radial-gradient(circle at center, rgba(62, 36, 26, 0.5) 0%, rgba(13, 10, 8, 0.98) 75%);
+    overflow: hidden;
+}
+
+/* Film Grain Overlay */
+.trailer-viewport::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(212, 151, 70, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.trailer-scene {
+    position: absolute;
+    width: 90%;
+    max-width: 950px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trailer-scene.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+.trailer-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #d49746;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 4px 16px;
+    background: rgba(42, 25, 18, 0.7);
+    border-radius: 30px;
+    border: 1px solid rgba(212, 151, 70, 0.3);
+}
+
+.trailer-main-title {
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #faf5ee 0%, #e8d7c3 50%, #d49746 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(212, 151, 70, 0.3);
+}
+
+.trailer-sub-desc {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    color: #d9ccbe;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto 2rem;
+}
+
+.trailer-stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.trailer-stat-box {
+    background: rgba(32, 22, 17, 0.85);
+    border: 1px solid rgba(212, 151, 70, 0.3);
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    min-width: 170px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.trailer-stat-val {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fcd34d;
+    font-family: 'JetBrains Mono', monospace;
+    display: block;
+}
+
+.trailer-stat-lbl {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #d9ccbe;
+    margin-top: 4px;
+    display: block;
+}
+
+.trailer-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.trailer-progress-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.trailer-progress-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(62, 38, 28, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.trailer-progress-fill-bar {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(90deg, #d49746, #fcd34d);
+    transition: width 0.3s ease;
+}
+
+.trailer-time-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #d49746;
 }

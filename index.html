@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -213,11 +213,16 @@
                         <span>Hire Me / Project Quote</span>
                         <i class="fas fa-paper-plane"></i>
                     </button>
-                    <a href="#projects" class="btn btn-secondary">
-                        <span>View Architecture & Projects</span>
-                        <i class="fas fa-arrow-right"></i>
+                    <button onclick="openCinematicTrailer()" class="btn btn-hero-trailer">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Cinematic Trailer</span>
+                        <span class="trailer-badge-pill">4K REEL</span>
+                    </button>
+                    <a href="#services" class="btn btn-secondary">
+                        <span>Services &amp; Pricing</span>
+                        <i class="fas fa-tags"></i>
                     </a>
-                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20DevOps%20project!" target="_blank" class="btn btn-secondary" style="background:#25D366; color:white; border-color:#25D366;">
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20reviewed%20your%20DevOps%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20%2F%20hiring%20opportunity." target="_blank" class="btn btn-whatsapp-theme">
                         <i class="fab fa-whatsapp"></i>
                         <span>WhatsApp Chat</span>
                     </a>
@@ -225,7 +230,7 @@
             </div>
             <div class="hero-visual">
                 <div class="profile-image-container">
-                    <img src="images/profile.png" onerror="this.src='https://github.com/AbdullahbinAmin.png'" alt="Abdullah bin Amin - DevOps Engineer & Cloud Infrastructure Specialist" class="profile-image" width="300" height="300" loading="eager" fetchpriority="high">
+                    <img src="images/abdullah_profile.jpg" onerror="this.src='images/profile.png'" alt="Abdullah bin Amin - DevOps Engineer & Cloud Infrastructure Specialist" class="profile-image" width="300" height="300" loading="eager" fetchpriority="high">
                     <div class="profile-glow"></div>
                 </div>
             </div>
@@ -406,6 +411,9 @@
                     <button onclick="openHireModal('Contract / Project Freelance')" class="engagement-action-btn accent">
                         <i class="fas fa-paper-plane"></i> Request Project Quote
                     </button>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20am%20interested%20in%20discussing%20a%20Contract%20%2F%20Freelance%20DevOps%20project." target="_blank" class="engagement-wa-direct-btn">
+                        <i class="fab fa-whatsapp"></i> Quick WhatsApp Quote
+                    </a>
                 </div>
 
                 <!-- Full-Time Role -->
@@ -427,6 +435,9 @@
                     <button onclick="openHireModal('Full-Time SRE / DevOps Role')" class="engagement-action-btn">
                         <i class="fas fa-user-check"></i> Hire Full-Time
                     </button>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20we%20have%20an%20opening%20for%20a%20Full-Time%20DevOps%20%2F%20SRE%20Engineer%20and%20would%20like%20to%20connect." target="_blank" class="engagement-wa-direct-btn">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
                 </div>
 
                 <!-- Part-Time Retainer -->
@@ -448,6 +459,9 @@
                     <button onclick="openHireModal('Part-Time Retainer')" class="engagement-action-btn">
                         <i class="fas fa-handshake"></i> Book Part-Time Retainer
                     </button>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20am%20interested%20in%20your%20Part-Time%20DevOps%20Retainer%20for%20our%20infrastructure." target="_blank" class="engagement-wa-direct-btn">
+                        <i class="fab fa-whatsapp"></i> Discuss Retainer
+                    </a>
                 </div>
 
                 <!-- Corporate Training & Mentorship -->
@@ -469,6 +483,9 @@
                     <button onclick="openHireModal('Corporate DevOps Training')" class="engagement-action-btn">
                         <i class="fas fa-graduation-cap"></i> Book Corporate Training
                     </button>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20would%20like%20to%20inquire%20about%20Corporate%20DevOps%20Training%20for%20our%20team." target="_blank" class="engagement-wa-direct-btn">
+                        <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
@@ -613,260 +630,233 @@
         </div>
     </section>
 
-    <!-- Cinematic DevOps Storytelling Journey Deck (Skills Redesign) -->
-    <section id="skills" class="skills devops-journey-section">
+    <!-- Percentage Skill Bars Section -->
+    <section id="skills" class="skills skills-percentage-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Interactive DevOps Journey</span>
-                <h2 class="section-title">The Architect's Toolchain Voyage</h2>
+            <div class="section-header text-center">
+                <span class="section-badge">Technical Competencies</span>
+                <h2 class="section-title">Core Skills & Production Proficiency</h2>
                 <p class="section-description">
-                    Follow the interactive journey: from Linux kernel fundamentals to multi-cloud orchestration and containerized microservices.
+                    Demonstrated production expertise with automated Infrastructure as Code, Kubernetes clusters, high-availability AWS architectures, and CI/CD automation.
                 </p>
             </div>
 
-            <!-- Story Chapter Navigation Tracker -->
-            <div class="story-chapter-tracker">
-                <button class="tracker-step active" onclick="switchJourneyChapter('linux')" id="tab-linux">
-                    <span class="step-num">01</span>
-                    <span class="step-label"><i class="fab fa-linux"></i> Linux Core</span>
-                </button>
-                <button class="tracker-step" onclick="switchJourneyChapter('python')" id="tab-python">
-                    <span class="step-num">02</span>
-                    <span class="step-label"><i class="fab fa-python"></i> Python SDK</span>
-                </button>
-                <button class="tracker-step" onclick="switchJourneyChapter('docker')" id="tab-docker">
-                    <span class="step-num">03</span>
-                    <span class="step-label"><i class="fab fa-docker"></i> Docker Ship</span>
-                </button>
-                <button class="tracker-step" onclick="switchJourneyChapter('k8s')" id="tab-k8s">
-                    <span class="step-num">04</span>
-                    <span class="step-label"><i class="fas fa-dharmachakra"></i> K8s Cluster</span>
-                </button>
-                <button class="tracker-step" onclick="switchJourneyChapter('aws')" id="tab-aws">
-                    <span class="step-num">05</span>
-                    <span class="step-label"><i class="fab fa-aws"></i> AWS &amp; IaC</span>
-                </button>
-                <button class="tracker-step" onclick="switchJourneyChapter('cicd')" id="tab-cicd">
-                    <span class="step-num">06</span>
-                    <span class="step-label"><i class="fas fa-code-branch"></i> CI/CD Stream</span>
-                </button>
-            </div>
-
-            <!-- Story Scenes Container Deck -->
-            <div class="devops-story-deck">
-                
-                <!-- Chapter 1: Linux Kernel -->
-                <div class="story-card active" id="chapter-linux">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fab fa-linux"></i> CHAPTER 01 — THE FOUNDATION</div>
-                        <h3>Linux OS &amp; Systems Engineering</h3>
-                        <p>High Availability begins at the OS level. Kernel tuning, systemd service management, and shell automation.</p>
+            <div class="skills-percentage-grid">
+                <!-- Category 1: Cloud Platforms & Linux Administration -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div>
+                            <h3>Cloud & Systems Engineering</h3>
+                            <span class="category-subtitle">Multi-AZ Architecture & Hardening</span>
+                        </div>
                     </div>
-                    <div class="story-interactive-window">
-                        <div class="terminal-header">
-                            <div class="window-buttons">
-                                <span class="btn-close"></span>
-                                <span class="btn-min"></span>
-                                <span class="btn-max"></span>
+                    <div class="skills-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-aws"></i> AWS Cloud (EC2, ECS, EKS, S3, IAM, VPC)</span>
+                                <span class="skill-bar-percentage">95%</span>
                             </div>
-                            <div class="terminal-title">abdullah@devops-node-01:~ (bash)</div>
-                        </div>
-                        <div class="terminal-body" id="linuxTerminalBody">
-                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> uname -r</div>
-                            <div class="term-output">6.5.0-aws-kernel-x86_64 #1 SMP PREEMPT</div>
-                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> systemctl status devops-engine</div>
-                            <div class="term-output green">● devops-engine.service - High Availability SRE Engine</div>
-                            <div class="term-output">   Loaded: loaded (/etc/systemd/system/devops-engine.service; enabled)</div>
-                            <div class="term-output">   Active: active (running) since 99.99% SLA Uptime</div>
-                            <div class="term-line"><span class="prompt">abdullah@node01:~$</span> <span class="typing-cursor" id="termCursor">█</span></div>
-                        </div>
-                        <div class="terminal-actions">
-                            <button onclick="runLinuxCommand('systemctl')" class="term-btn"><i class="fas fa-play"></i> Check Services</button>
-                            <button onclick="runLinuxCommand('sysctl')" class="term-btn"><i class="fas fa-sliders-h"></i> Kernel Tuning</button>
-                            <button onclick="runLinuxCommand('netstat')" class="term-btn"><i class="fas fa-network-wired"></i> Audit Ports</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chapter 2: Python Automation Engine -->
-                <div class="story-card" id="chapter-python">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fab fa-python"></i> CHAPTER 02 — SCRIPTING &amp; BOTO3</div>
-                        <h3>Automating Infrastructure with Python</h3>
-                        <p>Building automated health-checks, Lambda event triggers, and Boto3 AWS SDK cloud orchestration.</p>
-                    </div>
-                    <div class="story-interactive-window">
-                        <div class="terminal-header">
-                            <div class="window-buttons"><span class="btn-close"></span><span class="btn-min"></span><span class="btn-max"></span></div>
-                            <div class="terminal-title">aws_autoscale.py — Python 3.11</div>
-                        </div>
-                        <div class="code-editor-body">
-                            <pre><code><span class="kwd">import</span> boto3
-<span class="kwd">import</span> logging
-
-ec2 = boto3.client(<span class="str">'ec2'</span>, region_name=<span class="str">'us-east-1'</span>)
-eks = boto3.client(<span class="str">'eks'</span>)
-
-<span class="kwd">def</span> <span class="fn">auto_scale_cluster</span>(event, context):
-    logging.info(<span class="str">"Auditing EKS Node Group metrics..."</span>)
-    response = ec2.describe_instances(Filters=[{<span class="str">'Name'</span>: <span class="str">'tag:Env'</span>, <span class="str">'Values'</span>: [<span class="str">'Production'</span>]}])
-    <span class="kwd">return</span> {<span class="str">'status'</span>: <span class="str">'200 OK'</span>, <span class="str">'instances_healthy'</span>: len(response[<span class="str">'Reservations'</span>])}</code></pre>
-                        </div>
-                        <div class="terminal-actions">
-                            <button onclick="runPythonScript()" class="term-btn glow-gold"><i class="fas fa-bolt"></i> Execute Script Simulation</button>
-                            <span id="pythonStatusOutput" class="action-feedback">Status: Ready</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chapter 3: Docker Ocean & Cargo Ship Voyage -->
-                <div class="story-card" id="chapter-docker">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fab fa-docker"></i> CHAPTER 03 — CONTAINER VOYAGE</div>
-                        <h3>Packaging Applications into Immutable Containers</h3>
-                        <p>Optimizing multi-stage Dockerfiles, reducing image footprints by 70%, and docking microservices onto the cloud ship.</p>
-                    </div>
-                    <div class="docker-ocean-stage">
-                        <div class="ocean-background">
-                            <div class="wave wave1"></div>
-                            <div class="wave wave2"></div>
-                        </div>
-                        
-                        <!-- SVG Cargo Ship -->
-                        <div class="cargo-ship-wrapper">
-                            <svg class="docker-ship-svg" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M40 130L80 180H420L460 130H40Z" fill="#361F1D" stroke="#D97706" stroke-width="3"/>
-                                <rect x="360" y="70" width="70" height="60" rx="4" fill="#4A2E2B" stroke="#E5A93C" stroke-width="2"/>
-                                <rect x="375" y="82" width="15" height="15" fill="#E5A93C"/>
-                                <rect x="400" y="82" width="15" height="15" fill="#E5A93C"/>
-                                <line x1="20" y1="180" x2="480" y2="180" stroke="#D97706" stroke-width="4" stroke-dasharray="8 8"/>
-                            </svg>
-                            
-                            <!-- Dynamic Container Deck -->
-                            <div class="ship-container-deck" id="containerDeck">
-                                <div class="cargo-box c-gold loaded"><i class="fas fa-lock"></i> Auth-API</div>
-                                <div class="cargo-box c-amber loaded"><i class="fas fa-database"></i> Redis-Cache</div>
-                                <div class="cargo-box c-brown loaded"><i class="fas fa-shopping-cart"></i> Payment-Svc</div>
-                                <div class="cargo-box c-interactive" id="dynamicBox" onclick="loadDockerContainer()"><i class="fas fa-plus"></i> Load Container</div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="95"></div>
                             </div>
                         </div>
 
-                        <div class="docker-controls">
-                            <button onclick="loadDockerContainer()" class="docker-btn"><i class="fas fa-download"></i> Load Microservice Container</button>
-                            <div class="docker-stats-pill">
-                                <span>Image Footprint: <strong>14.2 MB</strong> (Alpine Multi-Stage)</span>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-linux"></i> Linux Administration (Ubuntu, CentOS, RHEL)</span>
+                                <span class="skill-bar-percentage">94%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="94"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-network-wired"></i> Networking & Security (DNS, SSL/TLS, ALB, CIS)</span>
+                                <span class="skill-bar-percentage">91%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="91"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-microsoft"></i> Microsoft Azure (AKS, Pipelines, DevOps)</span>
+                                <span class="skill-bar-percentage">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="88"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Chapter 4: Kubernetes Fleet Commander -->
-                <div class="story-card" id="chapter-k8s">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fas fa-dharmachakra"></i> CHAPTER 04 — KUBERNETES FLEET</div>
-                        <h3>Orchestrating EKS Microservice Clusters</h3>
-                        <p>Zero-downtime rolling updates, Horizontal Pod Autoscaling (HPA), and ingress controller traffic management.</p>
-                    </div>
-                    <div class="k8s-cluster-stage">
-                        <div class="k8s-control-plane">
-                            <div class="cp-badge"><i class="fas fa-server"></i> AWS EKS Control Plane (us-east-1)</div>
-                            <div class="cluster-status-pill" id="k8sStatusPill">Pods: 3 Active | HPA: Enabled</div>
+                <!-- Category 2: Containerization & Infrastructure as Code -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-dharmachakra"></i>
                         </div>
-                        
-                        <div class="k8s-pods-grid" id="k8sPodsContainer">
-                            <div class="pod-card active">
-                                <div class="pod-status-dot"></div>
-                                <i class="fas fa-dharmachakra"></i>
-                                <span class="pod-name">pod/auth-svc-v2-a1</span>
-                                <span class="pod-cpu">CPU: 12%</span>
+                        <div>
+                            <h3>Containers & Infrastructure as Code</h3>
+                            <span class="category-subtitle">Kubernetes Fleet & Terraform</span>
+                        </div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-docker"></i> Docker & Multi-Stage Optimization</span>
+                                <span class="skill-bar-percentage">96%</span>
                             </div>
-                            <div class="pod-card active">
-                                <div class="pod-status-dot"></div>
-                                <i class="fas fa-dharmachakra"></i>
-                                <span class="pod-name">pod/auth-svc-v2-b2</span>
-                                <span class="pod-cpu">CPU: 14%</span>
-                            </div>
-                            <div class="pod-card active">
-                                <div class="pod-status-dot"></div>
-                                <i class="fas fa-dharmachakra"></i>
-                                <span class="pod-name">pod/payment-v1-c9</span>
-                                <span class="pod-cpu">CPU: 8%</span>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="96"></div>
                             </div>
                         </div>
 
-                        <div class="k8s-actions">
-                            <button onclick="scaleK8sPods(1)" class="k8s-btn"><i class="fas fa-plus-circle"></i> Auto-Scale +1 Pod</button>
-                            <button onclick="scaleK8sPods(-1)" class="k8s-btn secondary"><i class="fas fa-minus-circle"></i> Scale Down Pods</button>
-                            <button onclick="triggerK8sRollout()" class="k8s-btn glow-amber"><i class="fas fa-sync-alt"></i> Rolling Update v2.1</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chapter 5: AWS Cloud & IaC Terraform -->
-                <div class="story-card" id="chapter-aws">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fab fa-aws"></i> CHAPTER 05 — AWS MULTI-REGION &amp; IAC</div>
-                        <h3>Designing Multi-Region Resilient Cloud Platforms</h3>
-                        <p>Automating VPCs, EKS Clusters, RDS Multi-AZ, and CloudFront CDN with Terraform HCL infrastructure code.</p>
-                    </div>
-                    <div class="aws-iac-stage">
-                        <div class="iac-code-window">
-                            <div class="iac-tab-bar">
-                                <span class="tab active"><i class="fas fa-file-code"></i> main.tf</span>
-                                <span class="tab"><i class="fas fa-sliders-h"></i> variables.tf</span>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-cubes"></i> Terraform IaC (Modules, CloudFormation)</span>
+                                <span class="skill-bar-percentage">93%</span>
                             </div>
-                            <div class="code-editor-body">
-                                <pre><code><span class="kwd">module</span> <span class="str">"vpc"</span> {
-  source  = <span class="str">"terraform-aws-modules/vpc/aws"</span>
-  name    = <span class="str">"abdullah-production-vpc"</span>
-  cidr    = <span class="str">"10.0.0.0/16"</span>
-  azs     = [<span class="str">"us-east-1a"</span>, <span class="str">"us-east-1b"</span>, <span class="str">"us-east-1c"</span>]
-  
-  public_subnets  = [<span class="str">"10.0.1.0/24"</span>, <span class="str">"10.0.2.0/24"</span>]
-  private_subnets = [<span class="str">"10.0.10.0/24"</span>, <span class="str">"10.0.20.0/24"</span>]
-  enable_nat_gateway = <span class="kwd">true</span>
-}</code></pre>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="93"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-dharmachakra"></i> Kubernetes Orchestration (EKS/AKS, HPA)</span>
+                                <span class="skill-bar-percentage">92%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="92"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-cogs"></i> Ansible (Playbooks, Server Hardening)</span>
+                                <span class="skill-bar-percentage">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="88"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Chapter 6: CI/CD Pipeline Stream -->
-                <div class="story-card" id="chapter-cicd">
-                    <div class="story-card-header">
-                        <div class="chapter-tag"><i class="fas fa-code-branch"></i> CHAPTER 06 — CONTINUOUS DELIVERY PIPELINE</div>
-                        <h3>From Code Commit to Production in Seconds</h3>
-                        <p>Automated security audits, unit testing, Docker image building, ECR pushing, and Helm release deployment.</p>
+                <!-- Category 3: CI/CD Automation & Scripting -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div>
+                            <h3>CI/CD Pipelines & Scripting</h3>
+                            <span class="category-subtitle">Zero-Touch Automated Delivery</span>
+                        </div>
                     </div>
-                    <div class="pipeline-flow-stage">
-                        <div class="pipeline-track">
-                            <div class="pipe-step passed">
-                                <div class="step-icon"><i class="fas fa-code-branch"></i></div>
-                                <span class="step-title">1. Git Commit</span>
-                                <span class="step-time">0.1s</span>
+                    <div class="skills-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-python"></i> Python Automation & Boto3 SDK</span>
+                                <span class="skill-bar-percentage">95%</span>
                             </div>
-                            <div class="pipe-connector"></div>
-                            <div class="pipe-step passed">
-                                <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
-                                <span class="step-title">2. SAST Audit</span>
-                                <span class="step-time">4.2s</span>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="95"></div>
                             </div>
-                            <div class="pipe-connector"></div>
-                            <div class="pipe-step passed">
-                                <div class="step-icon"><i class="fab fa-docker"></i></div>
-                                <span class="step-title">3. Docker Build</span>
-                                <span class="step-time">8.5s</span>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-terminal"></i> Bash & Linux Shell Automation</span>
+                                <span class="skill-bar-percentage">94%</span>
                             </div>
-                            <div class="pipe-connector"></div>
-                            <div class="pipe-step passed">
-                                <div class="step-icon"><i class="fas fa-dharmachakra"></i></div>
-                                <span class="step-title">4. Deploy EKS</span>
-                                <span class="step-time">3.1s</span>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="94"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-github"></i> GitHub Actions CI/CD (Workflows, Runners)</span>
+                                <span class="skill-bar-percentage">93%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="93"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fab fa-gitlab"></i> GitLab CI/CD & Jenkins Pipelines</span>
+                                <span class="skill-bar-percentage">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="90"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Category 4: Observability & Web Operations -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Observability & Operations</h3>
+                            <span class="category-subtitle">24/7 Monitoring, Alerts & Hosting</span>
+                        </div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-server"></i> Web & Hosting (Nginx, CyberPanel, ISPConfig)</span>
+                                <span class="skill-bar-percentage">92%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="92"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-tachometer-alt"></i> Prometheus & Grafana Monitoring</span>
+                                <span class="skill-bar-percentage">91%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="91"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-database"></i> Databases (PostgreSQL, MySQL 8.0 Backups)</span>
+                                <span class="skill-bar-percentage">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="88"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-meta">
+                                <span class="skill-bar-name"><i class="fas fa-search"></i> ELK Stack (Elasticsearch, Kibana)</span>
+                                <span class="skill-bar-percentage">85%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-percentage="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1560,11 +1550,6 @@ eks = boto3.client(<span class="str">'eks'</span>)
         </div>
     </footer>
 
-    <!-- Floating Hire WhatsApp CTA Button -->
-    <a href="https://wa.me/923224247673?text=Hi%20Abdullah,%20I%20saw%20your%20portfolio%20and%20want%20to%20hire%20you%20for%20a%20DevOps%20project!" target="_blank" class="floating-hire-btn" aria-label="Hire via WhatsApp">
-        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
-        <span>Hire Me on WhatsApp</span>
-    </a>
 
     <!-- Quick Hire / Project Quote Modal -->
     <div class="hire-modal-backdrop" id="hireModal">
@@ -1707,17 +1692,385 @@ eks = boto3.client(<span class="str">'eks'</span>)
             window.open(mailtoUrl, '_blank');
             closeHireModal();
         }
+
+        // ==========================================================================
+        // SKILL PROGRESS BARS INTERSECTION OBSERVER ANIMATION
+        // ==========================================================================
+        function initSkillBars() {
+            const skillFills = document.querySelectorAll('.skill-fill');
+            if (!skillFills.length) return;
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const pct = target.getAttribute('data-percentage') || '85';
+                        target.style.width = pct + '%';
+                        obs.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            skillFills.forEach(fill => observer.observe(fill));
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSkillBars);
+        } else {
+            initSkillBars();
+        }
+
+        // ==========================================================================
+        // WEB AUDIO API CINEMATIC SOUND SYNTHESIZER
+        // ==========================================================================
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playTrailerSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const now = ctx.currentTime;
+
+                if (type === 'whoosh') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(160, now);
+                    osc.frequency.exponentialRampToValueAtTime(45, now + 0.6);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.005, now + 0.6);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.65);
+                } else if (type === 'hit') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(95, now);
+                    osc.frequency.exponentialRampToValueAtTime(32, now + 0.85);
+                    gain.gain.setValueAtTime(0.4, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.9);
+                } else if (type === 'ping') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(920, now);
+                    osc.frequency.exponentialRampToValueAtTime(460, now + 0.25);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch (e) {
+                // Graceful fallback if autoplay restrictions exist
+            }
+        }
+
+        function toggleTrailerSound() {
+            soundEnabled = !soundEnabled;
+            const soundBtn = document.getElementById('trailerSoundBtn');
+            if (soundBtn) {
+                soundBtn.innerHTML = soundEnabled 
+                    ? '<i class="fas fa-volume-up"></i><span>SFX: ON</span>' 
+                    : '<i class="fas fa-volume-mute"></i><span>SFX: MUTED</span>';
+            }
+        }
+
+        // ==========================================================================
+        // CINEMATIC TRAILER PLAYER ENGINE
+        // ==========================================================================
+        let currentTrailerScene = 0;
+        const totalTrailerScenes = 5;
+        let trailerTimer = null;
+        let isTrailerPlaying = true;
+
+        window.openCinematicTrailer = function() {
+            const overlay = document.getElementById('cinematicTrailerOverlay');
+            if (!overlay) return;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentTrailerScene = 0;
+            showTrailerScene(0);
+            startTrailerPlayback();
+            playTrailerSound('hit');
+        };
+
+        window.closeCinematicTrailer = function(targetSection) {
+            const overlay = document.getElementById('cinematicTrailerOverlay');
+            if (overlay) overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            stopTrailerPlayback();
+            if (targetSection) {
+                setTimeout(() => {
+                    const el = document.querySelector(targetSection);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        };
+
+        function showTrailerScene(index) {
+            currentTrailerScene = index;
+            const scenes = document.querySelectorAll('.trailer-scene');
+            scenes.forEach((s, idx) => {
+                s.classList.toggle('active', idx === index);
+            });
+            const progressFill = document.getElementById('trailerProgressFill');
+            if (progressFill) {
+                progressFill.style.width = ((index + 1) / totalTrailerScenes * 100) + '%';
+            }
+            const timeCode = document.getElementById('trailerTimeCode');
+            if (timeCode) {
+                timeCode.innerText = `SCENE 0${index + 1} / 0${totalTrailerScenes}`;
+            }
+            playTrailerSound('whoosh');
+        }
+
+        function nextTrailerScene() {
+            if (currentTrailerScene < totalTrailerScenes - 1) {
+                showTrailerScene(currentTrailerScene + 1);
+            } else {
+                closeCinematicTrailer('#services');
+            }
+        }
+
+        function prevTrailerScene() {
+            if (currentTrailerScene > 0) {
+                showTrailerScene(currentTrailerScene - 1);
+            }
+        }
+
+        function toggleTrailerPlayPause() {
+            isTrailerPlaying = !isTrailerPlaying;
+            const playIcon = document.getElementById('trailerPlayIcon');
+            const playText = document.getElementById('trailerPlayText');
+            if (isTrailerPlaying) {
+                if (playIcon) playIcon.className = 'fas fa-pause';
+                if (playText) playText.innerText = 'Pause';
+                startTrailerPlayback();
+            } else {
+                if (playIcon) playIcon.className = 'fas fa-play';
+                if (playText) playText.innerText = 'Play';
+                stopTrailerPlayback();
+            }
+        }
+
+        function startTrailerPlayback() {
+            stopTrailerPlayback();
+            isTrailerPlaying = true;
+            trailerTimer = setInterval(() => {
+                nextTrailerScene();
+            }, 6000);
+        }
+
+        function stopTrailerPlayback() {
+            if (trailerTimer) {
+                clearInterval(trailerTimer);
+                trailerTimer = null;
+            }
+        }
     </script>
 
-    <!-- Cinematic Auto-Scroll Progress Bar (minimal, no scene labels) -->
-    <div id="cinematicProgressBar" class="cinematic-progress-bar">
-        <div class="cinematic-progress-fill" id="cinematicProgressFill"></div>
-    </div>
+    <!-- Theme-Matched Floating WhatsApp Widget -->
+    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20reviewed%20your%20DevOps%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20%2F%20hiring%20opportunity." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="floating-whatsapp-widget" 
+       id="floatingWhatsappBtn"
+       aria-label="Direct Connect on WhatsApp">
+        <div class="whatsapp-pill-btn">
+            <div class="whatsapp-icon-circle">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="whatsapp-text-content">
+                <span class="whatsapp-main-text">Connect on WhatsApp</span>
+                <span class="whatsapp-sub-text">+92 322 4247673 · Available</span>
+            </div>
+            <span class="whatsapp-pulse-ring"></span>
+        </div>
+    </a>
 
-    <!-- Floating Play/Pause Toggle Pill -->
-    <div id="cinemaFloatToggle" class="cinema-float-toggle" onclick="toggleCinemaAutoScroll()">
-        <i class="fas fa-pause" id="cinemaToggleIcon"></i>
-        <span id="cinemaToggleLabel">Auto-Playing</span>
+    <!-- Fullscreen Blockbuster Cinematic Trailer Overlay -->
+    <div id="cinematicTrailerOverlay" role="dialog" aria-modal="true" aria-label="DevOps Cinematic Trailer">
+        <!-- Top Anamorphic Letterbox Bar -->
+        <div class="trailer-letterbox-bar">
+            <div class="trailer-brand-badge">
+                <i class="fas fa-film"></i>
+                <span>Abdullah bin Amin — DevOps Cinema 4K</span>
+            </div>
+            <div class="trailer-header-actions">
+                <button onclick="toggleTrailerSound()" class="trailer-btn-icon" id="trailerSoundBtn" aria-label="Toggle Sound Effects">
+                    <i class="fas fa-volume-up"></i>
+                    <span>SFX: ON</span>
+                </button>
+                <button onclick="closeCinematicTrailer()" class="trailer-btn-icon" aria-label="Close Trailer">
+                    <i class="fas fa-times"></i>
+                    <span>Close (ESC)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Center Cinema Viewport -->
+        <div class="trailer-viewport">
+            <!-- Scene 1: Scale & Uptime -->
+            <div class="trailer-scene active" id="trailerScene1">
+                <span class="trailer-tagline"><i class="fas fa-shield-alt"></i> MISSION: ZERO DOWNTIME</span>
+                <h2 class="trailer-main-title">WHEN INFRASTRUCTURE FAILS,<br>BUSINESS STOPS.</h2>
+                <p class="trailer-sub-desc">
+                    In high-velocity production environments, reliability is non-negotiable. Engineering resilient AWS and Kubernetes architecture that stays online under extreme stress.
+                </p>
+                <div class="trailer-stat-row">
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">99.9%+</span>
+                        <span class="trailer-stat-lbl">Production SLA Uptime</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">Zero</span>
+                        <span class="trailer-stat-lbl">Failed Deployments (Q4)</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">12m</span>
+                        <span class="trailer-stat-lbl">Automated Rollout</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 2: The Architect -->
+            <div class="trailer-scene" id="trailerScene2">
+                <span class="trailer-tagline"><i class="fas fa-user-astronaut"></i> THE CLOUD ARCHITECT</span>
+                <h2 class="trailer-main-title">ABDULLAH BIN AMIN</h2>
+                <p class="trailer-sub-desc">
+                    DevOps Engineer · Cloud &amp; AWS Infrastructure Specialist · Active Industry Corporate Trainer with hands-on architecture leadership across Multi-AZ cloud stacks.
+                </p>
+                <div class="trailer-stat-row">
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">Fusion Cortex</span>
+                        <span class="trailer-stat-lbl">DevOps Engineer</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">NexSkill</span>
+                        <span class="trailer-stat-lbl">Corporate DevOps Trainer</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">EduQual UK</span>
+                        <span class="trailer-stat-lbl">Level 6 AI Operations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 3: The Automation Arsenal -->
+            <div class="trailer-scene" id="trailerScene3">
+                <span class="trailer-tagline"><i class="fas fa-bolt"></i> AUTOMATION POWERHOUSE</span>
+                <h2 class="trailer-main-title">INFRASTRUCTURE AS CODE<br>&amp; CONTAINER MASTERY</h2>
+                <p class="trailer-sub-desc">
+                    Eliminating configuration drift and manual bottlenecks with reusable Terraform modules, Ansible playbooks, and high-velocity CI/CD delivery pipelines.
+                </p>
+                <div class="trailer-stat-row">
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">~60%</span>
+                        <span class="trailer-stat-lbl">Faster Provisioning</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">EKS / AKS</span>
+                        <span class="trailer-stat-lbl">Kubernetes Fleet</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">100%</span>
+                        <span class="trailer-stat-lbl">Automated Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 4: Key Projects -->
+            <div class="trailer-scene" id="trailerScene4">
+                <span class="trailer-tagline"><i class="fas fa-layer-group"></i> PRODUCTION DEPLOYMENTS</span>
+                <h2 class="trailer-main-title">PROVEN IN PRODUCTION,<br>TESTED AT SCALE.</h2>
+                <p class="trailer-sub-desc">
+                    From 3-Tier highly available Amazon EKS architectures with raw SSD hostPath storage to distributed 4-node real-time ISPConfig mail cluster observability stacks.
+                </p>
+                <div class="trailer-stat-row">
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">3-Tier EKS</span>
+                        <span class="trailer-stat-lbl">Amazon Cloud Directory</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">4 VPS</span>
+                        <span class="trailer-stat-lbl">Mail Server Cluster</span>
+                    </div>
+                    <div class="trailer-stat-box">
+                        <span class="trailer-stat-val">24/7</span>
+                        <span class="trailer-stat-lbl">Prometheus &amp; Grafana</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 5: Hire & Engagement -->
+            <div class="trailer-scene" id="trailerScene5">
+                <span class="trailer-tagline"><i class="fas fa-handshake"></i> CLIENT SOLUTIONS &amp; HIRE</span>
+                <h2 class="trailer-main-title">READY TO SCALE YOUR<br>CLOUD INFRASTRUCTURE?</h2>
+                <p class="trailer-sub-desc">
+                    Available for contract projects, full-time engineering roles, part-time DevOps retainers, and corporate team training. Direct WhatsApp line open for client inquiries.
+                </p>
+                <div class="trailer-cta-group">
+                    <button onclick="closeCinematicTrailer('#services')" class="btn btn-primary" style="font-size: 1.05rem; padding: 12px 28px;">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Explore Services &amp; Hire Models</span>
+                    </button>
+                    <a href="https://wa.me/923224247673?text=Hi%20Abdullah%2C%20I%20watched%20your%20DevOps%20cinematic%20trailer%20and%20want%20to%20discuss%20hiring%20you%20for%20a%20project!" target="_blank" class="btn btn-whatsapp-theme" style="font-size: 1.05rem; padding: 12px 28px;">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat on WhatsApp Directly</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Anamorphic Letterbox Bar with Controls -->
+        <div class="trailer-letterbox-bar trailer-letterbox-bottom">
+            <div class="trailer-time-code" id="trailerTimeCode">
+                SCENE 01 / 05
+            </div>
+
+            <div class="trailer-progress-indicator">
+                <button onclick="prevTrailerScene()" class="trailer-btn-icon" aria-label="Previous Scene">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button onclick="toggleTrailerPlayPause()" class="trailer-btn-icon" id="trailerPlayBtn" aria-label="Pause or Play Trailer">
+                    <i class="fas fa-pause" id="trailerPlayIcon"></i>
+                    <span id="trailerPlayText">Pause</span>
+                </button>
+                <div class="trailer-progress-track">
+                    <div class="trailer-progress-fill-bar" id="trailerProgressFill"></div>
+                </div>
+                <button onclick="nextTrailerScene()" class="trailer-btn-icon" aria-label="Next Scene">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+
+            <div class="trailer-header-actions">
+                <button onclick="closeCinematicTrailer('#services')" class="trailer-btn-icon" style="background: rgba(212, 151, 70, 0.2); border-color: #d49746; color: #fcd34d;">
+                    <span>Hire Abdullah</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
